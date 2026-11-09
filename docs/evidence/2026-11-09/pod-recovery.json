@@ -1,0 +1,50 @@
+{
+  "deleted_local_pod": "account-7b7fcdb495-6qrxs",
+  "before": [
+    "account-7b7fcdb495-6qrxs",
+    "account-7b7fcdb495-8q5jr",
+    "account-7b7fcdb495-lfg8r",
+    "account-7b7fcdb495-txdwc",
+    "account-7b7fcdb495-z6bsq"
+  ],
+  "after": [
+    "account-7b7fcdb495-8q5jr",
+    "account-7b7fcdb495-lfg8r",
+    "account-7b7fcdb495-nsdq2",
+    "account-7b7fcdb495-txdwc",
+    "account-7b7fcdb495-z6bsq"
+  ],
+  "response_statuses": [
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200
+  ],
+  "note": "Single local pod deletion; not a full availability or multi-AZ test."
+}

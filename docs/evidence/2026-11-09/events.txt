@@ -1,0 +1,278 @@
+LAST SEEN   TYPE      REASON                         OBJECT                               MESSAGE
+16m         Normal    ScalingReplicaSet              deployment/postgres                  Scaled up replica set postgres-56c465b887 from 0 to 1
+16m         Normal    Provisioning                   persistentvolumeclaim/account-data   External provisioner is provisioning volume for claim "store/account-data"
+16m         Normal    SuccessfulCreate               replicaset/postgres-56c465b887       Created pod: postgres-56c465b887-44w8d
+16m         Normal    ExternalProvisioning           persistentvolumeclaim/account-data   Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+16m         Normal    WaitForFirstConsumer           persistentvolumeclaim/account-data   waiting for first consumer to be created before binding
+16m         Normal    ProvisioningSucceeded          persistentvolumeclaim/account-data   Successfully provisioned volume pvc-c6e77e78-6239-456f-9909-c7b0ec609610
+16m         Normal    Scheduled                      pod/postgres-56c465b887-44w8d        Successfully assigned store/postgres-56c465b887-44w8d to microserv-store-control-plane
+16m         Normal    Pulling                        pod/postgres-56c465b887-44w8d        Pulling image "postgres:16-alpine"
+16m         Normal    Started                        pod/postgres-56c465b887-44w8d        Started container postgres
+16m         Normal    Created                        pod/postgres-56c465b887-44w8d        Created container: postgres
+16m         Normal    Pulled                         pod/postgres-56c465b887-44w8d        Successfully pulled image "postgres:16-alpine" in 14.141s (14.141s including waiting). Image size: 116087053 bytes.
+16m         Warning   Unhealthy                      pod/postgres-56c465b887-44w8d        Readiness probe failed: /var/run/postgresql:5432 - no response
+16m         Normal    Scheduled                      pod/account-794b48b87c-x5n68         Successfully assigned store/account-794b48b87c-x5n68 to microserv-store-control-plane
+16m         Normal    SuccessfulCreate               replicaset/account-794b48b87c        Created pod: account-794b48b87c-x5n68
+16m         Normal    SuccessfulCreate               replicaset/account-794b48b87c        Created pod: account-794b48b87c-r47pj
+16m         Normal    ScalingReplicaSet              deployment/account                   Scaled up replica set account-794b48b87c from 0 to 2
+16m         Normal    Scheduled                      pod/account-794b48b87c-r47pj         Successfully assigned store/account-794b48b87c-r47pj to microserv-store-control-plane
+16m         Normal    Pulled                         pod/account-794b48b87c-r47pj         Container image "microserv-store/account:local" already present on machine
+16m         Normal    Pulled                         pod/account-794b48b87c-x5n68         Container image "microserv-store/account:local" already present on machine
+16m         Normal    Created                        pod/account-794b48b87c-r47pj         Created container: account
+16m         Normal    Created                        pod/account-794b48b87c-x5n68         Created container: account
+15m         Normal    Started                        pod/account-794b48b87c-x5n68         Started container account
+15m         Normal    Started                        pod/account-794b48b87c-r47pj         Started container account
+15m         Warning   Unhealthy                      pod/account-794b48b87c-x5n68         Startup probe failed: Get "http://10.244.0.9:8000/health-check": dial tcp 10.244.0.9:8000: connect: connection refused
+15m         Warning   Unhealthy                      pod/account-794b48b87c-r47pj         Startup probe failed: Get "http://10.244.0.10:8000/health-check": dial tcp 10.244.0.10:8000: connect: connection refused
+15m         Normal    Scheduled                      pod/auth-68d74fbc4b-zgrzp            Successfully assigned store/auth-68d74fbc4b-zgrzp to microserv-store-control-plane
+15m         Normal    Scheduled                      pod/auth-68d74fbc4b-qjzhx            Successfully assigned store/auth-68d74fbc4b-qjzhx to microserv-store-control-plane
+15m         Normal    SuccessfulCreate               replicaset/auth-68d74fbc4b           Created pod: auth-68d74fbc4b-qjzhx
+15m         Normal    SuccessfulCreate               replicaset/auth-68d74fbc4b           Created pod: auth-68d74fbc4b-zgrzp
+15m         Normal    ScalingReplicaSet              deployment/auth                      Scaled up replica set auth-68d74fbc4b from 0 to 2
+15m         Normal    Pulled                         pod/auth-68d74fbc4b-zgrzp            Container image "microserv-store/auth:local" already present on machine
+15m         Normal    Created                        pod/auth-68d74fbc4b-zgrzp            Created container: auth
+15m         Normal    Started                        pod/auth-68d74fbc4b-zgrzp            Started container auth
+15m         Normal    Started                        pod/auth-68d74fbc4b-qjzhx            Started container auth
+15m         Normal    Created                        pod/auth-68d74fbc4b-qjzhx            Created container: auth
+15m         Normal    Pulled                         pod/auth-68d74fbc4b-qjzhx            Container image "microserv-store/auth:local" already present on machine
+15m         Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/account      invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+15m         Warning   FailedGetResourceMetric        horizontalpodautoscaler/account      failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+15m         Warning   FailedGetResourceMetric        horizontalpodautoscaler/auth         failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+15m         Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/auth         invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+15m         Warning   Unhealthy                      pod/auth-68d74fbc4b-zgrzp            Startup probe failed: Get "http://10.244.0.11:8000/health-check": dial tcp 10.244.0.11:8000: connect: connection refused
+15m         Warning   Unhealthy                      pod/auth-68d74fbc4b-qjzhx            Startup probe failed: Get "http://10.244.0.12:8000/health-check": dial tcp 10.244.0.12:8000: connect: connection refused
+15m         Normal    Scheduled                      pod/gateway-55dbd844fb-vshft         Successfully assigned store/gateway-55dbd844fb-vshft to microserv-store-control-plane
+15m         Normal    SuccessfulCreate               replicaset/gateway-55dbd844fb        Created pod: gateway-55dbd844fb-vshft
+15m         Normal    SuccessfulCreate               replicaset/gateway-55dbd844fb        Created pod: gateway-55dbd844fb-z8zv6
+15m         Normal    ScalingReplicaSet              deployment/gateway                   Scaled up replica set gateway-55dbd844fb from 0 to 2
+15m         Normal    Scheduled                      pod/gateway-55dbd844fb-z8zv6         Successfully assigned store/gateway-55dbd844fb-z8zv6 to microserv-store-control-plane
+15m         Normal    Pulled                         pod/gateway-55dbd844fb-z8zv6         Container image "microserv-store/gateway:local" already present on machine
+15m         Normal    Created                        pod/gateway-55dbd844fb-z8zv6         Created container: gateway
+15m         Normal    Pulled                         pod/gateway-55dbd844fb-vshft         Container image "microserv-store/gateway:local" already present on machine
+15m         Normal    Started                        pod/gateway-55dbd844fb-z8zv6         Started container gateway
+15m         Normal    Created                        pod/gateway-55dbd844fb-vshft         Created container: gateway
+15m         Normal    Started                        pod/gateway-55dbd844fb-vshft         Started container gateway
+15m         Normal    SuccessfulCreate               replicaset/prometheus-f45955b9d      Created pod: prometheus-f45955b9d-pq696
+15m         Normal    Scheduled                      pod/grafana-57d696777f-qn2zk         Successfully assigned store/grafana-57d696777f-qn2zk to microserv-store-control-plane
+15m         Normal    Pulling                        pod/prometheus-f45955b9d-pq696       Pulling image "prom/prometheus:v3.4.0"
+15m         Normal    ScalingReplicaSet              deployment/grafana                   Scaled up replica set grafana-57d696777f from 0 to 1
+15m         Normal    SuccessfulCreate               replicaset/grafana-57d696777f        Created pod: grafana-57d696777f-qn2zk
+15m         Normal    ScalingReplicaSet              deployment/prometheus                Scaled up replica set prometheus-f45955b9d from 0 to 1
+15m         Normal    Scheduled                      pod/prometheus-f45955b9d-pq696       Successfully assigned store/prometheus-f45955b9d-pq696 to microserv-store-control-plane
+15m         Normal    Pulling                        pod/grafana-57d696777f-qn2zk         Pulling image "grafana/grafana:12.0.0"
+15m         Warning   FailedGetResourceMetric        horizontalpodautoscaler/gateway      failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+15m         Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/gateway      invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+15m         Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/auth         invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+15m         Warning   FailedGetResourceMetric        horizontalpodautoscaler/auth         failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+14m         Normal    Created                        pod/prometheus-f45955b9d-pq696       Created container: prometheus
+14m         Normal    Pulled                         pod/prometheus-f45955b9d-pq696       Successfully pulled image "prom/prometheus:v3.4.0" in 13.827s (13.827s including waiting). Image size: 119912915 bytes.
+14m         Normal    Started                        pod/prometheus-f45955b9d-pq696       Started container prometheus
+14m         Normal    ScalingReplicaSet              deployment/auth                      Scaled up replica set auth-68d74fbc4b from 2 to 3
+14m         Normal    SuccessfulCreate               replicaset/auth-68d74fbc4b           Created pod: auth-68d74fbc4b-nbfzn
+14m         Normal    Scheduled                      pod/auth-68d74fbc4b-nbfzn            Successfully assigned store/auth-68d74fbc4b-nbfzn to microserv-store-control-plane
+14m         Normal    Pulled                         pod/auth-68d74fbc4b-nbfzn            Container image "microserv-store/auth:local" already present on machine
+14m         Normal    Created                        pod/auth-68d74fbc4b-nbfzn            Created container: auth
+14m         Normal    Started                        pod/auth-68d74fbc4b-nbfzn            Started container auth
+14m         Normal    Started                        pod/grafana-57d696777f-qn2zk         Started container grafana
+14m         Normal    Created                        pod/grafana-57d696777f-qn2zk         Created container: grafana
+14m         Normal    Pulled                         pod/grafana-57d696777f-qn2zk         Successfully pulled image "grafana/grafana:12.0.0" in 29.647s (43.013s including waiting). Image size: 186512938 bytes.
+14m         Warning   Unhealthy                      pod/grafana-57d696777f-qn2zk         Readiness probe failed: Get "http://10.244.0.16:3000/api/health": dial tcp 10.244.0.16:3000: connect: connection refused
+14m         Warning   Unhealthy                      pod/auth-68d74fbc4b-nbfzn            Startup probe failed: Get "http://10.244.0.17:8000/health-check": dial tcp 10.244.0.17:8000: connect: connection refused
+13m         Normal    ScalingReplicaSet              deployment/account                   Scaled up replica set account-794b48b87c from 2 to 4
+13m         Normal    SuccessfulRescale              horizontalpodautoscaler/account      New size: 4; reason: cpu resource utilization (percentage of request) above target
+13m         Normal    Scheduled                      pod/account-794b48b87c-sqjsp         Successfully assigned store/account-794b48b87c-sqjsp to microserv-store-control-plane
+13m         Normal    Scheduled                      pod/account-794b48b87c-qh6sp         Successfully assigned store/account-794b48b87c-qh6sp to microserv-store-control-plane
+13m         Normal    SuccessfulCreate               replicaset/account-794b48b87c        Created pod: account-794b48b87c-qh6sp
+13m         Normal    SuccessfulCreate               replicaset/account-794b48b87c        Created pod: account-794b48b87c-sqjsp
+13m         Normal    Created                        pod/account-794b48b87c-qh6sp         Created container: account
+13m         Normal    Pulled                         pod/account-794b48b87c-qh6sp         Container image "microserv-store/account:local" already present on machine
+13m         Normal    Pulled                         pod/account-794b48b87c-sqjsp         Container image "microserv-store/account:local" already present on machine
+13m         Normal    Created                        pod/account-794b48b87c-sqjsp         Created container: account
+13m         Normal    Started                        pod/account-794b48b87c-sqjsp         Started container account
+13m         Normal    Started                        pod/account-794b48b87c-qh6sp         Started container account
+13m         Warning   Unhealthy                      pod/account-794b48b87c-qh6sp         Startup probe failed: Get "http://10.244.0.18:8000/health-check": dial tcp 10.244.0.18:8000: connect: connection refused
+13m         Warning   Unhealthy                      pod/account-794b48b87c-sqjsp         Startup probe failed: Get "http://10.244.0.19:8000/health-check": dial tcp 10.244.0.19:8000: connect: connection refused
+13m         Normal    SuccessfulCreate               replicaset/auth-68d74fbc4b           Created pod: auth-68d74fbc4b-m4mgk
+13m         Normal    SuccessfulCreate               replicaset/auth-68d74fbc4b           Created pod: auth-68d74fbc4b-fqhf5
+13m         Normal    Scheduled                      pod/auth-68d74fbc4b-fqhf5            Successfully assigned store/auth-68d74fbc4b-fqhf5 to microserv-store-control-plane
+13m         Normal    Scheduled                      pod/auth-68d74fbc4b-m4mgk            Successfully assigned store/auth-68d74fbc4b-m4mgk to microserv-store-control-plane
+13m         Normal    SuccessfulRescale              horizontalpodautoscaler/auth         New size: 5; reason: cpu resource utilization (percentage of request) above target
+13m         Normal    ScalingReplicaSet              deployment/auth                      Scaled up replica set auth-68d74fbc4b from 3 to 5
+13m         Normal    Created                        pod/auth-68d74fbc4b-m4mgk            Created container: auth
+13m         Normal    Pulled                         pod/auth-68d74fbc4b-fqhf5            Container image "microserv-store/auth:local" already present on machine
+13m         Normal    Pulled                         pod/auth-68d74fbc4b-m4mgk            Container image "microserv-store/auth:local" already present on machine
+13m         Normal    Started                        pod/auth-68d74fbc4b-m4mgk            Started container auth
+13m         Normal    Created                        pod/auth-68d74fbc4b-fqhf5            Created container: auth
+13m         Normal    Started                        pod/auth-68d74fbc4b-fqhf5            Started container auth
+13m         Normal    SuccessfulCreate               replicaset/account-794b48b87c        Created pod: account-794b48b87c-hkh84
+13m         Normal    ScalingReplicaSet              deployment/account                   Scaled up replica set account-794b48b87c from 4 to 5
+13m         Normal    Scheduled                      pod/account-794b48b87c-hkh84         Successfully assigned store/account-794b48b87c-hkh84 to microserv-store-control-plane
+12m         Normal    Pulled                         pod/account-794b48b87c-hkh84         Container image "microserv-store/account:local" already present on machine
+12m         Normal    Started                        pod/account-794b48b87c-hkh84         Started container account
+12m         Normal    Created                        pod/account-794b48b87c-hkh84         Created container: account
+12m         Warning   Unhealthy                      pod/account-794b48b87c-hkh84         Startup probe failed: Get "http://10.244.0.22:8000/health-check": dial tcp 10.244.0.22:8000: connect: connection refused
+12m         Warning   Unhealthy                      pod/auth-68d74fbc4b-m4mgk            Startup probe failed: Get "http://10.244.0.20:8000/health-check": dial tcp 10.244.0.20:8000: connect: connection refused
+12m         Warning   Unhealthy                      pod/auth-68d74fbc4b-fqhf5            Startup probe failed: Get "http://10.244.0.21:8000/health-check": dial tcp 10.244.0.21:8000: connect: connection refused
+12m         Warning   Unhealthy                      pod/auth-68d74fbc4b-m4mgk            Startup probe failed: Get "http://10.244.0.20:8000/health-check": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+10m         Normal    SuccessfulCreate               replicaset/account-794b48b87c        Created pod: account-794b48b87c-296h7
+10m         Normal    Scheduled                      pod/account-794b48b87c-296h7         Successfully assigned store/account-794b48b87c-296h7 to microserv-store-control-plane
+10m         Normal    Killing                        pod/account-794b48b87c-hkh84         Stopping container account
+10m         Warning   Unhealthy                      pod/account-794b48b87c-hkh84         Readiness probe failed: Get "http://10.244.0.22:8000/ready": dial tcp 10.244.0.22:8000: connect: connection refused
+10m         Normal    Pulled                         pod/account-794b48b87c-296h7         Container image "microserv-store/account:local" already present on machine
+10m         Normal    Created                        pod/account-794b48b87c-296h7         Created container: account
+10m         Normal    Started                        pod/account-794b48b87c-296h7         Started container account
+10m         Warning   Unhealthy                      pod/account-794b48b87c-296h7         Startup probe failed: Get "http://10.244.0.23:8000/health-check": dial tcp 10.244.0.23:8000: connect: connection refused
+10m         Normal    SuccessfulRescale              horizontalpodautoscaler/auth         New size: 3; reason: All metrics below target
+10m         Normal    ScalingReplicaSet              deployment/auth                      Scaled down replica set auth-68d74fbc4b from 5 to 3
+10m         Normal    SuccessfulDelete               replicaset/auth-68d74fbc4b           Deleted pod: auth-68d74fbc4b-nbfzn
+10m         Warning   Unhealthy                      pod/auth-68d74fbc4b-m4mgk            Readiness probe failed: Get "http://10.244.0.20:8000/ready": dial tcp 10.244.0.20:8000: connect: connection refused
+10m         Normal    SuccessfulDelete               replicaset/auth-68d74fbc4b           Deleted pod: auth-68d74fbc4b-m4mgk
+10m         Warning   Unhealthy                      pod/auth-68d74fbc4b-nbfzn            Readiness probe failed: Get "http://10.244.0.17:8000/ready": dial tcp 10.244.0.17:8000: connect: connection refused
+10m         Normal    Killing                        pod/auth-68d74fbc4b-nbfzn            Stopping container auth
+10m         Normal    Killing                        pod/auth-68d74fbc4b-m4mgk            Stopping container auth
+10m         Normal    Killing                        pod/account-794b48b87c-296h7         Stopping container account
+10m         Normal    SuccessfulDelete               replicaset/account-794b48b87c        Deleted pod: account-794b48b87c-296h7
+10m         Normal    ScalingReplicaSet              deployment/account                   Scaled down replica set account-794b48b87c from 5 to 4
+9m1s        Normal    Killing                        pod/auth-68d74fbc4b-fqhf5            Stopping container auth
+9m1s        Normal    ScalingReplicaSet              deployment/auth                      Scaled down replica set auth-68d74fbc4b from 3 to 2
+9m1s        Normal    SuccessfulDelete               replicaset/auth-68d74fbc4b           Deleted pod: auth-68d74fbc4b-fqhf5
+8m56s       Normal    SuccessfulDelete               replicaset/account-794b48b87c        Deleted pod: account-794b48b87c-sqjsp
+8m56s       Normal    SuccessfulDelete               replicaset/account-794b48b87c        Deleted pod: account-794b48b87c-qh6sp
+8m56s       Normal    Killing                        pod/account-794b48b87c-sqjsp         Stopping container account
+8m56s       Normal    ScalingReplicaSet              deployment/account                   Scaled down replica set account-794b48b87c from 4 to 2
+8m56s       Normal    Killing                        pod/account-794b48b87c-qh6sp         Stopping container account
+8m50s       Normal    SuccessfulCreate               replicaset/account-7b7fcdb495        Created pod: account-7b7fcdb495-6qrxs
+8m50s       Normal    Created                        pod/account-7b7fcdb495-6qrxs         Created container: account
+8m50s       Normal    Scheduled                      pod/gateway-b9cf97d5f-lnmdg          Successfully assigned store/gateway-b9cf97d5f-lnmdg to microserv-store-control-plane
+8m50s       Normal    Pulled                         pod/gateway-b9cf97d5f-lnmdg          Container image "microserv-store/gateway:local" already present on machine
+8m50s       Normal    Pulled                         pod/account-7b7fcdb495-6qrxs         Container image "microserv-store/account:local" already present on machine
+8m50s       Normal    ScalingReplicaSet              deployment/account                   Scaled up replica set account-7b7fcdb495 from 0 to 1
+8m50s       Normal    Created                        pod/gateway-b9cf97d5f-lnmdg          Created container: gateway
+8m50s       Normal    SuccessfulCreate               replicaset/gateway-b9cf97d5f         Created pod: gateway-b9cf97d5f-lnmdg
+8m50s       Normal    ScalingReplicaSet              deployment/gateway                   Scaled up replica set gateway-b9cf97d5f from 0 to 1
+8m50s       Normal    Scheduled                      pod/account-7b7fcdb495-6qrxs         Successfully assigned store/account-7b7fcdb495-6qrxs to microserv-store-control-plane
+8m49s       Normal    Started                        pod/account-7b7fcdb495-6qrxs         Started container account
+8m49s       Normal    Started                        pod/gateway-b9cf97d5f-lnmdg          Started container gateway
+8m48s       Normal    SuccessfulDelete               replicaset/gateway-55dbd844fb        Deleted pod: gateway-55dbd844fb-z8zv6
+8m48s       Normal    Killing                        pod/gateway-55dbd844fb-z8zv6         Stopping container gateway
+8m48s       Normal    ScalingReplicaSet              deployment/gateway                   Scaled up replica set gateway-b9cf97d5f from 1 to 2
+8m48s       Normal    ScalingReplicaSet              deployment/gateway                   Scaled down replica set gateway-55dbd844fb from 2 to 1
+8m48s       Normal    SuccessfulCreate               replicaset/gateway-b9cf97d5f         Created pod: gateway-b9cf97d5f-cfg75
+8m48s       Normal    Scheduled                      pod/gateway-b9cf97d5f-cfg75          Successfully assigned store/gateway-b9cf97d5f-cfg75 to microserv-store-control-plane
+8m47s       Normal    Created                        pod/gateway-b9cf97d5f-cfg75          Created container: gateway
+8m47s       Normal    Pulled                         pod/gateway-b9cf97d5f-cfg75          Container image "microserv-store/gateway:local" already present on machine
+8m44s       Normal    Started                        pod/gateway-b9cf97d5f-cfg75          Started container gateway
+8m43s       Warning   Unhealthy                      pod/account-7b7fcdb495-6qrxs         Startup probe failed: Get "http://10.244.0.24:8000/health-check": dial tcp 10.244.0.24:8000: connect: connection refused
+8m42s       Normal    SuccessfulDelete               replicaset/gateway-55dbd844fb        Deleted pod: gateway-55dbd844fb-vshft
+8m42s       Normal    Killing                        pod/gateway-55dbd844fb-vshft         Stopping container gateway
+8m42s       Normal    ScalingReplicaSet              deployment/gateway                   Scaled down replica set gateway-55dbd844fb from 1 to 0
+8m41s       Normal    SuccessfulCreate               replicaset/account-7b7fcdb495        Created pod: account-7b7fcdb495-z6bsq
+8m41s       Normal    Killing                        pod/account-794b48b87c-r47pj         Stopping container account
+8m41s       Normal    ScalingReplicaSet              deployment/account                   Scaled up replica set account-7b7fcdb495 from 1 to 2
+8m41s       Normal    ScalingReplicaSet              deployment/account                   Scaled down replica set account-794b48b87c from 2 to 1
+8m41s       Normal    Scheduled                      pod/account-7b7fcdb495-z6bsq         Successfully assigned store/account-7b7fcdb495-z6bsq to microserv-store-control-plane
+8m41s       Normal    SuccessfulDelete               replicaset/account-794b48b87c        Deleted pod: account-794b48b87c-r47pj
+8m40s       Normal    Pulled                         pod/account-7b7fcdb495-z6bsq         Container image "microserv-store/account:local" already present on machine
+8m40s       Normal    Created                        pod/account-7b7fcdb495-z6bsq         Created container: account
+8m40s       Normal    Started                        pod/account-7b7fcdb495-z6bsq         Started container account
+8m37s       Warning   Unhealthy                      pod/account-7b7fcdb495-z6bsq         Startup probe failed: Get "http://10.244.0.27:8000/health-check": dial tcp 10.244.0.27:8000: connect: connection refused
+8m35s       Normal    Killing                        pod/account-794b48b87c-x5n68         Stopping container account
+8m35s       Normal    ScalingReplicaSet              deployment/account                   Scaled down replica set account-794b48b87c from 1 to 0
+8m35s       Normal    SuccessfulDelete               replicaset/account-794b48b87c        Deleted pod: account-794b48b87c-x5n68
+8m29s       Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/gateway      invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+8m29s       Warning   FailedGetResourceMetric        horizontalpodautoscaler/gateway      failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+8m23s       Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/account      invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+8m23s       Warning   FailedGetResourceMetric        horizontalpodautoscaler/account      failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+6m46s       Normal    ScalingReplicaSet              deployment/auth                      Scaled up replica set auth-6765bf4c6 from 0 to 1
+6m46s       Normal    Scheduled                      pod/auth-6765bf4c6-thmts             Successfully assigned store/auth-6765bf4c6-thmts to microserv-store-control-plane
+6m46s       Normal    SuccessfulCreate               replicaset/auth-77d4954c86           Created pod: auth-77d4954c86-47868
+6m46s       Normal    ScalingReplicaSet              deployment/auth                      Scaled up replica set auth-77d4954c86 from 0 to 1
+6m46s       Normal    Created                        pod/auth-77d4954c86-47868            Created container: auth
+6m46s       Normal    ScalingReplicaSet              deployment/auth                      Scaled down replica set auth-77d4954c86 from 1 to 0
+6m46s       Normal    Pulled                         pod/auth-77d4954c86-47868            Container image "microserv-store/auth:local" already present on machine
+6m46s       Normal    SuccessfulCreate               replicaset/auth-6765bf4c6            Created pod: auth-6765bf4c6-thmts
+6m46s       Normal    Scheduled                      pod/auth-77d4954c86-47868            Successfully assigned store/auth-77d4954c86-47868 to microserv-store-control-plane
+6m46s       Normal    SuccessfulDelete               replicaset/auth-77d4954c86           Deleted pod: auth-77d4954c86-47868
+6m45s       Normal    Started                        pod/auth-6765bf4c6-thmts             Started container auth
+6m45s       Normal    Pulled                         pod/auth-6765bf4c6-thmts             Container image "microserv-store/auth:local" already present on machine
+6m45s       Normal    Created                        pod/auth-6765bf4c6-thmts             Created container: auth
+6m45s       Normal    Started                        pod/auth-77d4954c86-47868            Started container auth
+6m45s       Normal    Killing                        pod/auth-77d4954c86-47868            Stopping container auth
+6m31s       Warning   Unhealthy                      pod/auth-6765bf4c6-thmts             Startup probe failed: Get "http://10.244.0.29:8000/health-check": dial tcp 10.244.0.29:8000: connect: connection refused
+6m28s       Warning   Unhealthy                      pod/auth-6765bf4c6-thmts             Startup probe failed: Get "http://10.244.0.29:8000/health-check": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+6m26s       Normal    Pulled                         pod/auth-6765bf4c6-hr4z4             Container image "microserv-store/auth:local" already present on machine
+6m26s       Normal    SuccessfulCreate               replicaset/auth-6765bf4c6            Created pod: auth-6765bf4c6-hr4z4
+6m26s       Normal    SuccessfulDelete               replicaset/auth-68d74fbc4b           Deleted pod: auth-68d74fbc4b-zgrzp
+6m26s       Normal    Killing                        pod/auth-68d74fbc4b-zgrzp            Stopping container auth
+6m26s       Normal    ScalingReplicaSet              deployment/auth                      Scaled down replica set auth-68d74fbc4b from 2 to 1
+6m26s       Normal    Scheduled                      pod/auth-6765bf4c6-hr4z4             Successfully assigned store/auth-6765bf4c6-hr4z4 to microserv-store-control-plane
+6m26s       Normal    Created                        pod/auth-6765bf4c6-hr4z4             Created container: auth
+6m25s       Warning   Unhealthy                      pod/auth-68d74fbc4b-zgrzp            Readiness probe failed: Get "http://10.244.0.11:8000/ready": dial tcp 10.244.0.11:8000: connect: connection refused
+6m25s       Normal    Started                        pod/auth-6765bf4c6-hr4z4             Started container auth
+6m12s       Normal    Scheduled                      pod/account-7b7fcdb495-57drp         Successfully assigned store/account-7b7fcdb495-57drp to microserv-store-control-plane
+6m12s       Normal    SuccessfulCreate               replicaset/account-7b7fcdb495        Created pod: account-7b7fcdb495-8q5jr
+6m12s       Normal    Scheduled                      pod/account-7b7fcdb495-8q5jr         Successfully assigned store/account-7b7fcdb495-8q5jr to microserv-store-control-plane
+6m12s       Normal    SuccessfulCreate               replicaset/account-7b7fcdb495        Created pod: account-7b7fcdb495-5jsmw
+6m12s       Normal    Scheduled                      pod/account-7b7fcdb495-5jsmw         Successfully assigned store/account-7b7fcdb495-5jsmw to microserv-store-control-plane
+6m12s       Normal    SuccessfulCreate               replicaset/account-7b7fcdb495        Created pod: account-7b7fcdb495-57drp
+6m11s       Normal    Pulled                         pod/account-7b7fcdb495-57drp         Container image "microserv-store/account:local" already present on machine
+6m11s       Normal    Created                        pod/account-7b7fcdb495-57drp         Created container: account
+6m11s       Normal    Created                        pod/account-7b7fcdb495-8q5jr         Created container: account
+6m11s       Normal    Pulled                         pod/account-7b7fcdb495-8q5jr         Container image "microserv-store/account:local" already present on machine
+6m11s       Normal    Pulled                         pod/account-7b7fcdb495-5jsmw         Container image "microserv-store/account:local" already present on machine
+6m11s       Normal    Created                        pod/account-7b7fcdb495-5jsmw         Created container: account
+6m10s       Normal    Started                        pod/account-7b7fcdb495-57drp         Started container account
+6m10s       Normal    Started                        pod/account-7b7fcdb495-5jsmw         Started container account
+6m10s       Normal    Started                        pod/account-7b7fcdb495-8q5jr         Started container account
+6m5s        Warning   Unhealthy                      pod/account-7b7fcdb495-57drp         Startup probe failed: Get "http://10.244.0.33:8000/health-check": dial tcp 10.244.0.33:8000: connect: connection refused
+6m5s        Warning   Unhealthy                      pod/account-7b7fcdb495-5jsmw         Startup probe failed: Get "http://10.244.0.31:8000/health-check": dial tcp 10.244.0.31:8000: connect: connection refused
+6m5s        Warning   Unhealthy                      pod/account-7b7fcdb495-8q5jr         Startup probe failed: Get "http://10.244.0.32:8000/health-check": dial tcp 10.244.0.32:8000: connect: connection refused
+5m59s       Warning   Unhealthy                      pod/auth-6765bf4c6-hr4z4             Startup probe failed: Get "http://10.244.0.30:8000/health-check": dial tcp 10.244.0.30:8000: connect: connection refused
+5m57s       Normal    SuccessfulDelete               replicaset/auth-68d74fbc4b           Deleted pod: auth-68d74fbc4b-qjzhx
+5m57s       Normal    Killing                        pod/auth-68d74fbc4b-qjzhx            Stopping container auth
+5m12s       Normal    Scheduled                      pod/auth-6765bf4c6-fgpdw             Successfully assigned store/auth-6765bf4c6-fgpdw to microserv-store-control-plane
+5m12s       Normal    SuccessfulCreate               replicaset/auth-6765bf4c6            Created pod: auth-6765bf4c6-fgpdw
+5m12s       Normal    SuccessfulRescale              horizontalpodautoscaler/auth         New size: 3; reason: cpu resource utilization (percentage of request) above target
+5m11s       Normal    Started                        pod/auth-6765bf4c6-fgpdw             Started container auth
+5m11s       Normal    Pulled                         pod/auth-6765bf4c6-fgpdw             Container image "microserv-store/auth:local" already present on machine
+5m11s       Normal    Created                        pod/auth-6765bf4c6-fgpdw             Created container: auth
+4m49s       Warning   Unhealthy                      pod/auth-6765bf4c6-fgpdw             Startup probe failed: Get "http://10.244.0.34:8000/health-check": dial tcp 10.244.0.34:8000: connect: connection refused
+4m45s       Warning   Unhealthy                      pod/auth-6765bf4c6-fgpdw             Startup probe failed: Get "http://10.244.0.34:8000/health-check": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+3m48s       Normal    SuccessfulDelete               replicaset/auth-6765bf4c6            Deleted pod: auth-6765bf4c6-fgpdw
+3m48s       Normal    Killing                        pod/auth-6765bf4c6-fgpdw             Stopping container auth
+3m48s       Normal    SuccessfulRescale              horizontalpodautoscaler/auth         New size: 2; reason: All metrics below target
+3m48s       Normal    ScalingReplicaSet              deployment/auth                      (combined from similar events): Scaled down replica set auth-6765bf4c6 from 3 to 2
+2m37s       Normal    Killing                        pod/account-7b7fcdb495-5jsmw         Stopping container account
+2m37s       Normal    Killing                        pod/account-7b7fcdb495-57drp         Stopping container account
+2m37s       Normal    SuccessfulDelete               replicaset/account-7b7fcdb495        Deleted pod: account-7b7fcdb495-57drp
+2m37s       Normal    SuccessfulDelete               replicaset/account-7b7fcdb495        Deleted pod: account-7b7fcdb495-5jsmw
+2m37s       Normal    SuccessfulRescale              horizontalpodautoscaler/account      New size: 3; reason: All metrics below target
+2m22s       Normal    Pulled                         pod/account-7b7fcdb495-txdwc         Container image "microserv-store/account:local" already present on machine
+2m22s       Normal    Scheduled                      pod/account-7b7fcdb495-lfg8r         Successfully assigned store/account-7b7fcdb495-lfg8r to microserv-store-control-plane
+2m22s       Normal    SuccessfulCreate               replicaset/account-7b7fcdb495        Created pod: account-7b7fcdb495-lfg8r
+2m22s       Normal    SuccessfulCreate               replicaset/account-7b7fcdb495        Created pod: account-7b7fcdb495-txdwc
+2m22s       Normal    Scheduled                      pod/account-7b7fcdb495-txdwc         Successfully assigned store/account-7b7fcdb495-txdwc to microserv-store-control-plane
+2m22s       Normal    SuccessfulRescale              horizontalpodautoscaler/account      New size: 5; reason: cpu resource utilization (percentage of request) above target
+2m21s       Normal    Created                        pod/account-7b7fcdb495-txdwc         Created container: account
+2m21s       Normal    Created                        pod/account-7b7fcdb495-lfg8r         Created container: account
+2m21s       Normal    Pulled                         pod/account-7b7fcdb495-lfg8r         Container image "microserv-store/account:local" already present on machine
+2m21s       Normal    Started                        pod/account-7b7fcdb495-txdwc         Started container account
+2m21s       Normal    Started                        pod/account-7b7fcdb495-lfg8r         Started container account
+2m20s       Warning   Unhealthy                      pod/account-7b7fcdb495-lfg8r         Startup probe failed: Get "http://10.244.0.36:8000/health-check": dial tcp 10.244.0.36:8000: connect: connection refused
+2m20s       Warning   Unhealthy                      pod/account-7b7fcdb495-txdwc         Startup probe failed: Get "http://10.244.0.35:8000/health-check": dial tcp 10.244.0.35:8000: connect: connection refused
+2m9s        Normal    Scheduled                      pod/account-7b7fcdb495-nsdq2         Successfully assigned store/account-7b7fcdb495-nsdq2 to microserv-store-control-plane
+2m9s        Normal    Created                        pod/account-7b7fcdb495-nsdq2         Created container: account
+2m9s        Normal    SuccessfulCreate               replicaset/account-7b7fcdb495        Created pod: account-7b7fcdb495-nsdq2
+2m9s        Normal    Started                        pod/account-7b7fcdb495-nsdq2         Started container account
+2m9s        Normal    Killing                        pod/account-7b7fcdb495-6qrxs         Stopping container account
+2m9s        Normal    Pulled                         pod/account-7b7fcdb495-nsdq2         Container image "microserv-store/account:local" already present on machine
+2m7s        Warning   Unhealthy                      pod/account-7b7fcdb495-nsdq2         Startup probe failed: Get "http://10.244.0.37:8000/health-check": dial tcp 10.244.0.37:8000: connect: connection refused
+76s         Normal    Killing                        pod/account-7b7fcdb495-nsdq2         Stopping container account
+76s         Normal    SuccessfulRescale              horizontalpodautoscaler/account      New size: 4; reason: All metrics below target
+76s         Normal    SuccessfulDelete               replicaset/account-7b7fcdb495        Deleted pod: account-7b7fcdb495-nsdq2
+59s         Normal    ScalingReplicaSet              deployment/account                   (combined from similar events): Scaled down replica set account-7b7fcdb495 from 4 to 2
+59s         Normal    SuccessfulRescale              horizontalpodautoscaler/account      New size: 2; reason: All metrics below target
+59s         Normal    Killing                        pod/account-7b7fcdb495-lfg8r         Stopping container account
+59s         Normal    Killing                        pod/account-7b7fcdb495-txdwc         Stopping container account
+59s         Normal    SuccessfulDelete               replicaset/account-7b7fcdb495        Deleted pod: account-7b7fcdb495-txdwc
+59s         Normal    SuccessfulDelete               replicaset/account-7b7fcdb495        Deleted pod: account-7b7fcdb495-lfg8r

@@ -1,0 +1,31 @@
+NAME                         READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES                          SELECTOR
+deployment.apps/account      2/2     2            2           16m   account      microserv-store/account:local   app=account
+deployment.apps/auth         2/2     2            2           15m   auth         microserv-store/auth:local      app=auth
+deployment.apps/gateway      2/2     2            2           15m   gateway      microserv-store/gateway:local   app=gateway
+deployment.apps/grafana      1/1     1            1           15m   grafana      grafana/grafana:12.0.0          app=grafana
+deployment.apps/postgres     1/1     1            1           16m   postgres     postgres:16-alpine              app=postgres
+deployment.apps/prometheus   1/1     1            1           15m   prometheus   prom/prometheus:v3.4.0          app=prometheus
+
+NAME                             READY   STATUS    RESTARTS   AGE     IP            NODE                            NOMINATED NODE   READINESS GATES
+pod/account-7b7fcdb495-8q5jr     1/1     Running   0          6m11s   10.244.0.32   microserv-store-control-plane   <none>           <none>
+pod/account-7b7fcdb495-z6bsq     1/1     Running   0          8m40s   10.244.0.27   microserv-store-control-plane   <none>           <none>
+pod/auth-6765bf4c6-hr4z4         1/1     Running   0          6m25s   10.244.0.30   microserv-store-control-plane   <none>           <none>
+pod/auth-6765bf4c6-thmts         1/1     Running   0          6m45s   10.244.0.29   microserv-store-control-plane   <none>           <none>
+pod/gateway-b9cf97d5f-cfg75      1/1     Running   0          8m47s   10.244.0.26   microserv-store-control-plane   <none>           <none>
+pod/gateway-b9cf97d5f-lnmdg      1/1     Running   0          8m49s   10.244.0.25   microserv-store-control-plane   <none>           <none>
+pod/grafana-57d696777f-qn2zk     1/1     Running   0          15m     10.244.0.16   microserv-store-control-plane   <none>           <none>
+pod/postgres-56c465b887-44w8d    1/1     Running   0          16m     10.244.0.8    microserv-store-control-plane   <none>           <none>
+pod/prometheus-f45955b9d-pq696   1/1     Running   0          15m     10.244.0.15   microserv-store-control-plane   <none>           <none>
+
+NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE   SELECTOR
+service/account      ClusterIP   10.96.44.185    <none>        8000/TCP   16m   app=account
+service/auth         ClusterIP   10.96.239.150   <none>        8000/TCP   15m   app=auth
+service/gateway      ClusterIP   10.96.87.169    <none>        8000/TCP   15m   app=gateway
+service/grafana      ClusterIP   10.96.62.1      <none>        3000/TCP   15m   app=grafana
+service/postgres     ClusterIP   10.96.40.7      <none>        5432/TCP   16m   app=postgres
+service/prometheus   ClusterIP   10.96.218.154   <none>        9090/TCP   15m   app=prometheus
+
+NAME                                          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/account   Deployment/account   cpu: 3%/60%   2         5         2          15m
+horizontalpodautoscaler.autoscaling/auth      Deployment/auth      cpu: 2%/60%   2         5         2          15m
+horizontalpodautoscaler.autoscaling/gateway   Deployment/gateway   cpu: 1%/60%   2         5         2          15m

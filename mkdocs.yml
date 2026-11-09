@@ -1,0 +1,23 @@
+site_name: Microserv Store — Pessoa A
+site_url: https://microserv-1.github.io/store-docs-a/
+repo_url: https://github.com/Microserv-1/store-root
+theme:
+  name: material
+  language: pt-BR
+  features: [navigation.sections, content.code.copy]
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+nav:
+  - Projeto e autoria: index.md
+  - Contratos e integração: contracts.md
+  - Execução e deploy: deploy.md
+  - Gargalos e testes: bottlenecks.md
+  - Custos, PaaS e SLA: operations.md
+  - Decisões e uso de IA: decisions.md
+  - Estado e evidências: status.md
+  - Apresentação e defesa: presentation.md

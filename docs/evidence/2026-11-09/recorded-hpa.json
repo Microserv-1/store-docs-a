@@ -1,0 +1,191 @@
+[
+  {
+    "utc": "UTC 2026-11-09 13:37:16",
+    "load_status": "BASELINE",
+    "HPA": "NAME      REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 163%/60%   2         5         2          10m\nauth      Deployment/auth      cpu: 65%/60%    2         5         2          9m54s\ngateway   Deployment/gateway   cpu: 36%/60%    2         5         2          9m20s\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           10m\nauth         2/2     2            2           9m54s\ngateway      2/2     2            2           9m20s\ngrafana      1/1     1            1           9m14s\npostgres     1/1     1            1           10m\nprometheus   1/1     1            1           9m14s\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-6qrxs   256m         57Mi            \naccount-7b7fcdb495-z6bsq   71m          57Mi            \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:37:20",
+    "load_status": "BASELINE",
+    "HPA": "NAME      REFERENCE            TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 94%/60%   2         5         5          10m\nauth      Deployment/auth      cpu: 65%/60%   2         5         2          9m58s\ngateway   Deployment/gateway   cpu: 36%/60%   2         5         2          9m24s\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           10m\nauth         2/2     2            2           9m58s\ngateway      2/2     2            2           9m24s\ngrafana      1/1     1            1           9m18s\npostgres     1/1     1            1           10m\nprometheus   1/1     1            1           9m18s\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-6qrxs   135m         56Mi            \naccount-7b7fcdb495-z6bsq   54m          57Mi            \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:37:25",
+    "load_status": "BASELINE",
+    "HPA": "NAME      REFERENCE            TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 94%/60%   2         5         5          10m\nauth      Deployment/auth      cpu: 65%/60%   2         5         2          10m\ngateway   Deployment/gateway   cpu: 36%/60%   2         5         2          9m28s\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           10m\nauth         2/2     2            2           10m\ngateway      2/2     2            2           9m28s\ngrafana      1/1     1            1           9m22s\npostgres     1/1     1            1           10m\nprometheus   1/1     1            1           9m22s\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-6qrxs   135m         56Mi            \naccount-7b7fcdb495-z6bsq   54m          57Mi            \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:37:29",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 94%/60%   2         5         5          10m\nauth      Deployment/auth      cpu: 65%/60%   2         5         2          10m\ngateway   Deployment/gateway   cpu: 36%/60%   2         5         2          9m32s\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           10m\nauth         2/2     2            2           10m\ngateway      2/2     2            2           9m32s\ngrafana      1/1     1            1           9m26s\npostgres     1/1     1            1           10m\nprometheus   1/1     1            1           9m26s\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-6qrxs   135m         56Mi            \naccount-7b7fcdb495-z6bsq   54m          57Mi            \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:37:33",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 94%/60%   2         5         5          10m\nauth      Deployment/auth      cpu: 58%/60%   2         5         2          10m\ngateway   Deployment/gateway   cpu: 40%/60%   2         5         2          9m35s\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           10m\nauth         2/2     2            2           10m\ngateway      2/2     2            2           9m35s\ngrafana      1/1     1            1           9m29s\npostgres     1/1     1            1           10m\nprometheus   1/1     1            1           9m29s\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-6qrxs   135m         56Mi            \naccount-7b7fcdb495-z6bsq   54m          57Mi            \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:37:37",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 54%/60%   2         5         5          10m\nauth      Deployment/auth      cpu: 58%/60%   2         5         2          10m\ngateway   Deployment/gateway   cpu: 40%/60%   2         5         2          9m39s\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           10m\nauth         2/2     2            2           10m\ngateway      2/2     2            2           9m40s\ngrafana      1/1     1            1           9m34s\npostgres     1/1     1            1           10m\nprometheus   1/1     1            1           9m34s\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   9m           55Mi            \naccount-7b7fcdb495-5jsmw   6m           57Mi            \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   247m         56Mi            \naccount-7b7fcdb495-z6bsq   6m           57Mi            \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:37:42",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 54%/60%   2         5         5          10m\nauth      Deployment/auth      cpu: 58%/60%   2         5         2          10m\ngateway   Deployment/gateway   cpu: 40%/60%   2         5         2          9m43s\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           10m\nauth         2/2     2            2           10m\ngateway      2/2     2            2           9m44s\ngrafana      1/1     1            1           9m38s\npostgres     1/1     1            1           11m\nprometheus   1/1     1            1           9m38s\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   9m           55Mi            \naccount-7b7fcdb495-5jsmw   6m           57Mi            \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   247m         56Mi            \naccount-7b7fcdb495-z6bsq   6m           57Mi            \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:37:46",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 54%/60%   2         5         5          10m\nauth      Deployment/auth      cpu: 58%/60%   2         5         2          10m\ngateway   Deployment/gateway   cpu: 2%/60%    2         5         2          9m50s\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           10m\nauth         2/2     2            2           10m\ngateway      2/2     2            2           9m50s\ngrafana      1/1     1            1           9m44s\npostgres     1/1     1            1           11m\nprometheus   1/1     1            1           9m44s\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   9m           55Mi            \naccount-7b7fcdb495-5jsmw   6m           57Mi            \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   247m         56Mi            \naccount-7b7fcdb495-z6bsq   6m           57Mi            \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:37:50",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 54%/60%   2         5         5          10m\nauth      Deployment/auth      cpu: 11%/60%   2         5         2          10m\ngateway   Deployment/gateway   cpu: 2%/60%    2         5         2          9m54s\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           10m\nauth         2/2     2            2           10m\ngateway      2/2     2            2           9m54s\ngrafana      1/1     1            1           9m48s\npostgres     1/1     1            1           11m\nprometheus   1/1     1            1           9m48s\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   9m           55Mi            \naccount-7b7fcdb495-5jsmw   6m           57Mi            \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   247m         56Mi            \naccount-7b7fcdb495-z6bsq   6m           57Mi            \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:37:55",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 325%/60%   2         5         5          10m\nauth      Deployment/auth      cpu: 11%/60%    2         5         2          10m\ngateway   Deployment/gateway   cpu: 2%/60%     2         5         2          9m58s\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           10m\nauth         2/2     2            2           10m\ngateway      2/2     2            2           9m59s\ngrafana      1/1     1            1           9m53s\npostgres     1/1     1            1           11m\nprometheus   1/1     1            1           9m53s\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   8m           56Mi            \naccount-7b7fcdb495-5jsmw   690m         122Mi           \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   247m         56Mi            \naccount-7b7fcdb495-z6bsq   675m         148Mi           \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:38:00",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 325%/60%   2         5         5          10m\nauth      Deployment/auth      cpu: 11%/60%    2         5         2          10m\ngateway   Deployment/gateway   cpu: 2%/60%     2         5         2          10m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           10m\nauth         2/2     2            2           10m\ngateway      2/2     2            2           10m\ngrafana      1/1     1            1           9m57s\npostgres     1/1     1            1           11m\nprometheus   1/1     1            1           9m57s\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   8m           56Mi            \naccount-7b7fcdb495-5jsmw   690m         122Mi           \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   247m         56Mi            \naccount-7b7fcdb495-z6bsq   675m         148Mi           \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:38:04",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 325%/60%   2         5         5          10m\nauth      Deployment/auth      cpu: 69%/60%    2         5         2          10m\ngateway   Deployment/gateway   cpu: 9%/60%     2         5         2          10m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           10m\nauth         2/3     3            2           10m\ngateway      2/2     2            2           10m\ngrafana      1/1     1            1           10m\npostgres     1/1     1            1           11m\nprometheus   1/1     1            1           10m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   8m           56Mi            \naccount-7b7fcdb495-5jsmw   690m         122Mi           \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   247m         56Mi            \naccount-7b7fcdb495-z6bsq   675m         148Mi           \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:38:09",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 325%/60%   2         5         5          10m\nauth      Deployment/auth      cpu: 69%/60%    2         5         2          10m\ngateway   Deployment/gateway   cpu: 9%/60%     2         5         2          10m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           10m\nauth         2/3     3            2           10m\ngateway      2/2     2            2           10m\ngrafana      1/1     1            1           10m\npostgres     1/1     1            1           11m\nprometheus   1/1     1            1           10m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   6m           56Mi            \naccount-7b7fcdb495-5jsmw   727m         73Mi            \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   828m         57Mi            \naccount-7b7fcdb495-z6bsq   675m         148Mi           \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:38:12",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 448%/60%   2         5         5          10m\nauth      Deployment/auth      cpu: 69%/60%    2         5         2          10m\ngateway   Deployment/gateway   cpu: 9%/60%     2         5         2          10m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           10m\nauth         2/3     3            2           10m\ngateway      2/2     2            2           10m\ngrafana      1/1     1            1           10m\npostgres     1/1     1            1           11m\nprometheus   1/1     1            1           10m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   6m           56Mi            \naccount-7b7fcdb495-5jsmw   727m         73Mi            \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   828m         57Mi            \naccount-7b7fcdb495-z6bsq   675m         148Mi           \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:38:16",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 448%/60%   2         5         5          11m\nauth      Deployment/auth      cpu: 69%/60%    2         5         2          10m\ngateway   Deployment/gateway   cpu: 9%/60%     2         5         2          10m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           11m\nauth         2/3     3            2           10m\ngateway      2/2     2            2           10m\ngrafana      1/1     1            1           10m\npostgres     1/1     1            1           11m\nprometheus   1/1     1            1           10m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   6m           56Mi            \naccount-7b7fcdb495-5jsmw   727m         73Mi            \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   828m         57Mi            \naccount-7b7fcdb495-z6bsq   675m         148Mi           \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:38:20",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 448%/60%   2         5         5          11m\nauth      Deployment/auth      cpu: 49%/60%    2         5         3          10m\ngateway   Deployment/gateway   cpu: 12%/60%    2         5         2          10m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           11m\nauth         2/3     3            2           10m\ngateway      2/2     2            2           10m\ngrafana      1/1     1            1           10m\npostgres     1/1     1            1           11m\nprometheus   1/1     1            1           10m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   6m           56Mi            \naccount-7b7fcdb495-5jsmw   727m         73Mi            \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   828m         57Mi            \naccount-7b7fcdb495-z6bsq   675m         148Mi           \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:38:24",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 448%/60%   2         5         5          11m\nauth      Deployment/auth      cpu: 49%/60%    2         5         3          11m\ngateway   Deployment/gateway   cpu: 12%/60%    2         5         2          10m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           11m\nauth         2/3     3            2           11m\ngateway      2/2     2            2           10m\ngrafana      1/1     1            1           10m\npostgres     1/1     1            1           11m\nprometheus   1/1     1            1           10m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   6m           56Mi            \naccount-7b7fcdb495-5jsmw   727m         73Mi            \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   828m         57Mi            \naccount-7b7fcdb495-z6bsq   675m         148Mi           \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:38:28",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 519%/60%   2         5         5          11m\nauth      Deployment/auth      cpu: 49%/60%    2         5         3          11m\ngateway   Deployment/gateway   cpu: 12%/60%    2         5         2          10m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           11m\nauth         2/3     3            2           11m\ngateway      2/2     2            2           10m\ngrafana      1/1     1            1           10m\npostgres     1/1     1            1           11m\nprometheus   1/1     1            1           10m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   6m           56Mi            \naccount-7b7fcdb495-5jsmw   844m         122Mi           \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   828m         57Mi            \naccount-7b7fcdb495-z6bsq   911m         169Mi           \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:38:33",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 519%/60%   2         5         5          11m\nauth      Deployment/auth      cpu: 49%/60%    2         5         3          11m\ngateway   Deployment/gateway   cpu: 12%/60%    2         5         2          10m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           11m\nauth         3/3     3            3           11m\ngateway      2/2     2            2           10m\ngrafana      1/1     1            1           10m\npostgres     1/1     1            1           11m\nprometheus   1/1     1            1           10m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   6m           56Mi            \naccount-7b7fcdb495-5jsmw   844m         122Mi           \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   828m         57Mi            \naccount-7b7fcdb495-z6bsq   911m         169Mi           \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:38:37",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 519%/60%   2         5         5          11m\nauth      Deployment/auth      cpu: 37%/60%    2         5         3          11m\ngateway   Deployment/gateway   cpu: 10%/60%    2         5         2          10m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           11m\nauth         3/3     3            3           11m\ngateway      2/2     2            2           10m\ngrafana      1/1     1            1           10m\npostgres     1/1     1            1           11m\nprometheus   1/1     1            1           10m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   6m           56Mi            \naccount-7b7fcdb495-5jsmw   844m         122Mi           \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   828m         57Mi            \naccount-7b7fcdb495-z6bsq   911m         169Mi           \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:38:41",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 519%/60%   2         5         5          11m\nauth      Deployment/auth      cpu: 37%/60%    2         5         3          11m\ngateway   Deployment/gateway   cpu: 10%/60%    2         5         2          10m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           11m\nauth         3/3     3            3           11m\ngateway      2/2     2            2           10m\ngrafana      1/1     1            1           10m\npostgres     1/1     1            1           12m\nprometheus   1/1     1            1           10m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   6m           56Mi            \naccount-7b7fcdb495-5jsmw   844m         122Mi           \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   828m         57Mi            \naccount-7b7fcdb495-z6bsq   911m         169Mi           \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:38:44",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 530%/60%   2         5         5          11m\nauth      Deployment/auth      cpu: 37%/60%    2         5         3          11m\ngateway   Deployment/gateway   cpu: 10%/60%    2         5         2          10m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           11m\nauth         3/3     3            3           11m\ngateway      2/2     2            2           10m\ngrafana      1/1     1            1           10m\npostgres     1/1     1            1           12m\nprometheus   1/1     1            1           10m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   6m           56Mi            \naccount-7b7fcdb495-5jsmw   844m         122Mi           \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   813m         57Mi            \naccount-7b7fcdb495-z6bsq   984m         186Mi           \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:38:48",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 530%/60%   2         5         5          11m\nauth      Deployment/auth      cpu: 37%/60%    2         5         3          11m\ngateway   Deployment/gateway   cpu: 10%/60%    2         5         2          10m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           11m\nauth         3/3     3            3           11m\ngateway      2/2     2            2           10m\ngrafana      1/1     1            1           10m\npostgres     1/1     1            1           12m\nprometheus   1/1     1            1           10m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   6m           56Mi            \naccount-7b7fcdb495-5jsmw   844m         122Mi           \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   813m         57Mi            \naccount-7b7fcdb495-z6bsq   984m         186Mi           \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:38:52",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 530%/60%   2         5         5          11m\nauth      Deployment/auth      cpu: 37%/60%    2         5         3          11m\ngateway   Deployment/gateway   cpu: 10%/60%    2         5         2          10m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           11m\nauth         3/3     3            3           11m\ngateway      2/2     2            2           10m\ngrafana      1/1     1            1           10m\npostgres     1/1     1            1           12m\nprometheus   1/1     1            1           10m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   6m           56Mi            \naccount-7b7fcdb495-5jsmw   844m         122Mi           \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   813m         57Mi            \naccount-7b7fcdb495-z6bsq   984m         186Mi           \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:38:56",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 530%/60%   2         5         5          11m\nauth      Deployment/auth      cpu: 41%/60%    2         5         3          11m\ngateway   Deployment/gateway   cpu: 12%/60%    2         5         2          10m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           11m\nauth         3/3     3            3           11m\ngateway      2/2     2            2           10m\ngrafana      1/1     1            1           10m\npostgres     1/1     1            1           12m\nprometheus   1/1     1            1           10m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   6m           56Mi            \naccount-7b7fcdb495-5jsmw   844m         122Mi           \naccount-7b7fcdb495-6qrxs   6m           56Mi            \naccount-7b7fcdb495-8q5jr   813m         57Mi            \naccount-7b7fcdb495-z6bsq   984m         186Mi           \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:38:59",
+    "load_status": "RUNNING",
+    "HPA": "NAME      REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 583%/60%   2         5         5          11m\nauth      Deployment/auth      cpu: 41%/60%    2         5         3          11m\ngateway   Deployment/gateway   cpu: 12%/60%    2         5         2          11m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           11m\nauth         3/3     3            3           11m\ngateway      2/2     2            2           11m\ngrafana      1/1     1            1           10m\npostgres     1/1     1            1           12m\nprometheus   1/1     1            1           10m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   184m         120Mi           \naccount-7b7fcdb495-5jsmw   938m         91Mi            \naccount-7b7fcdb495-6qrxs   7m           56Mi            \naccount-7b7fcdb495-8q5jr   950m         121Mi           \naccount-7b7fcdb495-z6bsq   840m         121Mi           \n"
+  },
+  {
+    "utc": "UTC 2026-11-09 13:39:03",
+    "load_status": "FINISHED (exit 0)",
+    "HPA": "NAME      REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount   Deployment/account   cpu: 583%/60%   2         5         5          11m\nauth      Deployment/auth      cpu: 41%/60%    2         5         3          11m\ngateway   Deployment/gateway   cpu: 12%/60%    2         5         2          11m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           11m\nauth         3/3     3            3           11m\ngateway      2/2     2            2           11m\ngrafana      1/1     1            1           11m\npostgres     1/1     1            1           12m\nprometheus   1/1     1            1           11m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-7b7fcdb495-57drp   184m         120Mi           \naccount-7b7fcdb495-5jsmw   938m         91Mi            \naccount-7b7fcdb495-6qrxs   7m           56Mi            \naccount-7b7fcdb495-8q5jr   950m         121Mi           \naccount-7b7fcdb495-z6bsq   840m         121Mi           \n"
+  }
+]

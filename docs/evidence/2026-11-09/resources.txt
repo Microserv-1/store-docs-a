@@ -1,0 +1,10 @@
+NAME                         CPU(cores)   MEMORY(bytes)   
+account-7b7fcdb495-8q5jr     4m           57Mi            
+account-7b7fcdb495-z6bsq     3m           58Mi            
+auth-6765bf4c6-hr4z4         5m           184Mi           
+auth-6765bf4c6-thmts         5m           182Mi           
+gateway-b9cf97d5f-cfg75      1m           7Mi             
+gateway-b9cf97d5f-lnmdg      1m           10Mi            
+grafana-57d696777f-qn2zk     3m           78Mi            
+postgres-56c465b887-44w8d    3m           37Mi            
+prometheus-f45955b9d-pq696   2m           29Mi            
