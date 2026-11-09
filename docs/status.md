@@ -49,6 +49,8 @@ O diagnóstico inicial encontrou demora de aproximadamente 2s no cliente Windows
 
 Os commits dos três serviços estão nos relatórios, com working trees limpas. Commits são locais nesta preparação e precisam ser publicados antes de um clone remoto conseguir reproduzir a versão. O vídeo final com os dois integrantes e o aceite dos serviços de B permanecem pendentes.
 
+Clone limpo local validado com `python scripts/verify-local-clone.py`: os quatro submódulos recuperaram exatamente os commits registrados, Compose validou com novos segredos locais e MkDocs compilou em modo estrito a partir desse clone. Para esse teste, as URLs dos submódulos foram sobrescritas apenas na configuração do clone de teste para apontar às cópias locais, pois os commits ainda não foram enviados ao GitHub. Isso não é uma validação de clone remoto público.
+
 ## Entrega humana
 
 Confirmar rubrica, enunciados e horário Blackboard. Identificar Pessoa B. Produzir apresentação e vídeo final de 1–2 minutos com os dois integrantes; manter vídeo de carga/HPA separado. Cada integrante publica seu próprio site e envia seu link ao Blackboard. Guardar confirmação. Esta documentação não constitui submissão.
