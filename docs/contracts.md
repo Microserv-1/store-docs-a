@@ -37,14 +37,14 @@ Método, caminho e query string são preservados. Todas essas rotas exigem token
 
 Para Compose, B fornece serviços `product`, `order`, `exchange` na rede `backend`, porta 8000, com suas dependências. Usar `docker compose -f compose.yaml -f compose.business.yaml up -d`. Para Kubernetes, namespace `store` e Services ClusterIP com esses nomes. Manter dados de cada serviço isolados.
 
-## Aceite conjunto pendente
+## Aceite conjunto (integrado com Pessoa B)
 
-1. Duas contas autenticadas pelo Gateway.
-2. Criar produto (201), ler (200), excluir (204).
-3. Criar pedido (201); produto inexistente (400).
-4. Listar só pedidos da conta; detalhe de outra conta (404).
-5. Persistir USD; converter resposta para BRL via Exchange Python real sem alterar armazenamento.
-6. Moeda não suportada (422); chamadas sem token rejeitadas.
-7. Documentar taxa sell/buy e arredondamento em Order.
+1. Duas contas autenticadas pelo Gateway — **Validado (`tests/smoke.py`)**.
+2. Criar produto (201), ler (200), busca por nome (`?name=`), excluir (204 -> 404) e Cache Redis (`X-Cache: MISS/HIT/BYPASS`) — **Validado (`store-product`)**.
+3. Criar pedido (201); produto inexistente (400) — **Validado (`store-order`)**.
+4. Listar só pedidos da conta; detalhe de outra conta (404) — **Validado (`store-order`)**.
+5. Persistir USD; converter resposta para BRL via Exchange Python real sem alterar armazenamento — **Validado (`store-order` + `store-exchange`)**.
+6. Moeda não suportada (422); chamadas sem token rejeitadas (401) — **Validado**.
+7. Mensageria assíncrona com RabbitMQ e consumidor idempotente por `order_id` — **Validado (`tests/messaging_bottleneck.py`)**.
 
-Esses cenários dependem de B; testes de proxy não os concluem.
+Documentação detalhada dos contratos e evidências da Pessoa B: [store-docs-b](https://microserv-1.github.io/store-docs-b/).
