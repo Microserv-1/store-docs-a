@@ -14,10 +14,10 @@ Registro inicial em 09/11/2026. Atualizar com resultados reais, sem confundir pr
 | Observabilidade e balanceamento | Métricas coletadas; Account escalou de 2 para 5 pods; carga alcançou quatro instâncias; recuperação de um pod passou |
 | Deploy EKS e RDS | Templates preparados; não executado |
 | Jenkins remoto | Jenkinsfiles preparados; não executado |
-| Product/Order/Exchange | Dependência da Pessoa B |
-| GitHub Pages | Fontes/workflow preparados; não publicado |
+| Product/Order/Exchange (Pessoa B) | Integrados e validados ponta a ponta em Compose e Kubernetes ([store-docs-b](https://microserv-1.github.io/store-docs-b/)) |
+| GitHub Pages | Workflows preparados e publicados em `store-docs-a` e `store-docs-b` |
 | Custos e SLA de fornecedor | Topologia, premissas e SLA oficiais documentados; cotação completa no Calculator pendente |
-| Revisão cruzada, vídeos e defesa | Pendentes |
+| Revisão cruzada, vídeos e defesa | Revisão cruzada de B sobre A concluída; vídeo de HPA dos 6 serviços gerado; vídeo final em dupla e defesa oral pendentes |
 
 ## Medições locais
 
