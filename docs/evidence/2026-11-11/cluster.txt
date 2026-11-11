@@ -1,0 +1,58 @@
+NAME                         READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS   IMAGES                           SELECTOR
+deployment.apps/account      2/2     2            2           2d5h    account      microserv-store/account:local    app=account
+deployment.apps/auth         2/2     2            2           2d5h    auth         microserv-store/auth:local       app=auth
+deployment.apps/exchange     2/2     2            2           4m23s   exchange     microserv-store/exchange:local   app=exchange
+deployment.apps/gateway      2/2     2            2           2d5h    gateway      microserv-store/gateway:local    app=gateway
+deployment.apps/grafana      1/1     1            1           2d5h    grafana      grafana/grafana:12.0.0           app=grafana
+deployment.apps/order        2/2     2            2           4m20s   order        microserv-store/order:local      app=order
+deployment.apps/order-db     1/1     1            1           5m7s    order-db     postgres:16-alpine               app=order-db
+deployment.apps/postgres     1/1     1            1           2d5h    postgres     postgres:16-alpine               app=postgres
+deployment.apps/product      2/2     2            2           4m40s   product      microserv-store/product:local    app=product
+deployment.apps/product-db   1/1     1            1           5m7s    product-db   postgres:16-alpine               app=product-db
+deployment.apps/prometheus   1/1     1            1           2d5h    prometheus   prom/prometheus:v3.4.0           app=prometheus
+deployment.apps/rabbitmq     1/1     1            1           5m7s    rabbitmq     rabbitmq:4-alpine                app=rabbitmq
+deployment.apps/redis        1/1     1            1           5m7s    redis        redis:7-alpine                   app=redis
+
+NAME                              READY   STATUS    RESTARTS         AGE     IP            NODE                            NOMINATED NODE   READINESS GATES
+pod/account-7b7fcdb495-msp9f      1/1     Running   6 (2m43s ago)    18h     10.244.0.6    microserv-store-control-plane   <none>           <none>
+pod/account-7b7fcdb495-z6bsq      1/1     Running   14 (2m57s ago)   2d5h    10.244.0.2    microserv-store-control-plane   <none>           <none>
+pod/auth-6765bf4c6-hr4z4          1/1     Running   5 (3m24s ago)    2d5h    10.244.0.5    microserv-store-control-plane   <none>           <none>
+pod/auth-6765bf4c6-lzmnh          1/1     Running   3 (3m24s ago)    20h     10.244.0.4    microserv-store-control-plane   <none>           <none>
+pod/exchange-9b7cb5695-lfkg5      1/1     Running   1 (3m24s ago)    4m23s   10.244.0.16   microserv-store-control-plane   <none>           <none>
+pod/exchange-9b7cb5695-mfdf9      1/1     Running   1 (3m24s ago)    4m23s   10.244.0.14   microserv-store-control-plane   <none>           <none>
+pod/gateway-5575f5cbd4-4lphd      1/1     Running   1 (3m24s ago)    4m26s   10.244.0.13   microserv-store-control-plane   <none>           <none>
+pod/gateway-5575f5cbd4-rswtf      1/1     Running   1 (3m24s ago)    4m29s   10.244.0.12   microserv-store-control-plane   <none>           <none>
+pod/grafana-57d696777f-qn2zk      1/1     Running   5 (3m24s ago)    2d5h    10.244.0.3    microserv-store-control-plane   <none>           <none>
+pod/order-64fc7c69d6-dwdxz        1/1     Running   3 (2m56s ago)    4m20s   10.244.0.15   microserv-store-control-plane   <none>           <none>
+pod/order-64fc7c69d6-h57gc        1/1     Running   3 (2m55s ago)    4m20s   10.244.0.17   microserv-store-control-plane   <none>           <none>
+pod/order-db-b8dc65dcc-rm2t2      1/1     Running   1 (3m24s ago)    5m7s    10.244.0.24   microserv-store-control-plane   <none>           <none>
+pod/postgres-56c465b887-44w8d     1/1     Running   5 (3m24s ago)    2d5h    10.244.0.23   microserv-store-control-plane   <none>           <none>
+pod/product-974fc6649-nh2zd       1/1     Running   2 (3m7s ago)     4m40s   10.244.0.9    microserv-store-control-plane   <none>           <none>
+pod/product-974fc6649-wfjvk       1/1     Running   3 (2m53s ago)    4m40s   10.244.0.10   microserv-store-control-plane   <none>           <none>
+pod/product-db-657fb6cc4f-w9fg9   1/1     Running   1 (3m24s ago)    5m7s    10.244.0.11   microserv-store-control-plane   <none>           <none>
+pod/prometheus-f45955b9d-pq696    1/1     Running   5 (3m24s ago)    2d5h    10.244.0.22   microserv-store-control-plane   <none>           <none>
+pod/rabbitmq-78b6dcfdb7-nfkrp     1/1     Running   1 (3m24s ago)    4m37s   10.244.0.19   microserv-store-control-plane   <none>           <none>
+pod/redis-b9cbf85d8-dxdfg         1/1     Running   1 (3m24s ago)    5m7s    10.244.0.8    microserv-store-control-plane   <none>           <none>
+
+NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE     SELECTOR
+service/account      ClusterIP   10.96.44.185    <none>        8000/TCP   2d5h    app=account
+service/auth         ClusterIP   10.96.239.150   <none>        8000/TCP   2d5h    app=auth
+service/exchange     ClusterIP   10.96.176.115   <none>        8000/TCP   4m23s   app=exchange
+service/gateway      ClusterIP   10.96.87.169    <none>        8000/TCP   2d5h    app=gateway
+service/grafana      ClusterIP   10.96.62.1      <none>        3000/TCP   2d5h    app=grafana
+service/order        ClusterIP   10.96.70.2      <none>        8000/TCP   4m20s   app=order
+service/order-db     ClusterIP   10.96.96.31     <none>        5432/TCP   5m7s    app=order-db
+service/postgres     ClusterIP   10.96.40.7      <none>        5432/TCP   2d5h    app=postgres
+service/product      ClusterIP   10.96.189.185   <none>        8000/TCP   4m40s   app=product
+service/product-db   ClusterIP   10.96.217.133   <none>        5432/TCP   5m7s    app=product-db
+service/prometheus   ClusterIP   10.96.218.154   <none>        9090/TCP   2d5h    app=prometheus
+service/rabbitmq     ClusterIP   10.96.142.164   <none>        5672/TCP   5m7s    app=rabbitmq
+service/redis        ClusterIP   10.96.223.247   <none>        6379/TCP   5m7s    app=redis
+
+NAME                                           REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/account    Deployment/account    cpu: 7%/60%    2         5         2          2d5h
+horizontalpodautoscaler.autoscaling/auth       Deployment/auth       cpu: 7%/60%    2         5         2          2d5h
+horizontalpodautoscaler.autoscaling/exchange   Deployment/exchange   cpu: 4%/60%    2         5         2          4m23s
+horizontalpodautoscaler.autoscaling/gateway    Deployment/gateway    cpu: 6%/60%    2         5         2          2d5h
+horizontalpodautoscaler.autoscaling/order      Deployment/order      cpu: 34%/60%   2         5         2          4m20s
+horizontalpodautoscaler.autoscaling/product    Deployment/product    cpu: 7%/60%    2         5         2          4m40s

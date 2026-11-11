@@ -1,5 +1,11 @@
 # Estado e evidências
 
+## Atualização de 11/11/2026
+
+Product, Order e Exchange de B foram incorporados como submódulos. O aceite de seis serviços, Redis/RabbitMQ reais e provedor externo passou em Compose. Detalhes, correções, reprodução e evidências no [relatório de integração](integration.md).
+
+## Registro histórico da Pessoa A — 09/11/2026
+
 Registro inicial em 09/11/2026. Atualizar com resultados reais, sem confundir preparação com implantação.
 
 | Entrega | Estado |

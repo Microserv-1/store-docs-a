@@ -1,0 +1,19 @@
+{
+  "source_commits": {
+    "account": "f93623a95f1c2787963af75c5e77065dc4143897",
+    "auth": "d803717bcf09943028f2727cfa97a9515eb17e8d",
+    "gateway": "a3944171d6d008cd0c88027ab2a963558ee7d1da",
+    "product": "0d47017ef0ff267a08fee6b5c7b6ae0be47d89fd",
+    "order": "39fa88b931d89ae88db8f6e91dde38c1fa211efe",
+    "exchange": "e353943bdcfabddb475e799786005f275d24b086"
+  },
+  "runtime_images": {
+    "account": "sha256:8d72a806043f726d231aa8ccfcc1d01fc1c59e9c43e5fbb1937c3122d9afc6da",
+    "auth": "sha256:e0616cbbe221a11ffc4afe4c81e070d2580a1a0607bb54701a3f98e3754d2a9f",
+    "gateway": "sha256:77c3adcdf35088d7699f2872025aec8d54891570bb0f16c63e4ea739bf2258ee",
+    "product": "sha256:1348fca8de4c26e308689133362259e6aeb306e6242cae4931d6492652bba8d8",
+    "order": "sha256:bba7bbffda88cd8e0c437d164b435c0b790924da77b87a5a3c6bb2dfc504fe0a",
+    "exchange": "sha256:4dcff9b6d7fbbef5240ae8aff18775f68c6b221c0f9f48ce3e14146e81101d52"
+  },
+  "note": "Local images are identified by digest. Registry publication and Jenkins deployment have not been claimed."
+}

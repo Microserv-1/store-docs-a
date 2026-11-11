@@ -37,7 +37,9 @@ Método, caminho e query string são preservados. Todas essas rotas exigem token
 
 Para Compose, B fornece serviços `product`, `order`, `exchange` na rede `backend`, porta 8000, com suas dependências. Usar `docker compose -f compose.yaml -f compose.business.yaml up -d`. Para Kubernetes, namespace `store` e Services ClusterIP com esses nomes. Manter dados de cada serviço isolados.
 
-## Aceite conjunto pendente
+## Aceite integrado automatizado
+
+Os cenários abaixo foram implementados em `tests/business_integration.py` e executados com serviços reais. O relatório de [integração](integration.md) distingue isso da revisão e defesa humanas, que continuam necessárias.
 
 1. Duas contas autenticadas pelo Gateway.
 2. Criar produto (201), ler (200), excluir (204).
@@ -47,4 +49,4 @@ Para Compose, B fornece serviços `product`, `order`, `exchange` na rede `backen
 6. Moeda não suportada (422); chamadas sem token rejeitadas.
 7. Documentar taxa sell/buy e arredondamento em Order.
 
-Esses cenários dependem de B; testes de proxy não os concluem.
+Na validação de integração, esses cenários usam os serviços reais de B; não são apenas testes de proxy.

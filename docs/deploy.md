@@ -16,6 +16,8 @@ Gateway em `localhost:8080`, Prometheus em `localhost:9090` e Grafana em `localh
 
 ## Kubernetes local
 
+Para a aplicação completa com as entregas de B, usar `compose.business.yaml`, os três submódulos adicionais e `scripts/deploy-local.ps1 -Business`. Consulte a [integração dos seis serviços](integration.md) para comandos, credenciais por serviço e resultados. `scripts/render-deploy.py` também aceita `--product-image`, `--order-image` e `--exchange-image` juntos, com tags SHA completas.
+
 Construir as imagens com Compose. Pode usar Minikube ou Kind. Kind é uma alternativa local para validar os manifests; se a avaliação exigir Minikube nominalmente, repetir nesse ambiente.
 
 ```powershell
