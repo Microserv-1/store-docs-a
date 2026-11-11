@@ -2,6 +2,8 @@
 
 ## Atualização de 11/11/2026
 
+**Estado atual:** rollback de autoria em Product e Order concluído; aguardando a Pessoa B implementar/publicar as correções do [handoff](https://github.com/Microserv-1/store-root/blob/main/HANDOFF-PESSOA-B.md). Os aceites abaixo são históricos, anteriores ao rollback. Revalidar os novos SHAs antes de Jenkins.
+
 Product, Order e Exchange de B foram incorporados como submódulos. O aceite de seis serviços, Redis/RabbitMQ reais e provedor externo passou em Compose. Detalhes, correções, reprodução e evidências no [relatório de integração](integration.md).
 
 ## Registro histórico da Pessoa A — 09/11/2026

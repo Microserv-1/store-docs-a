@@ -1,5 +1,7 @@
 # Integração dos seis serviços — 11/11/2026
 
+> **Atualização de autoria:** após a validação descrita abaixo, os commits de Yuri em Product e Order foram retirados do `main` a pedido do integrante. Os submódulos atuais apontam para os commits originais de B. A implementação corrigida deve ser refeita e publicada por B antes de nova validação. O relatório abaixo é histórico e não valida os branches restaurados. O Compose foi parado, sem apagar volumes. O roteiro completo está em [HANDOFF-PESSOA-B.md no repositório principal](https://github.com/Microserv-1/store-root/blob/main/HANDOFF-PESSOA-B.md). A execução real do Jenkins fica para depois dessa etapa.
+
 As entregas de `gustavolafz` foram incorporadas ao `store-root` como submódulos de Product, Order e Exchange. Os commits originais e a autoria de B foram preservados. Os ajustes de integração desta rodada têm autoria Git de Yuri Henrique e assistência de IA registrada.
 
 ## Validação realizada
