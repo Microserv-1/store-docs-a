@@ -1,0 +1,77 @@
+{
+  "utc": "2026-11-12T22:11:58Z",
+  "base_url": "http://127.0.0.1:8080",
+  "scenario": "products",
+  "users": 2,
+  "requested_duration_s": 15,
+  "actual_duration_s": 15.139,
+  "model": "closed-loop; pause after each business iteration",
+  "pause_ms": 100,
+  "cache": "enabled",
+  "max_orders_created": 40,
+  "commits": {
+    "account": "7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad",
+    "auth": "d803717bcf09943028f2727cfa97a9515eb17e8d",
+    "gateway": "a3944171d6d008cd0c88027ab2a963558ee7d1da",
+    "product": "c40bec1c96f786d11c89c021f7fb891af2bd048c",
+    "order": "a97fe5583e8e0e3615aab062a570bd2263b57089",
+    "exchange": "ea580c5b6e8c6eb6f552ac56390764a2f215c76f"
+  },
+  "script_sha256": "7f5b0abbcd424968ceeeda490352e530697f59c40e7b857bda2f366980983f69",
+  "overall": {
+    "requests": 480,
+    "requests_per_second": 31.706,
+    "latency_ms": {
+      "p50": 5.633799999486655,
+      "p95": 19.921699997212272,
+      "p99": 29.973100005008746
+    },
+    "error_ratio": 0.0,
+    "status_counts": {
+      "200": 480
+    },
+    "problems": {},
+    "cache_headers": {
+      "HIT": 480
+    }
+  },
+  "operations": {
+    "GET product": {
+      "requests": 240,
+      "requests_per_second": 15.853,
+      "latency_ms": {
+        "p50": 6.011899997247383,
+        "p95": 19.921699997212272,
+        "p99": 22.269699999014847
+      },
+      "error_ratio": 0.0,
+      "status_counts": {
+        "200": 240
+      },
+      "problems": {},
+      "cache_headers": {
+        "HIT": 240
+      }
+    },
+    "GET products": {
+      "requests": 240,
+      "requests_per_second": 15.853,
+      "latency_ms": {
+        "p50": 5.321099997672718,
+        "p95": 16.872600004717242,
+        "p99": 30.12470000248868
+      },
+      "error_ratio": 0.0,
+      "status_counts": {
+        "200": 240
+      },
+      "problems": {},
+      "cache_headers": {
+        "HIT": 240
+      }
+    }
+  },
+  "cluster_before": null,
+  "cluster_after": null,
+  "limits": "Short local runs do not prove EKS performance or an SLA. Accounts/orders remain as test data; only the product fixture is removed."
+}

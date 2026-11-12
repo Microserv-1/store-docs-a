@@ -2,7 +2,9 @@
 
 ## Estimativa de custos
 
-Configuração proposta em 09/11/2026: us-east-1; EKS; dois t3.medium, discos de 20 GiB; PostgreSQL RDS db.t4g.micro single-AZ com 20 GiB gp3; NAT único; balanceador; logs de controle. É uma hipótese de infraestrutura, ainda não uma cotação.
+Configuração revista em 12/11/2026: us-east-1; EKS 1.35; dois t3.large, discos de 20 GiB; PostgreSQL RDS 16 db.t4g.small single-AZ com 20 GiB gp3 e três bancos/usuários isolados; RabbitMQ com EBS gp3 de 2 GiB; Redis reconstruível; NAT único; ALB HTTPS; logs de controle. É uma hipótese de infraestrutura, ainda não uma cotação. Incluir o host Jenkins quando dedicado. A revisão substitui as classes menores inicialmente propostas em 09/11.
+
+O renderizador da [preparação EKS](eks-preparation.md) gera `artifacts/eks/cost-inputs.json`, com quantidades, região e janelas de 72 e 730 horas. O arquivo não inventa preços nem total: registrar as tarifas/consumo atuais e o link/exportação do Calculator antes do provisionamento. Há custo de IPv4 público e podem existir créditos CPU excedentes em instâncias T3, além de NAT, LCU, tráfego, logs e retenções.
 
 No [AWS Pricing Calculator](https://calculator.aws/), registrar EKS, EC2 e créditos CPU quando aplicáveis, EBS, RDS, backups/snapshots, Load Balancer, NAT por hora e processamento, tráfego e CloudWatch. Registrar data, região, volume de dados e link/exportação da estimativa. Separar janela acadêmica (horas efetivas) de operação mensal (730 horas como convenção de simulação). Não inventar preço ou valor total.
 

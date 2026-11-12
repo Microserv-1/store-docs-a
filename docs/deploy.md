@@ -47,20 +47,9 @@ Recuperação: identificar tag SHA anterior e executar `kubectl -n store set ima
 
 ## Preparação EKS
 
-Pré-requisitos externos: AWS CLI, eksctl, kubectl, credenciais IAM, quotas, orçamento, acesso ao registry e revisão da topologia. `infra/aws/eksctl.yaml` propõe `us-east-1`, duas zonas, nós privados, NAT único e dois nós t3.medium. Revisar versão Kubernetes suportada e fixá-la antes de criar o cluster. HPA de pods não cria nós; o limite do nodegroup, sozinho, não instala Cluster Autoscaler.
+O roteiro completo e atualizado está em [Preparação do deploy EKS](eks-preparation.md). Ele cobre os seis serviços, bancos isolados no RDS, dependências, HTTPS, IAM/RBAC, pipeline GitHub, preflight, rollback e encerramento.
 
-1. Revisar custos e identidade: `aws sts get-caller-identity`.
-2. Revisar configuração: `eksctl create cluster --config-file infra/aws/eksctl.yaml --dry-run`.
-3. Criar cluster somente na janela aprovada: `eksctl create cluster --config-file infra/aws/eksctl.yaml`.
-4. Obter VPC, duas sub-redes privadas e security group dos workers a partir dos outputs do cluster. Aplicar `infra/aws/rds.yaml` com esses parâmetros e senha hex aleatória de 32+ caracteres; fornecer senha por arquivo local protegido/gerenciador de segredos, nunca por argumento visível no histórico.
-5. Aguardar RDS. Configurar `DATABASE_URL=postgresql+psycopg://store:<senha>@<endpoint>:5432/accounts?sslmode=require` em arquivo de ambiente ignorado pelo Git. RDS não é público; regra de entrada aceita apenas workers.
-6. Criar namespace. Executar `python scripts/k8s-secrets.py --context <contexto-eks> --env-file <arquivo-local>`.
-7. Publicar imagens pelo Jenkins, aplicar manifests com as imagens SHA. Não usar imagens `:local` no EKS.
-8. Instalar Metrics Server compatível com EKS; validar métricas. Aplicar monitoramento. Integrar os três serviços de B.
-9. Expor apenas Gateway com `infra/k8s/gateway-public.yaml`. O arquivo é uma base HTTP: **configurar certificado/TLS no balanceador antes de enviar credenciais por rede pública**. A configuração final depende de domínio, ACM e controlador de balanceador escolhidos.
-10. Rodar aceite funcional, carga, HPA e teste de recuperação. Guardar evidências reais.
-
-Não foi executado provisionamento AWS durante a preparação local. A validação AWS dos templates, o Jenkins instalado e o pipeline remoto precisam ser comprovados no ambiente de destino.
+A preparação local foi testada; nenhum provisionamento AWS foi executado. Preencher os dados reais da conta/destino e validar preços antes de criar recursos.
 
 ## Encerramento
 

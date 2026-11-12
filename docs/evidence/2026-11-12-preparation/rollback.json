@@ -1,0 +1,11 @@
+{
+  "context": "kind-microserv-store",
+  "application_overlay": "applied and all six rollouts completed",
+  "acceptance_after_overlay": 40,
+  "rollback": "previous application resources restored; all six rollouts completed",
+  "smoke_after_rollback": "PASS",
+  "new_resources_retained": [
+    "ConfigMap/store-rds-ca"
+  ],
+  "limits": "Local database connections; RDS TLS and AWS controllers not exercised"
+}

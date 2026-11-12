@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-12T22:17:28Z",
+  "example_only": true,
+  "resource_count": 46,
+  "offline_checks": "PASS",
+  "local_server_dry_run": "PASS (Kind API schema only; AWS controllers/storage were not executed)"
+}

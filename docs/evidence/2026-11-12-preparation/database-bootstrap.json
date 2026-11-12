@@ -1,0 +1,8 @@
+{
+  "runs": 2,
+  "ddl_dml_roles": 3,
+  "cross_database_denials_per_run": 6,
+  "idempotent": true,
+  "environment": "isolated local PostgreSQL 16; SSL disabled only here",
+  "cloud_tls": "verify-full prepared; RDS TLS not executed"
+}

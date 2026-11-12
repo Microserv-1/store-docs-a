@@ -1,0 +1,8 @@
+{
+  "context": "kind-microserv-store",
+  "namespace": "store-eks-prep-02ed9d31",
+  "storage_class": "standard (Kind local-path)",
+  "rabbitmq": "confirmed durable message recovered after pod replacement; PVC UID unchanged",
+  "redis": "ephemeral cache cold-start verified after pod replacement",
+  "limits": "Does not validate AWS EBS driver, AZ rescheduling, snapshots or multi-node broker HA."
+}

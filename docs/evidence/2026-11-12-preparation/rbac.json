@@ -1,0 +1,38 @@
+[
+  {
+    "verb": "patch",
+    "resource": "deployments.apps",
+    "namespace": "store",
+    "allowed": true
+  },
+  {
+    "verb": "create",
+    "resource": "configmaps",
+    "namespace": "store",
+    "allowed": true
+  },
+  {
+    "verb": "get",
+    "resource": "secrets",
+    "namespace": "store",
+    "allowed": false
+  },
+  {
+    "verb": "create",
+    "resource": "deployments.apps",
+    "namespace": "default",
+    "allowed": false
+  },
+  {
+    "verb": "create",
+    "resource": "clusterroles.rbac.authorization.k8s.io",
+    "namespace": "store",
+    "allowed": false
+  },
+  {
+    "verb": "delete",
+    "resource": "persistentvolumeclaims",
+    "namespace": "store",
+    "allowed": false
+  }
+]

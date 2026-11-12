@@ -17,6 +17,7 @@ nav:
   - Contratos e integração: contracts.md
   - Execução e deploy: deploy.md
   - Jenkins e registro: jenkins.md
+  - Preparação EKS completa: eks-preparation.md
   - Gargalos e testes: bottlenecks.md
   - Custos, PaaS e SLA: operations.md
   - Decisões e uso de IA: decisions.md

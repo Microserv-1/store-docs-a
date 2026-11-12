@@ -1,5 +1,36 @@
 # Estado e evidências
 
+## Preparação completa para EKS — 12/11/2026
+
+A preparação pendente foi implementada e validada localmente. O [procedimento completo](eks-preparation.md) descreve geração de parâmetros, isolamento do RDS, dependências, HTTPS, IAM/RBAC, Jenkins com SCM real, preflight, aplicação, rollback, custos e encerramento. Nenhum recurso AWS pago foi criado.
+
+| Verificação | Resultado e evidência |
+|---|---|
+| Configuração EKS 1.35 | Passou no schema oficial eksctl; [validação e versões das ferramentas](evidence/2026-11-12-preparation/validation.json) |
+| Templates RDS/IAM | Sem erros no cfn-lint 1.60.1; W1011 mantido e documentado para o parâmetro NoEcho |
+| Recursos renderizados | 46 recursos passaram no dry-run da API Kind; [preflight](evidence/2026-11-12-preparation/preflight.json) |
+| Bancos e usuários | Bootstrap executado duas vezes no PostgreSQL 16 isolado; DDL/DML e seis bloqueios cruzados por execução; [evidência](evidence/2026-11-12-preparation/database-bootstrap.json) |
+| Segredos | Credencial mestre separada das três URLs de aplicação com verify-full; [verificação](evidence/2026-11-12-preparation/secret-separation.json) |
+| Permissões do CI | Atualização de aplicação permitida; Secrets, outro namespace, administração e exclusão de PVC negados; [RBAC](evidence/2026-11-12-preparation/rbac.json) |
+| Configuração adicional da nuvem | Seis rollouts saudáveis e 40 testes passaram no Kind; [aceite](evidence/2026-11-12-preparation/overlay-acceptance.json) |
+| Rollback | Estado anterior dos seis serviços restaurado; rollouts e smoke passaram; [registro](evidence/2026-11-12-preparation/rollback.json) |
+| Fila e cache | Mensagem durável sobreviveu à substituição do pod RabbitMQ com o mesmo PVC; Redis voltou vazio e disponível; [teste isolado](evidence/2026-11-12-preparation/dependencies.json) |
+| Jenkins GitHub real | `store-eks-release` nº 2 passou com raiz e submódulos acessíveis, sete testes de proteção e deploy AWS desabilitado; [resultado](evidence/2026-11-12-preparation/jenkins.json) |
+
+Os testes de bancos usaram PostgreSQL local sem TLS; o teste de volume usou Kind/standard. A montagem das CAs e os manifests foram exercitados no Kind, mas o RDS/TLS real, EBS CSI, ALB/ACM, identidade IAM do agente, DNS e preços finais permanecem verificações do destino AWS. O Jenkins local autenticou no GitHub; um agente EC2 ainda não foi provisionado.
+
+### Carga de negócio adicionada
+
+Compose, duas contas concorrentes, 15 segundos por cenário e pausa de 100 ms por iteração. O relógio usado para latência é perf_counter, com resolução adequada no Windows. Há validação dos payloads, criação limitada de pedidos e rastreio dos seis commits e do hash do script.
+
+| Cenário | Requisições | req/s | p95 | Erros |
+|---|---:|---:|---:|---:|
+| Produtos, cache aquecido | 480 | 31,71 | 19,92 ms | 0 |
+| Produtos, bypass | 468 | 31,14 | 27,66 ms | 0 |
+| Produtos, pedidos USD/BRL e câmbio | 870 | 57,87 | 32,94 ms | 0 |
+
+As rodadas são curtas e sequenciais, sujeitas ao ruído do ambiente local; não estabelecem um ganho geral nem capacidade/SLA do EKS. Evidências: [cache](evidence/2026-11-12-preparation/load-cache.json), [bypass](evidence/2026-11-12-preparation/load-bypass.json) e [negócio completo](evidence/2026-11-12-preparation/load-business.json). Rodar níveis progressivos e registrar réplicas/métricas no destino antes de concluir sobre capacidade.
+
 ## Revalidação de 12/11/2026
 
 A Pessoa B publicou as correções com sua própria autoria. O aceite Compose passou novamente nos 40 testes de negócio com Redis, RabbitMQ e AwesomeAPI reais, além do smoke de identidade. Os registros abaixo de 11/11 são históricos.

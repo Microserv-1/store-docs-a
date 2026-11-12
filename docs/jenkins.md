@@ -1,5 +1,7 @@
 # Jenkins local e imagens públicas
 
+**Estado atual:** o Jenkins local também foi configurado com SCM GitHub real, por `scripts/jenkins-github.py --from-gh`. Os jobs `github-store-*` usam os repositórios remotos e `store-eks-release` usa `Jenkinsfile.eks`. O procedimento para AWS e os resultados dessa preparação estão em [Preparação EKS](eks-preparation.md) e [Estado e evidências](status.md). Os mirrors descritos abaixo registram a primeira validação e são um modo alternativo de reprodução.
+
 Validação em 12/11/2026, com Jenkins real em Docker. O ambiente usa um executor, label `docker-kubectl`, Docker CLI/Compose, Python 3 e kubectl. Inclui Git, Pipeline, credentials-binding, JUnit e Timestamper.
 
 ## Reproduzir o controlador
@@ -11,10 +13,11 @@ python scripts/setup-jenkins-local.py
 docker compose --env-file .env.jenkins -f compose.jenkins.yaml up --build -d
 python scripts/jenkins-local.py wait
 python scripts/jenkins-local.py lint
-python scripts/jenkins-local.py mirrors
 ```
 
 A interface fica em `http://127.0.0.1:8085`, usuário `admin`; a senha aleatória está no arquivo local ignorado `.env.jenkins`. Não publicar esse arquivo. O volume preserva jobs e credenciais. O controlador local usa root e o socket Docker para executar os exercícios: acesso administrativo ao Jenkins equivale a controlar o Docker local. Para um Jenkins compartilhado, usar agentes dedicados e acesso restrito.
+
+Para reproduzir o modo de snapshots, executar `python scripts/jenkins-local.py mirrors`. Para o modo atual com GitHub real, executar `python scripts/jenkins-github.py --from-gh` com a conta correta já autenticada no GitHub CLI; não combinar os dois modos, pois os redirects de mirrors substituem URLs remotas.
 
 Os mirrors locais contêm os commits exatos do checkout, sem exportar token GitHub para o Jenkins. O checkout recursivo local não comprova a autenticação do futuro Jenkins remoto no GitHub. Nesse ambiente, substituir `github-read` por uma credencial com acesso aos submódulos privados e configurar SCM remoto e webhook.
 

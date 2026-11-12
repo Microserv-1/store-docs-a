@@ -1,0 +1,32 @@
+{
+  "utc": "2026-11-12T22:19:02Z",
+  "source_commit": "78a438b80bd4ee5b1c9864f43c4d71561528642e",
+  "eksctl_schema": {
+    "result": "PASS",
+    "source": "https://raw.githubusercontent.com/eksctl-io/eksctl/main/pkg/apis/eksctl.io/v1alpha5/assets/schema.json",
+    "sha256": "a6b846931603a54fc7767d6faf8af1232c6004f37e2732dfe32a1d348fd0f0ec"
+  },
+  "cloudformation": {
+    "result": "PASS: no errors; one documented warning",
+    "cfn_lint": "1.60.1",
+    "warning": "W1011 Use dynamic references over parameters for secrets\ninfra\\aws\\rds.yaml:50:7"
+  },
+  "guards": {
+    "result": "PASS",
+    "count": 7,
+    "output": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.025s\n\nOK"
+  },
+  "images": {
+    "microserv-store/jenkins-validation:local": {
+      "image_id": "sha256:4891bdfffc7f95dc44a6e6ce3e0e8efd6165a660f5094e77e6e383d95861a351",
+      "aws_cli": "aws-cli/2.39.7 Python/3.14.8 Linux/6.6.87.2-microsoft-standard-WSL2 docker/x86_64.debian.13",
+      "kubectl": "v1.32.2"
+    },
+    "microserv-store/jenkins-eks:local": {
+      "image_id": "sha256:99bb3e8d461a9b3c219c04dea2c3c9fe6942feafa9e4559292439f591bbd4629",
+      "aws_cli": "aws-cli/2.39.7 Python/3.14.8 Linux/6.6.87.2-microsoft-standard-WSL2 docker/x86_64.debian.13",
+      "kubectl": "v1.35.0"
+    }
+  },
+  "limits": "Offline/schema/local runtime validation only. AWS provisioning, target IAM, EBS, ALB, ACM, RDS TLS and final regional prices not executed."
+}

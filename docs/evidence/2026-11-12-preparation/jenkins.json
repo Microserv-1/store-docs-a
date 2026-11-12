@@ -1,0 +1,12 @@
+{
+  "number": 2,
+  "result": "SUCCESS",
+  "duration": 8281,
+  "url": "http://127.0.0.1:8085/job/store-eks-release/2/",
+  "scm": "Real GitHub HTTPS; root and seven submodules; no local URL redirects",
+  "source_commit": "78a438b80bd4ee5b1c9864f43c4d71561528642e",
+  "deploy_eks": false,
+  "aws_resources_created": false,
+  "guard_tests": 7,
+  "initial_fresh_checkout_build": 1
+}

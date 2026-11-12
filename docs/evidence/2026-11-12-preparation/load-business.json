@@ -1,0 +1,138 @@
+{
+  "utc": "2026-11-12T22:12:30Z",
+  "base_url": "http://127.0.0.1:8080",
+  "scenario": "business",
+  "users": 2,
+  "requested_duration_s": 15,
+  "actual_duration_s": 15.033,
+  "model": "closed-loop; pause after each business iteration",
+  "pause_ms": 100,
+  "cache": "enabled",
+  "max_orders_created": 10,
+  "commits": {
+    "account": "7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad",
+    "auth": "d803717bcf09943028f2727cfa97a9515eb17e8d",
+    "gateway": "a3944171d6d008cd0c88027ab2a963558ee7d1da",
+    "product": "c40bec1c96f786d11c89c021f7fb891af2bd048c",
+    "order": "a97fe5583e8e0e3615aab062a570bd2263b57089",
+    "exchange": "ea580c5b6e8c6eb6f552ac56390764a2f215c76f"
+  },
+  "script_sha256": "7f5b0abbcd424968ceeeda490352e530697f59c40e7b857bda2f366980983f69",
+  "overall": {
+    "requests": 870,
+    "requests_per_second": 57.874,
+    "latency_ms": {
+      "p50": 7.713800005149096,
+      "p95": 32.9414999941946,
+      "p99": 72.35969999601366
+    },
+    "error_ratio": 0.0,
+    "status_counts": {
+      "200": 860,
+      "201": 10
+    },
+    "problems": {},
+    "cache_headers": {
+      "HIT": 344
+    }
+  },
+  "operations": {
+    "GET exchange": {
+      "requests": 172,
+      "requests_per_second": 11.442,
+      "latency_ms": {
+        "p50": 5.087699995783623,
+        "p95": 22.417200001655146,
+        "p99": 27.615599996352103
+      },
+      "error_ratio": 0.0,
+      "status_counts": {
+        "200": 172
+      },
+      "problems": {},
+      "cache_headers": {}
+    },
+    "GET order BRL": {
+      "requests": 172,
+      "requests_per_second": 11.442,
+      "latency_ms": {
+        "p50": 18.839999996998813,
+        "p95": 46.24060000060126,
+        "p99": 169.26679999596672
+      },
+      "error_ratio": 0.0,
+      "status_counts": {
+        "200": 172
+      },
+      "problems": {},
+      "cache_headers": {}
+    },
+    "GET order USD": {
+      "requests": 172,
+      "requests_per_second": 11.442,
+      "latency_ms": {
+        "p50": 10.037200001534075,
+        "p95": 28.360299998894334,
+        "p99": 32.707899998058565
+      },
+      "error_ratio": 0.0,
+      "status_counts": {
+        "200": 172
+      },
+      "problems": {},
+      "cache_headers": {}
+    },
+    "GET product": {
+      "requests": 172,
+      "requests_per_second": 11.442,
+      "latency_ms": {
+        "p50": 6.047499999112915,
+        "p95": 12.854299995524343,
+        "p99": 20.702899993921164
+      },
+      "error_ratio": 0.0,
+      "status_counts": {
+        "200": 172
+      },
+      "problems": {},
+      "cache_headers": {
+        "HIT": 172
+      }
+    },
+    "GET products": {
+      "requests": 172,
+      "requests_per_second": 11.442,
+      "latency_ms": {
+        "p50": 5.8129999961238354,
+        "p95": 29.38710000307765,
+        "p99": 30.14670000266051
+      },
+      "error_ratio": 0.0,
+      "status_counts": {
+        "200": 172
+      },
+      "problems": {},
+      "cache_headers": {
+        "HIT": 172
+      }
+    },
+    "POST order": {
+      "requests": 10,
+      "requests_per_second": 0.665,
+      "latency_ms": {
+        "p50": 70.5822999952943,
+        "p95": 95.01969999837456,
+        "p99": 95.01969999837456
+      },
+      "error_ratio": 0.0,
+      "status_counts": {
+        "201": 10
+      },
+      "problems": {},
+      "cache_headers": {}
+    }
+  },
+  "cluster_before": null,
+  "cluster_after": null,
+  "limits": "Short local runs do not prove EKS performance or an SLA. Accounts/orders remain as test data; only the product fixture is removed."
+}
