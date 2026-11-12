@@ -1,0 +1,124 @@
+{
+  "context": "kind-microserv-store",
+  "namespace": "store",
+  "deployments": [
+    {
+      "name": "account",
+      "images": [
+        "uyris/store-account:7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad"
+      ],
+      "desired": 2,
+      "ready": 2,
+      "updated": 2
+    },
+    {
+      "name": "auth",
+      "images": [
+        "uyris/store-auth:d803717bcf09943028f2727cfa97a9515eb17e8d"
+      ],
+      "desired": 2,
+      "ready": 2,
+      "updated": 2
+    },
+    {
+      "name": "exchange",
+      "images": [
+        "uyris/store-exchange:ea580c5b6e8c6eb6f552ac56390764a2f215c76f"
+      ],
+      "desired": 2,
+      "ready": 2,
+      "updated": 2
+    },
+    {
+      "name": "gateway",
+      "images": [
+        "uyris/store-gateway:a3944171d6d008cd0c88027ab2a963558ee7d1da"
+      ],
+      "desired": 2,
+      "ready": 2,
+      "updated": 2
+    },
+    {
+      "name": "grafana",
+      "images": [
+        "grafana/grafana:12.0.0"
+      ],
+      "desired": 1,
+      "ready": 1,
+      "updated": 1
+    },
+    {
+      "name": "order",
+      "images": [
+        "uyris/store-order:a97fe5583e8e0e3615aab062a570bd2263b57089"
+      ],
+      "desired": 5,
+      "ready": 5,
+      "updated": 5
+    },
+    {
+      "name": "order-db",
+      "images": [
+        "postgres:16-alpine"
+      ],
+      "desired": 1,
+      "ready": 1,
+      "updated": 1
+    },
+    {
+      "name": "postgres",
+      "images": [
+        "postgres:16-alpine"
+      ],
+      "desired": 1,
+      "ready": 1,
+      "updated": 1
+    },
+    {
+      "name": "product",
+      "images": [
+        "uyris/store-product:c40bec1c96f786d11c89c021f7fb891af2bd048c"
+      ],
+      "desired": 2,
+      "ready": 2,
+      "updated": 2
+    },
+    {
+      "name": "product-db",
+      "images": [
+        "postgres:16-alpine"
+      ],
+      "desired": 1,
+      "ready": 1,
+      "updated": 1
+    },
+    {
+      "name": "prometheus",
+      "images": [
+        "prom/prometheus:v3.4.0"
+      ],
+      "desired": 1,
+      "ready": 1,
+      "updated": 1
+    },
+    {
+      "name": "rabbitmq",
+      "images": [
+        "rabbitmq:4-alpine"
+      ],
+      "desired": 1,
+      "ready": 1,
+      "updated": 1
+    },
+    {
+      "name": "redis",
+      "images": [
+        "redis:7-alpine"
+      ],
+      "desired": 1,
+      "ready": 1,
+      "updated": 1
+    }
+  ],
+  "note": "Local cluster only; no AWS/EKS deployment claimed."
+}

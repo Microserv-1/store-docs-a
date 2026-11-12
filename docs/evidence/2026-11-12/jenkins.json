@@ -1,0 +1,83 @@
+{
+  "root": {
+    "number": 3,
+    "building": false,
+    "result": "SUCCESS",
+    "duration": 130538,
+    "url": "http://127.0.0.1:8085/job/store-root/3/",
+    "commit": "26c5a84d64a5aa50cddb37f34c11721da8b578f9",
+    "published_image_digest": null,
+    "rollout_confirmed": false
+  },
+  "account": {
+    "number": 2,
+    "building": false,
+    "result": "SUCCESS",
+    "duration": 487788,
+    "url": "http://127.0.0.1:8085/job/store-account/2/",
+    "commit": "7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad",
+    "published_image_digest": "sha256:1c37183eb58d92d8c055769e54081a9a87c6c1278d1479e003aaf6bea201b3ac",
+    "rollout_confirmed": true
+  },
+  "auth": {
+    "number": 2,
+    "building": false,
+    "result": "SUCCESS",
+    "duration": 740837,
+    "url": "http://127.0.0.1:8085/job/store-auth/2/",
+    "commit": "d803717bcf09943028f2727cfa97a9515eb17e8d",
+    "published_image_digest": "sha256:33baabf8067ad04eb0a929a901f563b887f4ec5ed03f994054f9c628555a4845",
+    "rollout_confirmed": true
+  },
+  "gateway": {
+    "number": 2,
+    "building": false,
+    "result": "SUCCESS",
+    "duration": 938418,
+    "url": "http://127.0.0.1:8085/job/store-gateway/2/",
+    "commit": "a3944171d6d008cd0c88027ab2a963558ee7d1da",
+    "published_image_digest": "sha256:4103fffbfcb05ea7d3a79134e16ae525f504aa5b0c3e8a7931e4ce72f9f41895",
+    "rollout_confirmed": true
+  },
+  "product": {
+    "number": 2,
+    "building": false,
+    "result": "SUCCESS",
+    "duration": 183627,
+    "url": "http://127.0.0.1:8085/job/store-product/2/",
+    "commit": "c40bec1c96f786d11c89c021f7fb891af2bd048c",
+    "published_image_digest": "sha256:d2d2b48ff847808aced829d39ebf860053a1a7e67e594b2887798dafa9afc204",
+    "rollout_confirmed": true
+  },
+  "order": {
+    "number": 2,
+    "building": false,
+    "result": "SUCCESS",
+    "duration": 290558,
+    "url": "http://127.0.0.1:8085/job/store-order/2/",
+    "commit": "a97fe5583e8e0e3615aab062a570bd2263b57089",
+    "published_image_digest": "sha256:6052e6677075acf367b464213ccec491b119c740c536ecd2c6304a59f2b7e788",
+    "rollout_confirmed": true
+  },
+  "exchange": {
+    "number": 2,
+    "building": false,
+    "result": "SUCCESS",
+    "duration": 360751,
+    "url": "http://127.0.0.1:8085/job/store-exchange/2/",
+    "commit": "ea580c5b6e8c6eb6f552ac56390764a2f215c76f",
+    "published_image_digest": "sha256:3234706c2a9a58f5169d54b6e4a18e58fc1a9d22c401b470df62ce68fa3fb1af",
+    "rollout_confirmed": true
+  },
+  "negative": {
+    "number": 1,
+    "building": false,
+    "result": "FAILURE",
+    "duration": 416235,
+    "url": "http://127.0.0.1:8085/job/store-negative/1/",
+    "commit": null,
+    "published_image_digest": null,
+    "rollout_confirmed": false,
+    "expected_failure_confirmed": true
+  }
+}

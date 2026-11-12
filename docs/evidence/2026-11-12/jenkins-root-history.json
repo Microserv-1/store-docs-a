@@ -1,0 +1,26 @@
+{
+  "_class": "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+  "builds": [
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+      "building": false,
+      "number": 3,
+      "result": "SUCCESS",
+      "url": "http://127.0.0.1:8085/job/store-root/3/"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+      "building": false,
+      "number": 2,
+      "result": "FAILURE",
+      "url": "http://127.0.0.1:8085/job/store-root/2/"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+      "building": false,
+      "number": 1,
+      "result": "SUCCESS",
+      "url": "http://127.0.0.1:8085/job/store-root/1/"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "repository": "uyris/store-account",
+    "tag": "7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad",
+    "anonymous_access": true,
+    "digest": "sha256:1c37183eb58d92d8c055769e54081a9a87c6c1278d1479e003aaf6bea201b3ac",
+    "images": [
+      {
+        "architecture": "amd64",
+        "digest": "sha256:41b84f81948f21b0f9b912b5d7d1e4b9239592281b5f23c02b0c4995dbed9ef4"
+      },
+      {
+        "architecture": "unknown",
+        "digest": "sha256:a51e9da78156d2a19dc520a6528f951a5b23533eefb2e5b117cb2210ad9d8c21"
+      }
+    ]
+  },
+  {
+    "repository": "uyris/store-auth",
+    "tag": "d803717bcf09943028f2727cfa97a9515eb17e8d",
+    "anonymous_access": true,
+    "digest": "sha256:33baabf8067ad04eb0a929a901f563b887f4ec5ed03f994054f9c628555a4845",
+    "images": [
+      {
+        "architecture": "amd64",
+        "digest": "sha256:3ff2c321803b0ce14185674cdbfa932b360d6dd61067e95644b6cae6b8f5bff4"
+      },
+      {
+        "architecture": "unknown",
+        "digest": "sha256:82f7c6dc2c860604103006ef60acd33867acc35a0148e48574012f0c813323ff"
+      }
+    ]
+  },
+  {
+    "repository": "uyris/store-gateway",
+    "tag": "a3944171d6d008cd0c88027ab2a963558ee7d1da",
+    "anonymous_access": true,
+    "digest": "sha256:4103fffbfcb05ea7d3a79134e16ae525f504aa5b0c3e8a7931e4ce72f9f41895",
+    "images": [
+      {
+        "architecture": "amd64",
+        "digest": "sha256:fbf1919c1d1bfc067e64c26f271ecc779fde0b94993e13e2746eef7622df10a8"
+      },
+      {
+        "architecture": "unknown",
+        "digest": "sha256:ecb25449a035c3e3ac491300125a31a040cb3ef57d0173f142366638bef808b8"
+      }
+    ]
+  },
+  {
+    "repository": "uyris/store-product",
+    "tag": "c40bec1c96f786d11c89c021f7fb891af2bd048c",
+    "anonymous_access": true,
+    "digest": "sha256:d2d2b48ff847808aced829d39ebf860053a1a7e67e594b2887798dafa9afc204",
+    "images": [
+      {
+        "architecture": "amd64",
+        "digest": "sha256:f1d68a2d7843ce7a60bc324a1a71d90ee6f3035a0fc07683df5e62f8e775ee8e"
+      },
+      {
+        "architecture": "unknown",
+        "digest": "sha256:d3797ed89e01a919d3d3895907dfa00a653365e36efdb751e7f48fb0d7604198"
+      }
+    ]
+  },
+  {
+    "repository": "uyris/store-order",
+    "tag": "a97fe5583e8e0e3615aab062a570bd2263b57089",
+    "anonymous_access": true,
+    "digest": "sha256:6052e6677075acf367b464213ccec491b119c740c536ecd2c6304a59f2b7e788",
+    "images": [
+      {
+        "architecture": "amd64",
+        "digest": "sha256:14d7fd74d85f43e2b71193a9dd0394ffb4cd53a98ec0a8cf4d66380374b84959"
+      },
+      {
+        "architecture": "unknown",
+        "digest": "sha256:9e483beb0c51bb96edefa2d639190d0990f627994f229d3962e2670dff1c6475"
+      }
+    ]
+  },
+  {
+    "repository": "uyris/store-exchange",
+    "tag": "ea580c5b6e8c6eb6f552ac56390764a2f215c76f",
+    "anonymous_access": true,
+    "digest": "sha256:3234706c2a9a58f5169d54b6e4a18e58fc1a9d22c401b470df62ce68fa3fb1af",
+    "images": [
+      {
+        "architecture": "amd64",
+        "digest": "sha256:db050eaa106b3966f58f6be4ccd64995e035c6e902b1d1bb486dfbff1ac40e5c"
+      },
+      {
+        "architecture": "unknown",
+        "digest": "sha256:c17136a0cd25c4affb57125ab86c896993b422e19359a8628c5c9eb263e9c5f8"
+      }
+    ]
+  }
+]

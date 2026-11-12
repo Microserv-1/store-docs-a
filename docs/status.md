@@ -1,8 +1,39 @@
 # Estado e evidências
 
+## Revalidação de 12/11/2026
+
+A Pessoa B publicou as correções com sua própria autoria. O aceite Compose passou novamente nos 40 testes de negócio com Redis, RabbitMQ e AwesomeAPI reais, além do smoke de identidade. Os registros abaixo de 11/11 são históricos.
+
+| Serviço | Commit revalidado |
+|---|---|
+| Account | `7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad` |
+| Auth | `d803717bcf09943028f2727cfa97a9515eb17e8d` |
+| Gateway | `a3944171d6d008cd0c88027ab2a963558ee7d1da` |
+| Product | `c40bec1c96f786d11c89c021f7fb891af2bd048c` |
+| Order | `a97fe5583e8e0e3615aab062a570bd2263b57089` |
+| Exchange | `ea580c5b6e8c6eb6f552ac56390764a2f215c76f` |
+
+O Jenkins local executou o job raiz nº 1 com sucesso: clone recursivo de mirrors dos commits, build dos seis serviços, smoke e 40 verificações integradas. A cotação real dessa rodada resultou em BRL 149,08 para USD 26,44; valores de câmbio variam por horário.
+
+Os sete Jenkinsfiles passaram no linter do Jenkins. O job negativo nº 1 falhou na asserção proposital; Build, Publish e Deploy foram ignorados por falha anterior. Os seis jobs de serviço nº 2 passaram em Test, Build, Publish e Deploy, incluindo dry-run no servidor, aplicação e confirmação de rollout no Kind. Product nº 1 foi abortado durante uma interrupção e retomado no nº 2. Os primeiros builds dos outros cinco serviços também passaram com `DEPLOY=false`.
+
+O aceite pós-deploy no Kind passou no smoke e nos 40 testes, executados de um pod Account contra `http://gateway:8000`. O teste da raiz foi corrigido no commit `368f7ce`: os contadores de cache são por processo, e não se pode exigir HIT e BYPASS no contador da mesma réplica após balanceamento. As respostas continuam sendo verificadas individualmente pelos headers HIT e BYPASS. O mesmo teste corrigido passou novamente no Compose.
+
+O job raiz nº 2 falhou antes do aceite porque o RabbitMQ temporário encerrou com código 1. A reprodução isolada iniciou normalmente; a causa dessa ocorrência não foi confirmada. O pipeline foi ajustado no commit `26c5a84` para preservar logs antes da limpeza e remover relatórios antigos antes de testar. Não usar o relatório antigo arquivado no build nº 2 como evidência daquele build. A nova execução é registrada nas evidências Jenkins desta rodada.
+
+**Resultado final:** job raiz nº 3, commit `26c5a84d64a5aa50cddb37f34c11721da8b578f9`, terminou em SUCCESS com smoke, 40 testes e arquivamento do relatório e dos logs. O ambiente temporário foi removido após o teste. Os seis jobs de serviço nº 2 também terminaram em SUCCESS com rollout confirmado. O teste negativo nº 1 mantém FAILURE intencional.
+
+Consultar [resumo Jenkins com commits e digests](evidence/2026-11-12/jenkins.json), [aceite arquivado pelo job nº 3](evidence/2026-11-12/jenkins-integration.json) e [histórico dos jobs de integração](evidence/2026-11-12/jenkins-root-history.json). O clone limpo local recuperou os sete submódulos e validou as duas configurações Compose; a validação do SCM privado em um Jenkins remoto continua pendente.
+
+Os seis repositórios Docker Hub foram criados públicos em `uyris`. A documentação de [Jenkins e registro](jenkins.md) explica como reproduzir o ambiente e distingue o SCM local, o registry público e o destino de deploy. Nenhum deploy EKS foi executado nesta rodada.
+
+As indisponibilidades controladas também passaram com os commits atuais de B: expiração real de chave Redis, consulta pelo banco sem Redis, criação de pedido com broker indisponível e processamento posterior com outbox vazia. São testes controlados; não comprovam todas as janelas de falha entre banco e confirmação da mensagem.
+
+Evidências da rodada: [Compose](evidence/2026-11-12/compose.json), [Kind após deploy](evidence/2026-11-12/kubernetes.json), [resiliência](evidence/2026-11-12/resilience.json), [linter Jenkins](evidence/2026-11-12/jenkins-lint.json), [imagens públicas](evidence/2026-11-12/public-images.json) e [deployments](evidence/2026-11-12/deployments.json). Os testes de Order passaram nos sete casos publicados por B.
+
 ## Atualização de 11/11/2026
 
-**Estado atual:** rollback de autoria em Product e Order concluído; aguardando a Pessoa B implementar/publicar as correções do [handoff](https://github.com/Microserv-1/store-root/blob/main/HANDOFF-PESSOA-B.md). Os aceites abaixo são históricos, anteriores ao rollback. Revalidar os novos SHAs antes de Jenkins.
+**Estado em 11/11 (histórico):** rollback de autoria em Product e Order concluído; aguardando a Pessoa B implementar/publicar as correções do [handoff](https://github.com/Microserv-1/store-root/blob/main/HANDOFF-PESSOA-B.md). Os aceites abaixo são históricos, anteriores ao rollback. Revalidar os novos SHAs antes de Jenkins.
 
 Product, Order e Exchange de B foram incorporados como submódulos. O aceite de seis serviços, Redis/RabbitMQ reais e provedor externo passou em Compose. Detalhes, correções, reprodução e evidências no [relatório de integração](integration.md).
 
