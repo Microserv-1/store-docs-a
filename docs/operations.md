@@ -36,9 +36,15 @@ o teto. Combinar antecipadamente a janela de teste/avaliação e eventual
 desligamento. Não há hard cap AWS nem monitoramento contínuo instalado.
 Ver [regras de operação e pendências](closure.md).
 
+O [plano de janela e pausa](budget-window.md) compara alternativas para esse
+orçamento e declara o impacto de disponibilidade. Nenhuma pausa foi executada
+ou autorizada implicitamente pela existência desse documento.
+
 Ainda falta gerar/exportar a estimativa no **AWS Pricing Calculator**, com
 hipóteses de tráfego/logs e link compartilhável. A tabela acima fornece uma
 estimativa rastreável de tarifas públicas, mas não substitui essa evidência.
+Os [parâmetros do Calculator](calculator-inputs.md) já estão preparados para
+preenchimento e conferência, incluindo o Jenkins e a ausência de ALB.
 
 ## Estimativa de custos
 

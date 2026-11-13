@@ -20,6 +20,8 @@ nav:
   - Preparação EKS completa: eks-preparation.md
   - Gargalos e testes: bottlenecks.md
   - Custos, PaaS e SLA: operations.md
+  - Janela e orçamento AWS: budget-window.md
+  - Parâmetros do Calculator: calculator-inputs.md
   - Decisões e uso de IA: decisions.md
   - Estado e evidências: status.md
   - Fechamento e orçamento: closure.md
