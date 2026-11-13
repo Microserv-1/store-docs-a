@@ -81,7 +81,8 @@ avaliação, a retenção dos dados e o procedimento de retomada.
 - [ ] Exportar estimativa do AWS Pricing Calculator para janela acadêmica e
   operação mensal; registrar link e hipóteses de consumo variável.
 - [ ] Rever SLOs com medições da carga, mantendo SLA do fornecedor separado.
-- [ ] Publicar e verificar o Pages de A; atualizar o site de B por commits de B.
+- [x] Publicar e verificar o Pages de A: build e URLs públicas passaram em 13/11.
+- [ ] Atualizar o site de B por commits de B.
 - [ ] Preencher nome acadêmico completo de A e identificação/grupo exigidos.
 - [ ] Finalizar apresentação e vídeo humano de 1–2 minutos; ambos participam.
 - [ ] Registrar revisão cruzada, ensaio individual e acesso aos repositórios.
@@ -89,3 +90,6 @@ avaliação, a retenção dos dados e o procedimento de retomada.
   conferir horário de 16/11/2026 e janela de retenção AWS antes do encerramento.
 
 Nenhum checklist humano foi marcado como concluído automaticamente.
+
+O [guia de conferência e defesa](delivery.md) reúne links, registro de revisão
+cruzada, perguntas para ensaio e checagens individuais antes do Blackboard.

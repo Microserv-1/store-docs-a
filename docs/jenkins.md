@@ -1,5 +1,29 @@
 # Jenkins local e imagens públicas
 
+## Release AWS executada em 13/11
+
+O Jenkins dedicado na EC2 executou `store-eks-release` com `DEPLOY_EKS=true`
+e `KUBE_CONTEXT=store-eks`. Checkout recursivo GitHub privado, dez testes de
+preparação, preflight, dry-run e rollouts dos seis serviços passaram. A
+identidade AWS é uma instance role com credenciais temporárias; permissões
+de aplicação vêm do grupo Kubernetes `store-deployers`. Acesso de rede à API
+privada usa TCP 443 do security group do Jenkins para o do control plane.
+
+Ver [evidência da release](evidence/2026-11-13-eks/jenkins-release.json) e
+[aceite real no EKS](evidence/2026-11-13-eks/business-integration.json).
+Os registros locais abaixo permanecem como histórico e reprodução; não são
+uma indicação de que o Jenkins AWS ainda esteja pendente.
+
+Na instalação Amazon Linux, Docker/Compose precisam também do plugin Buildx.
+O container de Jenkins precisa alcançar IMDSv2 (hop limit 2) para usar a role.
+Um token GitHub que só alcança a raiz pública não basta: configurar owner
+Microserv-1, repositórios privados, Contents Read-only e aprovação da
+organização quando exigida. Não conceder escrita para resolver checkout.
+
+Para acessar a UI, o operador abre um túnel Session Manager para a porta 8086;
+não há publicação pública da interface. Kubeconfig do job usa autenticação
+exec/AWS CLI da role EC2, sem o perfil SSO pessoal do Windows embutido.
+
 **Estado atual:** o Jenkins local também foi configurado com SCM GitHub real, por `scripts/jenkins-github.py --from-gh`. Os jobs `github-store-*` usam os repositórios remotos e `store-eks-release` usa `Jenkinsfile.eks`. O procedimento para AWS e os resultados dessa preparação estão em [Preparação EKS](eks-preparation.md) e [Estado e evidências](status.md). Os mirrors descritos abaixo registram a primeira validação e são um modo alternativo de reprodução.
 
 Validação em 12/11/2026, com Jenkins real em Docker. O ambiente usa um executor, label `docker-kubectl`, Docker CLI/Compose, Python 3 e kubectl. Inclui Git, Pipeline, credentials-binding, JUnit e Timestamper.

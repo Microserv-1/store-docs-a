@@ -1,5 +1,14 @@
 # Execução e deploy
 
+## Destino AWS validado em 13/11
+
+Os seis serviços foram implantados no EKS por `Jenkinsfile.eks` e passaram
+no aceite de integração. [Fechamento e evidências](closure.md).
+No EKS, utilizar a release da raiz, que preserva a montagem da CA RDS;
+não reaplicar os manifests brutos dos serviços sobre a configuração de nuvem.
+Os procedimentos locais e de preparação abaixo continuam disponíveis para
+reprodução. Novas execuções com custo exigem autorização do operador.
+
 ## Docker Compose
 
 Na raiz, com Docker e Python 3.10+:
@@ -49,7 +58,10 @@ Recuperação: identificar tag SHA anterior e executar `kubectl -n store set ima
 
 O roteiro completo e atualizado está em [Preparação do deploy EKS](eks-preparation.md). Ele cobre os seis serviços, bancos isolados no RDS, dependências, HTTPS, IAM/RBAC, pipeline GitHub, preflight, rollback e encerramento.
 
-A preparação local foi testada; nenhum provisionamento AWS foi executado. Preencher os dados reais da conta/destino e validar preços antes de criar recursos.
+A preparação local antecedeu o provisionamento AWS, concluído em 13/11.
+O [procedimento EKS](eks-preparation.md) documenta as configurações necessárias;
+não recriar stacks já existentes. Confirmar conta, contexto, orçamento e
+autorização antes de executar mudanças na nuvem.
 
 ## Encerramento
 
