@@ -21,6 +21,7 @@ nav:
   - Gargalos e testes: bottlenecks.md
   - Carga e HPA no EKS: eks-load.md
   - Custos, PaaS e SLA: operations.md
+  - Redução de máquinas: right-sizing.md
   - Janela e orçamento AWS: budget-window.md
   - Parâmetros do Calculator: calculator-inputs.md
   - Decisões e uso de IA: decisions.md

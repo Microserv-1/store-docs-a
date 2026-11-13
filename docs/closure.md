@@ -48,11 +48,11 @@ Isso não substitui carga progressiva dos fluxos de negócio nem vídeo humano.
 
 O operador definiu em 13/11 um teto de planejamento de US$ 20 **adicionais**,
 incluindo a manutenção dos recursos existentes. Isso não cria bloqueio de
-cobrança na AWS. Inventário: dois workers t3.large e um Jenkins t3.large;
-nodegroup desired=2, min=2, max=4. Não foi encontrado Cluster Autoscaler nem
+cobrança na AWS. Inventário: dois workers t3a.medium e um Jenkins t3a.small;
+nodegroup application-economy desired=2, min=2, max=2. Não foi encontrado Cluster Autoscaler nem
 Karpenter em Deployments. Não há ALB na configuração privada.
 
-O [inventário de controle](evidence/2026-11-13-eks/cost-guard.json) é pontual,
+O [inventário de controle](evidence/2026-11-13-eks/right-sizing/cost-guard.json) é pontual,
 não monitoramento contínuo. Para repetir uma checagem de configuração, sem
 carga, sem alteração de recursos e sem API Cost Explorer:
 
@@ -60,11 +60,13 @@ carga, sem alteração de recursos e sem API Cost Explorer:
 python scripts/aws-cost-guard.py --profile store-admin --context store-eks
 ```
 
-A [estimativa com tarifas públicas](evidence/2026-11-13-eks/cost-estimate.json)
-é **US$ 0,4426/h, US$ 10,62/dia, US$ 31,87/72h** em custos fixos aproximados.
+A [estimativa com tarifas públicas](evidence/2026-11-13-eks/right-sizing/cost-estimate.json)
+é **US$ 0,2870/h, US$ 6,89/dia, US$ 20,67/72h** em custos fixos aproximados.
 Tráfego, NAT por GB, logs, créditos excedentes de CPU, backups excedentes,
 impostos e conversão cambial não estão incluídos. Sem variáveis, US$ 20 cobrem
-aproximadamente 45 horas; não se deve consumir toda essa margem planejada.
+aproximadamente 69,7 horas futuras, antes de descontar o gasto já acumulado.
+Ver a [migração para máquinas menores](right-sizing.md). A rodada HPA anterior
+foi executada nas máquinas grandes; o aceite funcional foi repetido nas menores.
 Não presumir créditos/free tier. A cotação não é fatura nem exportação do
 Calculator. Veja [custos e SLA](operations.md).
 

@@ -44,7 +44,7 @@ Preparação da Pessoa A em 12/11/2026. Os seis serviços continuam nos commits 
 |---|---|
 | Imagens | Seis imagens públicas com SHA de origem e digest em `infra/aws/images.lock.json` |
 | Cluster | Kubernetes 1.35, duas zonas, nós privados, endpoint privado e acesso público limitado ao CIDR informado |
-| Capacidade inicial | Dois t3.large; limite configurado de quatro nós; aumento de nós é uma ação explícita, sem Cluster Autoscaler instalado |
+| Capacidade inicial | Dois t3a.medium; grupo application-economy, mínimo/desejado/máximo de dois nós; sem Cluster Autoscaler instalado |
 | Banco | RDS PostgreSQL 16 privado, criptografado, Single-AZ, inicialmente db.t4g.small/20 GiB; minor disponível resolvido na região |
 | Isolamento | Bancos accounts/products/orders e usuários account_app/product_app/order_app; bootstrap idempotente e acesso cruzado negado |
 | TLS no banco | Bundle público de CAs RDS versionado; URLs com `verify-full` e certificado montado nos três serviços de dados |

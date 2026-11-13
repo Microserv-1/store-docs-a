@@ -16,8 +16,8 @@ operação mensal e registrar a data da cotação.
 | Grupo | Configuração |
 |---|---|
 | EKS | Um cluster Standard; Kubernetes 1.35 em suporte padrão; 730h |
-| Workers EC2 | Dois t3.large, Linux, tenancy compartilhada, 730h cada; 20 GiB gp3 por worker |
-| Jenkins EC2 | Um t3.large, Linux, tenancy compartilhada, 730h; 30 GiB gp3 |
+| Workers EC2 | Dois t3a.medium, Linux, tenancy compartilhada, 730h cada; 20 GiB gp3 por worker |
+| Jenkins EC2 | Um t3a.small, Linux, tenancy compartilhada, 730h; 30 GiB gp3 |
 | RabbitMQ | Dois GiB EBS gp3 adicionais; broker executa nos workers, sem Amazon MQ |
 | RDS | PostgreSQL db.t4g.small, Single-AZ, 730h; 20 GiB gp3; armazenamento criptografado |
 | NAT | Um NAT Gateway, 730h; declarar separadamente hipótese de GB processados |
@@ -32,7 +32,7 @@ Conferir que os discos não foram contados duas vezes: a soma EBS da aplicação
 e Jenkins é **72 GiB**, além dos **20 GiB do RDS**. As seis APIs já estão nos
 dois workers; não adicionar seis instâncias EC2 independentes.
 
-Os componentes fixos de referência somam cerca de US$ 323,13 por 730h, antes
+Os componentes fixos de referência somam cerca de US$ 209,54 por 730h, antes
 das variáveis. Esse valor serve para revisar o preenchimento, não para forçar
 o Calculator a coincidir. Investigar divergências de região, suporte EKS,
 tenancy, horas, armazenamento, impostos e itens incluídos.
@@ -40,7 +40,7 @@ tenancy, horas, armazenamento, impostos e itens incluídos.
 ## Janela acadêmica
 
 Separar a simulação mensal da duração efetivamente planejada. Para o cenário
-contínuo de 72h, a referência de custos fixos é US$ 31,87. Caso os campos do
+contínuo de 72h, a referência de custos fixos é US$ 20,67. Caso os campos do
 serviço sejam mensais, preservar tamanhos reais dos recursos e anexar a
 memória de rateio por 72/730; não fingir que o volume físico tem outro tamanho.
 

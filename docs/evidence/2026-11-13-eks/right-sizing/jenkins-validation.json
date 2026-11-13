@@ -1,0 +1,12 @@
+{
+  "instance_type": "t3a.small",
+  "mode": "DEPLOY_EKS=false",
+  "build": {
+    "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+    "building": false,
+    "duration": 24246,
+    "number": 5,
+    "result": "SUCCESS",
+    "url": "http://127.0.0.1:8080/job/store-eks-release/5/"
+  }
+}

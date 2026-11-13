@@ -1,0 +1,133 @@
+{
+  "utc": "2026-11-13T18:30:54.090056+00:00",
+  "region": "us-east-1",
+  "additional_budget_usd": 20,
+  "budget_set_date": "2026-11-13",
+  "budget_type": "Planning ceiling, not an AWS enforced cap",
+  "hourly_fixed_estimate_usd": 0.28704109589041094,
+  "daily_fixed_estimate_usd": 6.8889863013698625,
+  "academic_72h_fixed_estimate_usd": 20.66695890410959,
+  "monthly_730h_fixed_estimate_usd": 209.54,
+  "hours_for_20_usd_before_variables": 69.67643409372913,
+  "items": [
+    {
+      "name": "EKS Standard",
+      "quantity": 1,
+      "unit_hourly_usd": 0.1,
+      "subtotal_hourly_usd": 0.1
+    },
+    {
+      "name": "EC2 t3a.medium Linux workers",
+      "quantity": 2,
+      "unit_hourly_usd": 0.0376,
+      "subtotal_hourly_usd": 0.0752
+    },
+    {
+      "name": "EC2 t3a.small Linux Jenkins",
+      "quantity": 1,
+      "unit_hourly_usd": 0.0188,
+      "subtotal_hourly_usd": 0.0188
+    },
+    {
+      "name": "RDS PostgreSQL db.t4g.small Single-AZ",
+      "quantity": 1,
+      "unit_hourly_usd": 0.032,
+      "subtotal_hourly_usd": 0.032
+    },
+    {
+      "name": "NAT Gateway",
+      "quantity": 1,
+      "unit_hourly_usd": 0.045,
+      "subtotal_hourly_usd": 0.045
+    },
+    {
+      "name": "Public IPv4 (NAT)",
+      "quantity": 1,
+      "unit_hourly_usd": 0.005,
+      "subtotal_hourly_usd": 0.005
+    },
+    {
+      "name": "EBS gp3: workers 40 + Jenkins 30 + RabbitMQ 2 GiB",
+      "quantity": 72,
+      "unit_hourly_usd": 0.00010958904109589041,
+      "subtotal_hourly_usd": 0.00789041095890411
+    },
+    {
+      "name": "RDS gp3",
+      "quantity": 20,
+      "unit_hourly_usd": 0.00015753424657534247,
+      "subtotal_hourly_usd": 0.0031506849315068495
+    }
+  ],
+  "rates": {
+    "eks_standard": {
+      "sku": "ZYWMR684YSMFHWEU",
+      "description": "Amazon EKS cluster usage in US East (N. Virginia)",
+      "unit": "Hours",
+      "usd": 0.1,
+      "effective_date_note": "Current public OnDemand offer retrieved 2026-11-13 via AWS Price List Query API."
+    },
+    "nat_hour": {
+      "sku": "M2YSHUBETB3JX4M4",
+      "description": "$0.045 per NAT Gateway Hour",
+      "unit": "Hrs",
+      "usd": 0.045,
+      "effective_date_note": "Current public OnDemand offer retrieved 2026-11-13 via AWS Price List Query API."
+    },
+    "ebs_gp3": {
+      "sku": "JG3KUJMBRGHV3N8G",
+      "description": "$0.08 per GB-month of General Purpose (gp3) provisioned storage - US East (N. Virginia)",
+      "unit": "GB-Mo",
+      "usd": 0.08,
+      "effective_date_note": "Current public OnDemand offer retrieved 2026-11-13 via AWS Price List Query API."
+    },
+    "rds_instance": {
+      "sku": "S9H3AXMBHSKRFJTA",
+      "description": "$ 0.032 per RDS db.t4g.small Single-AZ instance hour (or partial hour) running PostgreSQL",
+      "unit": "Hrs",
+      "usd": 0.032,
+      "effective_date_note": "Current public OnDemand offer retrieved 2026-11-13 via AWS Price List Query API."
+    },
+    "rds_gp3": {
+      "sku": "KYVYY29G957PKY3B",
+      "description": "$0.115 per GB-month of provisioned GP3 storage running PostgreSQL",
+      "unit": "GB-Mo",
+      "usd": 0.115,
+      "effective_date_note": "Current public OnDemand offer retrieved 2026-11-13 via AWS Price List Query API."
+    },
+    "ipv4": {
+      "usd": 0.005,
+      "unit": "address-hour",
+      "source": "https://aws.amazon.com/vpc/pricing/"
+    },
+    "t3a.medium": {
+      "sku": "CEC547W2ASCGJKER",
+      "description": "$0.0376 per On Demand Linux t3a.medium Instance Hour",
+      "unit": "Hrs",
+      "usd": 0.0376
+    },
+    "t3a.small": {
+      "sku": "8G6KQ3BF6E7YCMJU",
+      "description": "$0.0188 per On Demand Linux t3a.small Instance Hour",
+      "unit": "Hrs",
+      "usd": 0.0188
+    }
+  },
+  "excluded": [
+    "NAT processed GB and cross-AZ traffic",
+    "Internet data transfer",
+    "CloudWatch ingestion/storage",
+    "T3 and T4g surplus CPU credits",
+    "Excess backups/snapshots",
+    "Taxes and currency conversion"
+  ],
+  "limits": [
+    "Public list-price estimate, not an invoice or Calculator export.",
+    "No credits, free tier, reservations or discounts assumed.",
+    "730-hour convention for prorating monthly storage; billing may differ.",
+    "A US$0.01 Cost Explorer API call occurred during initial checking; no repeats are authorized."
+  ],
+  "calculator_export_pending": true,
+  "previous_hourly_fixed_estimate_usd": 0.442641095890411,
+  "note": "Forward-looking estimate after downsizing; earlier accrued costs and variables are not measured. Not a hard billing cap."
+}

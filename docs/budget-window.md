@@ -6,17 +6,20 @@ O teto informado por Yuri em 13/11 é **US$ 20 adicionais**. Não há autorizaç
 para executar carga, criar recursos ou alterar a infraestrutura sem explicar
 o impacto antes. Nenhuma pausa descrita aqui foi executada.
 
-Com a topologia atual, o custo fixo estimado é US$ 0,4426/h, mais variáveis.
-Manter todos os recursos ligados durante 72h custa cerca de US$ 31,87 antes
+Com a topologia atual, o custo fixo estimado é US$ 0,2870/h, mais variáveis.
+Manter todos os recursos ligados durante 72h custa cerca de US$ 20,67 antes
 de tráfego, logs e créditos de CPU; portanto, não cabe no teto de US$ 20.
+
+A [redução autorizada](right-sizing.md) já foi executada. As projeções abaixo
+contam somente custos futuros: descontar o gasto acumulado do orçamento.
 
 ## Cenários para decidir a janela de avaliação
 
 | Cenário de planejamento | Estimativa fixa | Efeito |
 |---|---:|---|
-| Tudo ligado por 72h | US$ 31,87 | Aplicação e Jenkins disponíveis continuamente |
-| Só Jenkins parado durante 72h | US$ 25,88 | Aplicação permanece acessível, mas ainda excede US$ 20 |
-| 8h completas e 64h com workers zerados, Jenkins e RDS parados | US$ 13,85 | Aplicação indisponível durante a pausa; exige retomada e validação |
+| Tudo ligado por 72h | US$ 20,67 | Aplicação e Jenkins disponíveis continuamente |
+| Só Jenkins parado durante 72h | US$ 19,31 | Aplicação acessível; margem de US$ 0,69 insuficiente para garantir o teto |
+| 8h completas e 64h com workers zerados, Jenkins e RDS parados | US$ 12,61 | Aplicação indisponível durante a pausa; exige retomada e validação |
 
 O terceiro cenário é uma **simulação**, não uma agenda aprovada. O cálculo
 mantém EKS, NAT, IPv4 e todo o armazenamento no período pausado de forma
@@ -31,7 +34,7 @@ parcial podem mudar o total. Não é garantia de teto na fatura.
 |---|---|
 | Região | us-east-1 |
 | Cluster | microserv-store |
-| Nodegroup | application; configuração observada min=2, desired=2, max=4 |
+| Nodegroup | application-economy; configuração min=2, desired=2, max=2 |
 | EC2 Jenkins | i-03245ec6369003f79 |
 | RDS | microserv-store-rds-database-xaw4nsp3iyky |
 | Persistência RabbitMQ | PVC data-rabbitmq-0, StorageClass store-gp3 com Retain |

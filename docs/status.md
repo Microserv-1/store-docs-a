@@ -1,5 +1,13 @@
 # Estado e evidências
 
+## Redução de custos — 13/11/2026
+
+Workers migrados para 2 × t3a.medium; Jenkins reduzido para t3a.small.
+O smoke e as 40 verificações de negócio passaram novamente no EKS.
+Jenkins build #5 passou na validação sem deploy. Ver [migração, custos e
+limites](right-sizing.md). O vídeo de HPA anterior mostra as máquinas grandes;
+não representa benchmark nas máquinas menores.
+
 ## Deploy real e aceite EKS — 13/11/2026
 
 **Atualização mais recente:** deploy dos seis serviços pelo Jenkins EC2 passou,

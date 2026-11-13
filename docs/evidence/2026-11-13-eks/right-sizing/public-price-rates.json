@@ -1,0 +1,18 @@
+{
+  "utc": "2026-11-13T18:30:54.090056+00:00",
+  "region": "us-east-1",
+  "rates": {
+    "t3a.medium": {
+      "sku": "CEC547W2ASCGJKER",
+      "description": "$0.0376 per On Demand Linux t3a.medium Instance Hour",
+      "unit": "Hrs",
+      "usd": 0.0376
+    },
+    "t3a.small": {
+      "sku": "8G6KQ3BF6E7YCMJU",
+      "description": "$0.0188 per On Demand Linux t3a.small Instance Hour",
+      "unit": "Hrs",
+      "usd": 0.0188
+    }
+  }
+}

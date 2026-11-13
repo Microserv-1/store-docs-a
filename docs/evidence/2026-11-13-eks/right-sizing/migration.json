@@ -1,0 +1,80 @@
+{
+  "utc": "2026-11-13T18:33:02.020656+00:00",
+  "before": {
+    "active_pods": 28,
+    "requested_cpu": 2.830000000000001,
+    "requested_memory_gib": 3.99609375
+  },
+  "after_node_top": "NAME                              CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)   \nip-192-168-102-101.ec2.internal   209m         10%      1266Mi          38%         \nip-192-168-85-198.ec2.internal    211m         10%      1469Mi          44%         \n",
+  "deployments": [
+    {
+      "name": "account",
+      "desired": 2,
+      "ready": 2
+    },
+    {
+      "name": "auth",
+      "desired": 2,
+      "ready": 2
+    },
+    {
+      "name": "exchange",
+      "desired": 2,
+      "ready": 2
+    },
+    {
+      "name": "gateway",
+      "desired": 2,
+      "ready": 2
+    },
+    {
+      "name": "grafana",
+      "desired": 1,
+      "ready": 1
+    },
+    {
+      "name": "order",
+      "desired": 2,
+      "ready": 2
+    },
+    {
+      "name": "product",
+      "desired": 2,
+      "ready": 2
+    },
+    {
+      "name": "prometheus",
+      "desired": 1,
+      "ready": 1
+    },
+    {
+      "name": "redis",
+      "desired": 1,
+      "ready": 1
+    }
+  ],
+  "service_commits": {
+    "account": "7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad",
+    "auth": "d803717bcf09943028f2727cfa97a9515eb17e8d",
+    "gateway": "a3944171d6d008cd0c88027ab2a963558ee7d1da",
+    "product": "c40bec1c96f786d11c89c021f7fb891af2bd048c",
+    "order": "a97fe5583e8e0e3615aab062a570bd2263b57089",
+    "exchange": "ea580c5b6e8c6eb6f552ac56390764a2f215c76f"
+  },
+  "old_instances": [
+    {
+      "id": "i-0b7757069444ead3e",
+      "state": "terminated"
+    },
+    {
+      "id": "i-09a4cf14b3904b094",
+      "state": "terminated"
+    }
+  ],
+  "rabbitmq_pvc": {
+    "name": "data-rabbitmq-0",
+    "persistent_volume": "pvc-61f5495a-030c-49f1-ae20-ba9c58715a73",
+    "preserved": true
+  },
+  "limits": "Functional acceptance after migration; no new stress test, billing measurement or full Java image build on the smaller host."
+}
