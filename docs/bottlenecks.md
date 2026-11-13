@@ -26,6 +26,39 @@ Problema: uma réplica concentra carga e interrompe serviço ao cair. Solução:
 
 O balanceamento ocorre por conexões. Keep-alive pode produzir distribuição desigual e não representa erro do Service. Port-forward de um Service fixa um pod; gerar carga interna para provar distribuição de Gateway.
 
+### Recuperação revalidada no Kind em 13/11
+
+Um único pod Account foi removido no **Kind local** e substituído pelo
+Deployment. As 30 consultas de acompanhamento retornaram HTTP 200 e
+preservaram a identidade; o acesso após a substituição também passou.
+O banco foi verificado como Service local, não RDS, e o Gateway foi acessado
+por um túnel exclusivo do Kind. Nenhum recurso AWS foi alterado.
+
+A imagem em execução usa o commit `7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad`
+e o digest `sha256:1c37183eb58d92d8c055769e54081a9a87c6c1278d1479e003aaf6bea201b3ac`,
+o mesmo registrado na release EKS. [Relatório com imagem e versões](evidence/2026-11-13-local/pod-recovery.json).
+
+Isso comprova o cenário observado de remoção de um pod com outra réplica
+disponível. Não é teste de falha de máquina, zona ou de disponibilidade mensal,
+nem uma execução de recuperação no EKS.
+
+## Evidências disponíveis dos gargalos de B
+
+As medições de cache/bypass de 12/11 registram diretamente os seis commits e
+usam Product `c40bec1c96f786d11c89c021f7fb891af2bd048c`, Order
+`a97fe5583e8e0e3615aab062a570bd2263b57089` e Exchange
+`ea580c5b6e8c6eb6f552ac56390764a2f215c76f`, iguais aos integrados no EKS.
+Não é necessário alterar código de B para aproveitar esses registros.
+
+| Tratamento de B | Evidência disponível | Limite |
+|---|---|---|
+| Cache Redis | [Cache aquecido](evidence/2026-11-12-preparation/load-cache.json), [bypass](evidence/2026-11-12-preparation/load-bypass.json); aceite EKS confirma HIT/BYPASS e invalidação | Benchmark de duas contas/15s em Compose, com pausa por iteração; não comprova capacidade EKS nem ganho geral |
+| Mensageria | [Indisponibilidade e retomada local](evidence/2026-11-12/resilience.json); [aceite EKS atual](evidence/2026-11-13-eks/business-integration.json) confirma processamento e replay idempotente | Teste funcional na AWS e teste de falha local têm escopos diferentes; não garantem exatamente uma vez em toda janela de falha |
+
+B continua responsável por publicar sua documentação individual, explicar
+os dois tratamentos e registrar sua revisão humana. Não atribuir os testes
+executados pelo agente como revisão oral ou contribuição de implementação de B.
+
 ## Carga reproduzível
 
 Na raiz:

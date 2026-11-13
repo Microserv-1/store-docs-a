@@ -86,11 +86,12 @@ avaliação, a retenção dos dados e o procedimento de retomada.
   cinco réplicas prontas e vídeo do ciclo de escala.
 - [x] Correlacionar carga de login e CPU e comprovar distribuição Account em
   três pods com métricas por instância, distinguindo os dois gargalos de A.
-- [ ] Consolidar a evidência de recuperação diante de perda de pod com versão
-  e ambiente; um novo teste AWS precisa de autorização específica.
+- [x] Consolidar recuperação local de um pod Account, com o mesmo digest EKS:
+  30/30 respostas HTTP 200 e identidade preservada. Isso não é recuperação AWS.
 - [ ] Concluir baseline e carga progressiva de negócio no EKS conforme o
   roadmap, com autorização própria; a rodada HPA executada foi de login.
-- [ ] Consolidar evidências dos dois gargalos de B nos commits finais.
+- [x] Consolidar os links de evidências dos dois gargalos de B, incluindo
+  medições de cache com commits finais; explicação e publicação individual são de B.
 - [ ] Exportar estimativa do AWS Pricing Calculator para janela acadêmica e
   operação mensal; registrar link e hipóteses de consumo variável.
 - [ ] Rever SLOs com medições da carga, mantendo SLA do fornecedor separado.

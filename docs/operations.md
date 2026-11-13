@@ -73,6 +73,13 @@ EKS gerencia o plano de controle Kubernetes; a equipe permanece responsável por
 
 ## Metas e medições
 
+Em 13/11, a carga de login no EKS mediu p95 de **1.187 ms**, p99 de 1.281 ms e
+zero erros em 550 requisições, com quatro usuários/120s. Esse valor inclui a
+rede e o port-forward do cliente e não mede a leitura de identidade nem a
+criação de pedidos. [Relatório](eks-load.md). A meta de leitura abaixo ainda
+precisa de seu cenário próprio no EKS. Não definir retroativamente um alvo
+de login apenas para declarar aprovação da medição já executada.
+
 Objetivos iniciais de aplicação, sujeitos à baseline: 99% de disponibilidade na janela de demonstração, p95 inferior a 500 ms para leitura de identidade com até 8 usuários concorrentes, erros 5xx abaixo de 1% em carga estável. Login com Argon2id tem perfil separado e deve ser medido antes de definir meta de latência.
 
 Definir disponibilidade como proporção de verificações bem-sucedidas sobre total no intervalo medido, com frequência de amostragem documentada; medir latência/vazão/erros pelo script e Prometheus. Esses valores são **objetivos, não resultados comprovados nem SLA contratual**. Teste curto não comprova disponibilidade mensal.

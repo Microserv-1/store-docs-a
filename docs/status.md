@@ -13,6 +13,10 @@ HTTP 200, zero erros, p95 de 1.187 ms e escala automática Account 2 → 4 → 5
 com cinco réplicas prontas no pico. Dois workers e uma EC2 Jenkins permaneceram
 ligados, sem criação de novas máquinas. [Relatório, gráfico e vídeo EKS](eks-load.md).
 
+A recuperação de um pod Account também foi revalidada no Kind, com o mesmo
+digest publicado no EKS: substituição concluída, 30 consultas HTTP 200 e
+identidade persistida. [Evidência local e limites](bottlenecks.md).
+
 Os registros de preparação abaixo são históricos. Menções a AWS/Jenkins
 remoto “não executados” descrevem o estado na data indicada, anterior ao deploy.
 

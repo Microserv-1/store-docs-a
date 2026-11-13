@@ -1,0 +1,59 @@
+{
+  "deleted_local_pod": "account-775d66d9c8-bv2nq",
+  "before": [
+    "account-775d66d9c8-bv2nq",
+    "account-775d66d9c8-kjgkn"
+  ],
+  "after": [
+    "account-775d66d9c8-kd8sf",
+    "account-775d66d9c8-kjgkn"
+  ],
+  "response_statuses": [
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200
+  ],
+  "note": "Single local pod deletion; not a full availability or multi-AZ test.",
+  "utc": "2026-11-13T16:48:24.447699+00:00",
+  "context": "kind-microserv-store",
+  "base_url": "http://127.0.0.1:18081",
+  "gateway_tunnel_started_for_this_test": true,
+  "database_host_verified_local_service": true,
+  "image": "uyris/store-account:7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad",
+  "image_ids": [
+    "docker.io/uyris/store-account@sha256:1c37183eb58d92d8c055769e54081a9a87c6c1278d1479e003aaf6bea201b3ac"
+  ],
+  "source_commit": "7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad",
+  "test_script_sha256": "c14a6c6f21da6396898af2076c37ff43b3d2fe4f109a066f475bec8f80ccc2a8",
+  "successes": 30,
+  "failures": 0,
+  "aws_mutations": false,
+  "runtime_matches_locked_aws_digest": true
+}
