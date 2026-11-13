@@ -1,5 +1,15 @@
 # Estado e evidências
 
+## Acesso sem domínio — 13/11/2026
+
+Por não haver domínio próprio, a configuração de exemplo passou a usar `access_mode=port-forward`. Nesse modo a aplicação roda no EKS com Services ClusterIP, sem Ingress, ALB ou certificado ACM. Domínio/certificado/sub-redes públicas deixam de ser obrigatórios; as verificações correspondentes e as permissões IAM de leitura ACM/ALB ficam opcionais. Conta, região, CIDR, RDS, Secrets e os demais requisitos do cluster continuam necessários.
+
+Os dez testes de preparação passaram, incluindo a ausência de publicação pública no modo privado e a preservação do modo HTTPS opcional. Os 45 recursos privados passaram no dry-run da API Kind; o template IAM passou no cfn-lint sem erros. [Preflight](evidence/2026-11-13/preflight.json) e [registro](evidence/2026-11-13/validation.json).
+
+O Jenkins local estava desligado quando se tentou executar novamente o job; esta alteração foi validada diretamente pelos testes e pelo dry-run, sem alegar uma nova execução de pipeline. Os resultados de Jenkins de 12/11 abaixo permanecem históricos. Não houve provisionamento AWS nesta alteração.
+
+O túnel fica limitado ao computador autorizado e fixa uma réplica do Gateway. Para acesso por outras pessoas através de URL pública ou para medir balanceamento entre Gateways, usar outro caminho de acesso/carga. O [procedimento atualizado](eks-preparation.md) explica o comando de port-forward e os passos opcionais de HTTPS.
+
 ## Preparação completa para EKS — 12/11/2026
 
 A preparação pendente foi implementada e validada localmente. O [procedimento completo](eks-preparation.md) descreve geração de parâmetros, isolamento do RDS, dependências, HTTPS, IAM/RBAC, Jenkins com SCM real, preflight, aplicação, rollback, custos e encerramento. Nenhum recurso AWS pago foi criado.

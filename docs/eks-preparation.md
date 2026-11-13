@@ -1,5 +1,41 @@
 # Preparação do deploy completo no EKS
 
+## Sem domínio próprio — opção padrão desde 13/11
+
+É possível implantar os seis serviços no EKS sem comprar domínio. O arquivo de exemplo agora usa `"access_mode": "port-forward"`. Nesse modo, domínio, certificado ACM e sub-redes de ALB não são exigidos; a release não cria Ingress nem LoadBalancer. Os custos de EKS, workers, RDS, NAT, volumes e demais recursos usados continuam existindo.
+
+Mantenha esses campos assim em `.env.eks.json`, preservando conta, CIDR e demais dados reais:
+
+```json
+{
+  "access_mode": "port-forward",
+  "domain": "",
+  "certificate_arn": "",
+  "public_subnets": []
+}
+```
+
+O trecho acima mostra somente os campos de acesso: não substituir o arquivo completo por ele. Pular a solicitação ACM e a instalação do ALB Controller nas instruções abaixo. Criar RDS, namespaces/Secrets, aplicar foundation, instalar dependências/monitoramento e executar o job de release normalmente. Na stack IAM do agente, omitir CertificateArn; as permissões de leitura ACM/ALB também são omitidas.
+
+Após o deploy, abrir um terminal com o perfil operador autorizado e manter o túnel ativo:
+
+```powershell
+kubectl --context store-eks -n store port-forward service/gateway 18080:8000 --address 127.0.0.1
+```
+
+Em outro terminal:
+
+```powershell
+$env:BASE_URL='http://127.0.0.1:18080'
+python tests/smoke.py
+python tests/business_integration.py
+python scripts/load-business.py --base-url $env:BASE_URL --scenario business --users 4 --duration 60 --context store-eks
+```
+
+A aplicação executada é a do EKS, mesmo com URL local. O acesso depende da identidade Kubernetes/AWS autorizada e não fornece um link público ao professor. O perfil restrito do CI não concede abertura de port-forward; usar o perfil operador. O túnel fixa um pod de Gateway, então gerar carga dentro do cluster para testar o balanceamento entre réplicas do próprio Gateway. As chamadas aos Services internos continuam sujeitas ao balanceamento Kubernetes. [Referência Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/).
+
+Para disponibilizar uma URL pública HTTPS posteriormente, mudar explicitamente para `"access_mode": "https-alb"` e preencher os campos de domínio/certificado/sub-redes. Arquivos antigos sem access_mode mantêm o comportamento HTTPS anterior. Trocar para port-forward não apaga um ALB existente: se já houve publicação pública, o operador deve remover o Ingress e aguardar a exclusão do balanceador. Não foi criado ALB nesta preparação.
+
 Preparação da Pessoa A em 12/11/2026. Os seis serviços continuam nos commits publicados pelos respectivos autores. Nenhum recurso pago AWS foi criado nesta etapa. Os comandos de provisionamento abaixo ficam para a janela de implantação, depois de conferir conta, preços e parâmetros reais.
 
 ## O que está preparado
@@ -14,7 +50,7 @@ Preparação da Pessoa A em 12/11/2026. Os seis serviços continuam nos commits 
 | TLS no banco | Bundle público de CAs RDS versionado; URLs com `verify-full` e certificado montado nos três serviços de dados |
 | Fila | RabbitMQ StatefulSet, uma réplica, PVC gp3 criptografado de 2 GiB e retenção do volume |
 | Cache | Redis reconstruível, sem persistência, memória limitada e expiração/invalidação mantidas em Product |
-| HTTPS | Ingress ALB, certificado ACM, redirecionamento 80→443 e somente Gateway como backend |
+| Acesso | Port-forward sem domínio por padrão; Ingress ALB com ACM/HTTPS como opção pública |
 | CI/CD | Build/publicação por serviço; `Jenkinsfile.eks` aplica a configuração de nuvem dos seis serviços em conjunto |
 | IAM/RBAC | Identidade EC2 para o agente; APIs AWS de leitura para preflight; alterações Kubernetes restritas à aplicação no namespace store |
 | Operação | Renderização, verificações offline/AWS, snapshot anterior, aplicação e rollback dos recursos da aplicação |
@@ -56,8 +92,8 @@ Preencher uma cópia ignorada `infra/aws/deploy.example.json` → `.env.eks.json
 
 - Conta AWS e identidade do operador, região e zonas disponíveis; quotas EC2/EKS e orçamento.
 - CIDR público real do operador, preferencialmente `/32`. Não usar o CIDR de documentação ou `0.0.0.0/0`.
-- Domínio controlado pela dupla e certificado ACM **ISSUED** na mesma região, cobrindo esse domínio.
-- Após criar o cluster: IDs de duas sub-redes públicas para o ALB, VPC, sub-redes privadas e security group realmente associado aos workers.
+- Somente para https-alb: domínio controlado pela dupla e certificado ACM **ISSUED** na mesma região, cobrindo esse domínio.
+- Após criar o cluster: VPC, sub-redes privadas e security group realmente associado aos workers; somente para https-alb, duas sub-redes públicas do ALB.
 - Após criar RDS: endpoint privado e minor PostgreSQL 16 disponível na região.
 - Identidade do agente Jenkins, acesso de rede ao endpoint EKS e credenciais de checkout/registry.
 
@@ -101,7 +137,7 @@ aws cloudformation describe-stacks --stack-name microserv-store-rds --region us-
 
 Não passar senhas literais na linha de comando. O template usa `NoEcho`, não tem senha em Outputs e retém snapshot ao excluir/substituir o banco. O cfn-lint registra W1011 por preferir referências dinâmicas: foi mantido o parâmetro NoEcho com arquivo local ignorado neste roteiro acadêmico. Proteger esse arquivo e a credencial do operador; migrar para um gerenciador de segredos caso o ambiente seja compartilhado.
 
-Preencher `PGHOST` em `.env.eks` com o endpoint privado obtido. Completar os IDs/domínio/certificado de `.env.eks.json` e renderizar a release real:
+Preencher `PGHOST` em `.env.eks` com o endpoint privado obtido. Conferir `.env.eks.json`; preencher domínio/certificado/sub-redes públicas somente no modo https-alb. Renderizar a release real:
 
 ```powershell
 .venv-ops/Scripts/python scripts/prepare-eks.py render --config .env.eks.json
@@ -125,7 +161,9 @@ kubectl --context store-eks -n store-bootstrap delete job/rds-bootstrap secret/r
 
 Os scripts de aplicação de Secrets conferem a identidade AWS e o endpoint do kubeconfig antes de enviar os dados por stdin. O arquivo mestre fica local e não entra nos artefatos do Jenkins.
 
-### 3. Instalar ALB Controller, dependências e observabilidade
+### 3. Dependências, observabilidade e ALB opcional
+
+No modo port-forward, pular o bloco de instalação do ALB Controller e seguir diretamente para a instalação da foundation e das dependências. O bloco seguinte se aplica somente a https-alb.
 
 `infra/aws/controller.lock.json` fixa chart 1.16.0/controller v2.16.0. A política IAM correspondente está versionada em `infra/aws/lbc-iam-policy.json`. Criar a política na conta e associá-la por IRSA ao ServiceAccount `aws-load-balancer-controller` em `kube-system`, conforme o [guia oficial](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.16/deploy/installation/).
 
@@ -136,6 +174,11 @@ helm repo add eks https://aws.github.io/eks-charts
 helm repo update
 helm upgrade --install aws-load-balancer-controller eks/aws-load-balancer-controller --kube-context store-eks --namespace kube-system --version 1.16.0 --set clusterName=microserv-store --set region=us-east-1 --set vpcId=<vpc-id> --set serviceAccount.create=false --set serviceAccount.name=aws-load-balancer-controller
 kubectl --context store-eks -n kube-system rollout status deployment/aws-load-balancer-controller --timeout=300s
+```
+
+Nos dois modos, instalar a infraestrutura compartilhada da aplicação:
+
+```powershell
 kubectl --context store-eks apply -f artifacts/eks/foundation.json
 kubectl --context store-eks -n store rollout status statefulset/rabbitmq --timeout=300s
 kubectl --context store-eks -n store rollout status deployment/redis --timeout=180s
@@ -146,7 +189,7 @@ O Ingress cria um ALB com HTTPS e redirecionamento; configurar o DNS do domínio
 
 ### 4. Configurar a identidade e o job de release
 
-`infra/aws/jenkins-iam.yaml` cria uma role e InstanceProfile para um agente EC2 dedicado, com DescribeCluster e leituras de versão/sub-redes/certificado para o preflight. Informar `ClusterName` e `CertificateArn` ao criar a stack. O agente EC2 deve estar em rede que alcance o endpoint privado EKS e usar IMDSv2; o container precisa alcançar o IMDS (hop limit compatível) ou receber credenciais temporárias por mecanismo equivalente. Não gravar chaves AWS no Git ou na imagem.
+`infra/aws/jenkins-iam.yaml` cria uma role e InstanceProfile para um agente EC2 dedicado, com DescribeCluster e leitura de versão. Informar ClusterName; CertificateArn só é necessário no modo https-alb e habilita as leituras de certificado/sub-redes do preflight público. O agente EC2 deve estar em rede que alcance o endpoint privado EKS e usar IMDSv2; o container precisa alcançar o IMDS (hop limit compatível) ou receber credenciais temporárias por mecanismo equivalente. Não gravar chaves AWS no Git ou na imagem.
 
 No host dedicado, com Git, Docker/Compose e Python instalados:
 
@@ -178,9 +221,11 @@ O Jenkins local já possui jobs `github-store-*` e `store-eks-release` com SCM G
 
 Os jobs dos serviços publicam com `DEPLOY=false`. **No EKS, usar `Jenkinsfile.eks` para aplicar `applications.json`**, que mantém a montagem da CA do RDS. O deploy direto dos manifests originais por um Jenkinsfile de serviço pode remover essa configuração adicional. O modo local dos Jenkinsfiles continua válido para Kind.
 
-O job `store-eks-release` usa `DEPLOY_EKS=false` por padrão: checkout real, ferramentas, sete testes de proteção, renderização e preflight offline. Para o deploy real, após o bootstrap, informar `DEPLOY_EKS=true` e `KUBE_CONTEXT` do kubeconfig da role. O pipeline verifica conta, versão, certificado, VPC, endpoint, nós e controllers, salva o estado anterior, aplica os seis serviços e aguarda rollouts. Namespace, Secrets e infraestrutura são responsabilidade do operador.
+O job `store-eks-release` usa `DEPLOY_EKS=false` por padrão: checkout real, ferramentas, testes de proteção, renderização e preflight offline. Para o deploy real, após o bootstrap, informar `DEPLOY_EKS=true` e `KUBE_CONTEXT` do kubeconfig da role. O pipeline verifica conta, versão, endpoint, nós, EBS e métricas; no modo público, verifica também certificado, VPC/sub-redes e ALB Controller. Salva o estado anterior, aplica os seis serviços e aguarda rollouts. Namespace, Secrets e infraestrutura são responsabilidade do operador.
 
 ### 5. Validar, registrar carga e conferir custos
+
+Para port-forward, usar os comandos da seção inicial, com BASE_URL no loopback. O exemplo HTTPS seguinte se aplica ao modo https-alb.
 
 ```powershell
 .venv-ops/Scripts/python scripts/eks-preflight.py --cloud --config .env.eks.json --cluster-context store-eks

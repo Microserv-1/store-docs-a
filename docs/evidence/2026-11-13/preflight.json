@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-13T12:22:02Z",
+  "example_only": true,
+  "access_mode": "port-forward",
+  "resource_count": 45,
+  "offline_checks": "PASS",
+  "local_server_dry_run": "PASS (Kind API schema only; AWS controllers/storage were not executed)"
+}

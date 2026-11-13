@@ -1,0 +1,12 @@
+{
+  "source_commit": "f11f934937e641bd02f11d6f529304a404f6d630",
+  "access_mode": "port-forward",
+  "guard_tests": 10,
+  "guard_tests_result": "PASS",
+  "iam_cfn_lint": "PASS",
+  "jenkins": "Not rerun: local controller offline; no new pipeline success claimed",
+  "aws_provisioned": false,
+  "public_url": false,
+  "alb_quantity": 0,
+  "services": "All ClusterIP; no Ingress rendered"
+}
