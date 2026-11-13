@@ -1,0 +1,48 @@
+{
+  "context": "store-eks",
+  "baseline_replicas": 2,
+  "peak_replicas": 5,
+  "peak_ready": 5,
+  "final_replicas": 2,
+  "final_ready": 2,
+  "first_additional_ready_utc": "UTC 2026-11-13 16:31:50",
+  "first_return_to_baseline_utc": "UTC 2026-11-13 16:34:40",
+  "requests": 550,
+  "error_ratio": 0.0,
+  "requests_per_second": 4.56,
+  "latency_ms": {
+    "p50": 843.0000000007567,
+    "p95": 1186.9999999980791,
+    "p99": 1280.9999999990396
+  },
+  "credential_verification_pods": {
+    "account-5f5768bbb9-bsrcl": 3.16,
+    "account-5f5768bbb9-hgwkh": 1.4000000000000001,
+    "account-5f5768bbb9-s5hk6": 1.68
+  },
+  "peak_cpu_cores_by_pod": {
+    "account-5f5768bbb9-bsrcl": 0.9331999999999999,
+    "account-5f5768bbb9-gksl4": 0.004800000000000005,
+    "account-5f5768bbb9-hgwkh": 0.4208,
+    "account-5f5768bbb9-pv5cv": 0.0040000000000000036,
+    "account-5f5768bbb9-s5hk6": 0.48712206047032486
+  },
+  "commits": {
+    "account": "7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad",
+    "auth": "d803717bcf09943028f2727cfa97a9515eb17e8d",
+    "gateway": "a3944171d6d008cd0c88027ab2a963558ee7d1da"
+  },
+  "source_sha256": {
+    "recorded-hpa.json": "5b86e293c15b0ba1ff503a7ddf850483d9c01078bc318354866219de32449541",
+    "login-load.json": "a1b4f50003f9aa3b2def5e754e51a7b64c127742745441cadd95680f2f649460",
+    "prometheus-during.json": "171b5eb689a0dd194235135e880862764155a1921226300a6c57d5feba1385f9"
+  },
+  "limits": [
+    "One 4-user login run, not a controlled comparison or a business-load benchmark.",
+    "Client latency includes the authenticated port-forward/network path.",
+    "Gateway tunnel pins one Gateway pod; Account distribution is proved by per-pod metrics.",
+    "HPA CPU percentage is relative to requests, not machine-wide CPU percentage.",
+    "No monthly availability, uniform distribution or unlimited capacity is established."
+  ],
+  "scale_cycle_observed": true
+}

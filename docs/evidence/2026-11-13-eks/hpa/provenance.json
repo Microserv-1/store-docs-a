@@ -1,0 +1,17 @@
+{
+  "authorization": "User authorized the proposed 4-user, 120-second HPA run and observation on 2026-11-13. No node or paid-service provisioning authorized.",
+  "video": "Replay of real captured kubectl output, not a desktop screen recording or final human presentation.",
+  "video_duration_seconds": 461,
+  "video_sha256": "7dab32425763ed582e281324a0b8f34f6bc77e888cee819c383d9f2f89f77f1c",
+  "hpa_cpu_peak_percent_of_requests": 689,
+  "initial_ready": 2,
+  "peak_ready": 5,
+  "final_ready": 2,
+  "load_duration_seconds": 120.625,
+  "cloud_node_provisioning": false,
+  "billing": "No Cost Explorer API queried; cost reservation was an estimate, not measured billing.",
+  "limits": "Snapshot timestamps mark the beginning of sequential commands, not an atomic cluster snapshot. Final read-only commands completed beyond the target observation time; no additional application load was generated.",
+  "capture_root_commit": "38edc112eba7acda44bc904adafff344d76aa503",
+  "capture_script_git_blob_sha256": "3056203cfa40b4440acc88b5c0c18c75cb0978ed2e48fe1ec6e15ed2fca7c59d",
+  "capture_source_note": "Capture used this committed collector; the deadline improvement was made only after the run. Analysis utility and graph were prepared after capture."
+}

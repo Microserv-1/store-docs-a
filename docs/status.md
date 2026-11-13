@@ -8,8 +8,10 @@ passaram no EKS, usando RDS, Redis, RabbitMQ e câmbio externo reais. Prometheus
 tem 12 targets saudáveis. Acesso por port-forward, sem ALB nem URL pública.
 
 O [fechamento](closure.md) reúne evidências sanitizadas, versões, pendências e
-o limite adicional de US$ 20. A comprovação de HPA sob carga no EKS ainda está
-pendente de autorização e execução; objetos HPA com métricas não bastam.
+o limite adicional de US$ 20. A rodada HPA autorizada foi concluída: 550 logins
+HTTP 200, zero erros, p95 de 1.187 ms e escala automática Account 2 → 4 → 5 → 2,
+com cinco réplicas prontas no pico. Dois workers e uma EC2 Jenkins permaneceram
+ligados, sem criação de novas máquinas. [Relatório, gráfico e vídeo EKS](eks-load.md).
 
 Os registros de preparação abaixo são históricos. Menções a AWS/Jenkins
 remoto “não executados” descrevem o estado na data indicada, anterior ao deploy.

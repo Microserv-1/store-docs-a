@@ -1,5 +1,17 @@
 # Gargalos, observabilidade e balanceamento
 
+## Evidências reais no EKS em 13/11
+
+A rodada autorizada de quatro usuários/120s produziu 550 logins HTTP 200,
+p95 de 1.187 ms e escala HPA Account de 2 até 5 réplicas prontas, retornando a
+2 após cessar a carga. Métricas de CPU e de verificações de credenciais por
+pod correlacionam demanda e consumo e mostram três instâncias atendendo.
+Não foi provado ganho antes/depois nem distribuição uniforme entre cinco
+pods. [Relatório completo, gráfico e vídeo](eks-load.md).
+
+Observabilidade é o tratamento A1; balanceamento é A2. HPA complementa a
+evidência de capacidade, sem se tornar um terceiro gargalo individual.
+
 ## Tratamento A1: observabilidade
 
 Problema: sem métricas e logs, aumento de latência pode ser confundido com falta de réplicas. Solução: métricas de requisições e processos em Python/Go; Actuator/Micrometer em Java; Prometheus e dashboard Grafana versionado. Account registra JSON sem payload, senha, token ou email. Gateway registra rota agregada e duração, evitando alta cardinalidade por ID.

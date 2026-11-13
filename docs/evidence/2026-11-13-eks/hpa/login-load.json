@@ -1,0 +1,34 @@
+{
+  "timestamp_utc": "2026-11-13T16:33:17Z",
+  "scenario": "login",
+  "model": "closed-loop, no think time",
+  "base_url": "http://127.0.0.1:18080",
+  "users": 4,
+  "requested_duration_s": 120,
+  "actual_duration_s": 120.625,
+  "requests": 550,
+  "requests_per_second": 4.56,
+  "latency_ms": {
+    "p50": 843.0000000007567,
+    "p95": 1186.9999999980791,
+    "p99": 1280.9999999990396
+  },
+  "status_counts": {
+    "200": 550
+  },
+  "error_ratio": 0.0,
+  "upstream_instances": {
+    "unknown": 550
+  },
+  "commits": {
+    "account": "7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad",
+    "auth": "d803717bcf09943028f2727cfa97a9515eb17e8d",
+    "gateway": "a3944171d6d008cd0c88027ab2a963558ee7d1da"
+  },
+  "dirty": {
+    "account": false,
+    "auth": false,
+    "gateway": false
+  },
+  "note": "Record replicas, CPU/memory, image IDs and environment alongside this report. Dirty source is not identified by HEAD alone."
+}

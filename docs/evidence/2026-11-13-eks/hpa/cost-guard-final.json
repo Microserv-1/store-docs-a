@@ -1,0 +1,71 @@
+{
+  "utc": "2026-11-13T16:38:35.135672+00:00",
+  "cluster": "microserv-store",
+  "region": "us-east-1",
+  "running_vpc_instances": [
+    {
+      "id": "i-0b7757069444ead3e",
+      "type": "t3.large"
+    },
+    {
+      "id": "i-03245ec6369003f79",
+      "type": "t3.large"
+    },
+    {
+      "id": "i-09a4cf14b3904b094",
+      "type": "t3.large"
+    }
+  ],
+  "worker_scaling": {
+    "minSize": 2,
+    "maxSize": 4,
+    "desiredSize": 2
+  },
+  "node_autoscaler_deployments": [],
+  "hpas": [
+    {
+      "name": "account",
+      "min": 2,
+      "max": 5,
+      "current": 2
+    },
+    {
+      "name": "auth",
+      "min": 2,
+      "max": 5,
+      "current": 2
+    },
+    {
+      "name": "exchange",
+      "min": 2,
+      "max": 5,
+      "current": 2
+    },
+    {
+      "name": "gateway",
+      "min": 2,
+      "max": 5,
+      "current": 2
+    },
+    {
+      "name": "order",
+      "min": 2,
+      "max": 5,
+      "current": 2
+    },
+    {
+      "name": "product",
+      "min": 2,
+      "max": 5,
+      "current": 2
+    }
+  ],
+  "status": "BASELINE_MATCHES",
+  "findings": [],
+  "limitations": [
+    "Not a real-time monitor, billing measurement, hard budget or automatic shutdown.",
+    "Worker maxSize remains an allowed ceiling, not proof that nodes will be added.",
+    "CPU surplus credits, NAT traffic, logs, storage and existing resources can still incur costs.",
+    "No load, resource mutation or Cost Explorer API call is performed."
+  ]
+}

@@ -19,6 +19,7 @@ nav:
   - Jenkins e registro: jenkins.md
   - Preparação EKS completa: eks-preparation.md
   - Gargalos e testes: bottlenecks.md
+  - Carga e HPA no EKS: eks-load.md
   - Custos, PaaS e SLA: operations.md
   - Janela e orçamento AWS: budget-window.md
   - Parâmetros do Calculator: calculator-inputs.md

@@ -1,8 +1,9 @@
 # Apresentação e defesa
 
 Roteiro proposto de 120 segundos, a gravar com os dois integrantes. EKS e o
-aceite integrado foram validados em 13/11. A comprovação HPA na AWS ainda está
-pendente; inserir o resultado real somente depois da execução autorizada.
+aceite integrado foram validados em 13/11. O HPA também foi comprovado na AWS:
+Account escalou de 2 para 5 pods prontos e retornou a 2, com 550 logins sem
+erros. [Vídeo técnico, gráfico e resultados](eks-load.md).
 
 | Tempo | Participação | Conteúdo |
 |---|---|---|
@@ -43,9 +44,10 @@ e um pedido em USD. A consulta em BRL usa o câmbio externo sem alterar o valor
 original. Uma segunda conta não pode acessar o pedido. O teste integrado
 executou quarenta verificações reais na AWS.”
 
-**A, 70–90s:** Apresentar o diagnóstico de carga, distribuição entre réplicas
-e resultado HPA **somente após medi-los**: registrar valores e contexto exatos,
-sem preencher antecipadamente número de pods, p95 ou ganho de capacidade.
+**A, 70–90s:** “No login, as métricas mostraram aumento de CPU em Account.
+O HPA escalou de duas para cinco réplicas prontas e voltou a duas depois da
+carga. Três pods atenderam verificações de credenciais. Foram 550 logins sem
+erros; não medimos um ganho controlado antes e depois.” Mostrar o gráfico EKS.
 
 **B, 90–105s:** “O cache Redis reduz consultas repetidas e invalida produtos
 removidos. A fila desacopla a notificação de pedidos; o consumidor trata

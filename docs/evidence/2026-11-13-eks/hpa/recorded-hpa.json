@@ -1,0 +1,781 @@
+[
+  {
+    "utc": "UTC 2026-11-13 16:30:57",
+    "load_status": "BASELINE",
+    "load_users": 4,
+    "context": "store-eks",
+    "HPA": "NAME       REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount    Deployment/account    cpu: 4%/60%    2         5         2          47m\nauth       Deployment/auth       cpu: 1%/60%    2         5         2          47m\nexchange   Deployment/exchange   cpu: 4%/60%    2         5         2          47m\ngateway    Deployment/gateway    cpu: 1%/60%    2         5         2          47m\norder      Deployment/order      cpu: 27%/60%   2         5         2          47m\nproduct    Deployment/product    cpu: 4%/60%    2         5         2          47m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      2/2     2            2           47m\nauth         2/2     2            2           47m\nexchange     2/2     2            2           47m\ngateway      2/2     2            2           47m\ngrafana      1/1     1            1           175m\norder        2/2     2            2           47m\nproduct      2/2     2            2           47m\nprometheus   1/1     1            1           175m\nredis        1/1     1            1           176m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bsrcl   4m           57Mi            \naccount-5f5768bbb9-s5hk6   4m           57Mi            \n",
+    "hpa_status": [
+      {
+        "name": "account",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "order",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      }
+    ]
+  },
+  {
+    "utc": "UTC 2026-11-13 16:31:15",
+    "load_status": "RUNNING",
+    "load_users": 4,
+    "context": "store-eks",
+    "HPA": "NAME       REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount    Deployment/account    cpu: 4%/60%    2         5         2          47m\nauth       Deployment/auth       cpu: 1%/60%    2         5         2          47m\nexchange   Deployment/exchange   cpu: 4%/60%    2         5         2          47m\ngateway    Deployment/gateway    cpu: 1%/60%    2         5         2          47m\norder      Deployment/order      cpu: 26%/60%   2         5         2          47m\nproduct    Deployment/product    cpu: 4%/60%    2         5         2          47m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      2/2     2            2           47m\nauth         2/2     2            2           47m\nexchange     2/2     2            2           47m\ngateway      2/2     2            2           47m\ngrafana      1/1     1            1           175m\norder        2/2     2            2           47m\nproduct      2/2     2            2           47m\nprometheus   1/1     1            1           175m\nredis        1/1     1            1           176m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bsrcl   4m           57Mi            \naccount-5f5768bbb9-s5hk6   4m           57Mi            \n",
+    "hpa_status": [
+      {
+        "name": "account",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "order",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      }
+    ]
+  },
+  {
+    "utc": "UTC 2026-11-13 16:31:50",
+    "load_status": "RUNNING",
+    "load_users": 4,
+    "context": "store-eks",
+    "HPA": "NAME       REFERENCE             TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount    Deployment/account    cpu: 487%/60%   2         5         4          48m\nauth       Deployment/auth       cpu: 19%/60%    2         5         2          48m\nexchange   Deployment/exchange   cpu: 4%/60%     2         5         2          48m\ngateway    Deployment/gateway    cpu: 3%/60%     2         5         2          48m\norder      Deployment/order      cpu: 29%/60%    2         5         2          48m\nproduct    Deployment/product    cpu: 4%/60%     2         5         2          48m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      4/5     5            4           48m\nauth         2/2     2            2           48m\nexchange     2/2     2            2           48m\ngateway      2/2     2            2           48m\ngrafana      1/1     1            1           176m\norder        2/2     2            2           48m\nproduct      2/2     2            2           48m\nprometheus   1/1     1            1           176m\nredis        1/1     1            1           177m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bsrcl   907m         69Mi            \naccount-5f5768bbb9-gksl4   6m           56Mi            \naccount-5f5768bbb9-hgwkh   4m           56Mi            \naccount-5f5768bbb9-s5hk6   472m         122Mi           \n",
+    "hpa_status": [
+      {
+        "name": "account",
+        "current": 4,
+        "desired": 5
+      },
+      {
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "order",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      }
+    ]
+  },
+  {
+    "utc": "UTC 2026-11-13 16:32:08",
+    "load_status": "RUNNING",
+    "load_users": 4,
+    "context": "store-eks",
+    "HPA": "NAME       REFERENCE             TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount    Deployment/account    cpu: 689%/60%   2         5         5          48m\nauth       Deployment/auth       cpu: 24%/60%    2         5         2          48m\nexchange   Deployment/exchange   cpu: 4%/60%     2         5         2          48m\ngateway    Deployment/gateway    cpu: 4%/60%     2         5         2          48m\norder      Deployment/order      cpu: 29%/60%    2         5         2          48m\nproduct    Deployment/product    cpu: 4%/60%     2         5         2          48m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           48m\nauth         2/2     2            2           48m\nexchange     2/2     2            2           48m\ngateway      2/2     2            2           48m\ngrafana      1/1     1            1           176m\norder        2/2     2            2           48m\nproduct      2/2     2            2           48m\nprometheus   1/1     1            1           176m\nredis        1/1     1            1           177m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bsrcl   923m         133Mi           \naccount-5f5768bbb9-gksl4   5m           56Mi            \naccount-5f5768bbb9-hgwkh   5m           56Mi            \naccount-5f5768bbb9-pv5cv   4m           56Mi            \naccount-5f5768bbb9-s5hk6   454m         58Mi            \n",
+    "hpa_status": [
+      {
+        "name": "account",
+        "current": 5,
+        "desired": 5
+      },
+      {
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "order",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      }
+    ]
+  },
+  {
+    "utc": "UTC 2026-11-13 16:32:49",
+    "load_status": "RUNNING",
+    "load_users": 4,
+    "context": "store-eks",
+    "HPA": "NAME       REFERENCE             TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount    Deployment/account    cpu: 260%/60%   2         5         5          49m\nauth       Deployment/auth       cpu: 13%/60%    2         5         2          49m\nexchange   Deployment/exchange   cpu: 4%/60%     2         5         2          49m\ngateway    Deployment/gateway    cpu: 4%/60%     2         5         2          49m\norder      Deployment/order      cpu: 29%/60%    2         5         2          49m\nproduct    Deployment/product    cpu: 4%/60%     2         5         2          49m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           49m\nauth         2/2     2            2           49m\nexchange     2/2     2            2           49m\ngateway      2/2     2            2           49m\ngrafana      1/1     1            1           177m\norder        2/2     2            2           49m\nproduct      2/2     2            2           49m\nprometheus   1/1     1            1           177m\nredis        1/1     1            1           178m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bsrcl   896m         126Mi           \naccount-5f5768bbb9-gksl4   5m           56Mi            \naccount-5f5768bbb9-hgwkh   212m         121Mi           \naccount-5f5768bbb9-pv5cv   4m           56Mi            \naccount-5f5768bbb9-s5hk6   413m         122Mi           \n",
+    "hpa_status": [
+      {
+        "name": "account",
+        "current": 5,
+        "desired": 5
+      },
+      {
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "order",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      }
+    ]
+  },
+  {
+    "utc": "UTC 2026-11-13 16:33:06",
+    "load_status": "RUNNING",
+    "load_users": 4,
+    "context": "store-eks",
+    "HPA": "NAME       REFERENCE             TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount    Deployment/account    cpu: 273%/60%   2         5         5          49m\nauth       Deployment/auth       cpu: 26%/60%    2         5         2          49m\nexchange   Deployment/exchange   cpu: 4%/60%     2         5         2          49m\ngateway    Deployment/gateway    cpu: 4%/60%     2         5         2          49m\norder      Deployment/order      cpu: 29%/60%    2         5         2          49m\nproduct    Deployment/product    cpu: 5%/60%     2         5         2          49m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           49m\nauth         2/2     2            2           49m\nexchange     2/2     2            2           49m\ngateway      2/2     2            2           49m\ngrafana      1/1     1            1           177m\norder        2/2     2            2           49m\nproduct      2/2     2            2           49m\nprometheus   1/1     1            1           177m\nredis        1/1     1            1           178m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bsrcl   896m         126Mi           \naccount-5f5768bbb9-gksl4   5m           56Mi            \naccount-5f5768bbb9-hgwkh   212m         121Mi           \naccount-5f5768bbb9-pv5cv   4m           56Mi            \naccount-5f5768bbb9-s5hk6   413m         122Mi           \n",
+    "hpa_status": [
+      {
+        "name": "account",
+        "current": 5,
+        "desired": 5
+      },
+      {
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "order",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      }
+    ]
+  },
+  {
+    "utc": "UTC 2026-11-13 16:33:46",
+    "load_status": "FINISHED (exit 0)",
+    "load_users": 4,
+    "context": "store-eks",
+    "HPA": "NAME       REFERENCE             TARGETS         MINPODS   MAXPODS   REPLICAS   AGE\naccount    Deployment/account    cpu: 216%/60%   2         5         5          49m\nauth       Deployment/auth       cpu: 15%/60%    2         5         2          49m\nexchange   Deployment/exchange   cpu: 4%/60%     2         5         2          49m\ngateway    Deployment/gateway    cpu: 2%/60%     2         5         2          49m\norder      Deployment/order      cpu: 29%/60%    2         5         2          49m\nproduct    Deployment/product    cpu: 4%/60%     2         5         2          49m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           50m\nauth         2/2     2            2           50m\nexchange     2/2     2            2           50m\ngateway      2/2     2            2           50m\ngrafana      1/1     1            1           178m\norder        2/2     2            2           50m\nproduct      2/2     2            2           50m\nprometheus   1/1     1            1           178m\nredis        1/1     1            1           179m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bsrcl   4m           62Mi            \naccount-5f5768bbb9-gksl4   4m           56Mi            \naccount-5f5768bbb9-hgwkh   4m           57Mi            \naccount-5f5768bbb9-pv5cv   4m           56Mi            \naccount-5f5768bbb9-s5hk6   4m           58Mi            \n",
+    "hpa_status": [
+      {
+        "name": "account",
+        "current": 5,
+        "desired": 5
+      },
+      {
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "order",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      }
+    ]
+  },
+  {
+    "utc": "UTC 2026-11-13 16:34:03",
+    "load_status": "FINISHED (exit 0)",
+    "load_users": 4,
+    "context": "store-eks",
+    "HPA": "NAME       REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount    Deployment/account    cpu: 4%/60%    2         5         5          50m\nauth       Deployment/auth       cpu: 9%/60%    2         5         2          50m\nexchange   Deployment/exchange   cpu: 4%/60%    2         5         2          50m\ngateway    Deployment/gateway    cpu: 1%/60%    2         5         2          50m\norder      Deployment/order      cpu: 28%/60%   2         5         2          50m\nproduct    Deployment/product    cpu: 4%/60%    2         5         2          50m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      5/5     5            5           50m\nauth         2/2     2            2           50m\nexchange     2/2     2            2           50m\ngateway      2/2     2            2           50m\ngrafana      1/1     1            1           178m\norder        2/2     2            2           50m\nproduct      2/2     2            2           50m\nprometheus   1/1     1            1           178m\nredis        1/1     1            1           179m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bsrcl   4m           62Mi            \naccount-5f5768bbb9-gksl4   4m           56Mi            \naccount-5f5768bbb9-hgwkh   4m           57Mi            \naccount-5f5768bbb9-pv5cv   4m           56Mi            \naccount-5f5768bbb9-s5hk6   4m           58Mi            \n",
+    "hpa_status": [
+      {
+        "name": "account",
+        "current": 5,
+        "desired": 5
+      },
+      {
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "order",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      }
+    ]
+  },
+  {
+    "utc": "UTC 2026-11-13 16:34:40",
+    "load_status": "FINISHED (exit 0)",
+    "load_users": 4,
+    "context": "store-eks",
+    "HPA": "NAME       REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount    Deployment/account    cpu: 4%/60%    2         5         5          50m\nauth       Deployment/auth       cpu: 2%/60%    2         5         2          50m\nexchange   Deployment/exchange   cpu: 4%/60%    2         5         2          50m\ngateway    Deployment/gateway    cpu: 1%/60%    2         5         2          50m\norder      Deployment/order      cpu: 27%/60%   2         5         2          50m\nproduct    Deployment/product    cpu: 4%/60%    2         5         2          50m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      2/2     2            2           50m\nauth         2/2     2            2           50m\nexchange     2/2     2            2           50m\ngateway      2/2     2            2           50m\ngrafana      1/1     1            1           179m\norder        2/2     2            2           50m\nproduct      2/2     2            2           50m\nprometheus   1/1     1            1           179m\nredis        1/1     1            1           3h\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bsrcl   6m           62Mi            \naccount-5f5768bbb9-gksl4   4m           56Mi            \n",
+    "hpa_status": [
+      {
+        "name": "account",
+        "current": 5,
+        "desired": 2
+      },
+      {
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "order",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      }
+    ]
+  },
+  {
+    "utc": "UTC 2026-11-13 16:34:54",
+    "load_status": "FINISHED (exit 0)",
+    "load_users": 4,
+    "context": "store-eks",
+    "HPA": "NAME       REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount    Deployment/account    cpu: 5%/60%    2         5         2          51m\nauth       Deployment/auth       cpu: 1%/60%    2         5         2          51m\nexchange   Deployment/exchange   cpu: 4%/60%    2         5         2          51m\ngateway    Deployment/gateway    cpu: 1%/60%    2         5         2          51m\norder      Deployment/order      cpu: 28%/60%   2         5         2          51m\nproduct    Deployment/product    cpu: 4%/60%    2         5         2          51m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      2/2     2            2           51m\nauth         2/2     2            2           51m\nexchange     2/2     2            2           51m\ngateway      2/2     2            2           51m\ngrafana      1/1     1            1           179m\norder        2/2     2            2           51m\nproduct      2/2     2            2           51m\nprometheus   1/1     1            1           179m\nredis        1/1     1            1           3h\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bsrcl   5m           62Mi            \naccount-5f5768bbb9-gksl4   4m           56Mi            \n",
+    "hpa_status": [
+      {
+        "name": "account",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "order",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      }
+    ]
+  },
+  {
+    "utc": "UTC 2026-11-13 16:35:08",
+    "load_status": "FINISHED (exit 0)",
+    "load_users": 4,
+    "context": "store-eks",
+    "HPA": "NAME       REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount    Deployment/account    cpu: 4%/60%    2         5         2          51m\nauth       Deployment/auth       cpu: 1%/60%    2         5         2          51m\nexchange   Deployment/exchange   cpu: 3%/60%    2         5         2          51m\ngateway    Deployment/gateway    cpu: 1%/60%    2         5         2          51m\norder      Deployment/order      cpu: 29%/60%   2         5         2          51m\nproduct    Deployment/product    cpu: 4%/60%    2         5         2          51m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      2/2     2            2           51m\nauth         2/2     2            2           51m\nexchange     2/2     2            2           51m\ngateway      2/2     2            2           51m\ngrafana      1/1     1            1           179m\norder        2/2     2            2           51m\nproduct      2/2     2            2           51m\nprometheus   1/1     1            1           179m\nredis        1/1     1            1           3h\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bsrcl   5m           62Mi            \naccount-5f5768bbb9-gksl4   5m           56Mi            \n",
+    "hpa_status": [
+      {
+        "name": "account",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "order",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      }
+    ]
+  },
+  {
+    "utc": "UTC 2026-11-13 16:35:47",
+    "load_status": "FINISHED (exit 0)",
+    "load_users": 4,
+    "context": "store-eks",
+    "HPA": "NAME       REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount    Deployment/account    cpu: 4%/60%    2         5         2          52m\nauth       Deployment/auth       cpu: 1%/60%    2         5         2          52m\nexchange   Deployment/exchange   cpu: 4%/60%    2         5         2          52m\ngateway    Deployment/gateway    cpu: 1%/60%    2         5         2          52m\norder      Deployment/order      cpu: 28%/60%   2         5         2          52m\nproduct    Deployment/product    cpu: 4%/60%    2         5         2          52m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      2/2     2            2           52m\nauth         2/2     2            2           52m\nexchange     2/2     2            2           52m\ngateway      2/2     2            2           52m\ngrafana      1/1     1            1           3h\norder        2/2     2            2           52m\nproduct      2/2     2            2           52m\nprometheus   1/1     1            1           3h\nredis        1/1     1            1           3h1m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bsrcl   4m           62Mi            \naccount-5f5768bbb9-gksl4   4m           56Mi            \n",
+    "hpa_status": [
+      {
+        "name": "account",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "order",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      }
+    ]
+  },
+  {
+    "utc": "UTC 2026-11-13 16:36:02",
+    "load_status": "FINISHED (exit 0)",
+    "load_users": 4,
+    "context": "store-eks",
+    "HPA": "NAME       REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount    Deployment/account    cpu: 4%/60%    2         5         2          52m\nauth       Deployment/auth       cpu: 2%/60%    2         5         2          52m\nexchange   Deployment/exchange   cpu: 4%/60%    2         5         2          52m\ngateway    Deployment/gateway    cpu: 1%/60%    2         5         2          52m\norder      Deployment/order      cpu: 28%/60%   2         5         2          52m\nproduct    Deployment/product    cpu: 4%/60%    2         5         2          52m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      2/2     2            2           52m\nauth         2/2     2            2           52m\nexchange     2/2     2            2           52m\ngateway      2/2     2            2           52m\ngrafana      1/1     1            1           3h\norder        2/2     2            2           52m\nproduct      2/2     2            2           52m\nprometheus   1/1     1            1           3h\nredis        1/1     1            1           3h1m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bsrcl   4m           62Mi            \naccount-5f5768bbb9-gksl4   4m           56Mi            \n",
+    "hpa_status": [
+      {
+        "name": "account",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "order",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      }
+    ]
+  },
+  {
+    "utc": "UTC 2026-11-13 16:36:17",
+    "load_status": "FINISHED (exit 0)",
+    "load_users": 4,
+    "context": "store-eks",
+    "HPA": "NAME       REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount    Deployment/account    cpu: 4%/60%    2         5         2          52m\nauth       Deployment/auth       cpu: 1%/60%    2         5         2          52m\nexchange   Deployment/exchange   cpu: 4%/60%    2         5         2          52m\ngateway    Deployment/gateway    cpu: 1%/60%    2         5         2          52m\norder      Deployment/order      cpu: 28%/60%   2         5         2          52m\nproduct    Deployment/product    cpu: 4%/60%    2         5         2          52m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      2/2     2            2           52m\nauth         2/2     2            2           52m\nexchange     2/2     2            2           52m\ngateway      2/2     2            2           52m\ngrafana      1/1     1            1           3h\norder        2/2     2            2           52m\nproduct      2/2     2            2           52m\nprometheus   1/1     1            1           3h1m\nredis        1/1     1            1           3h1m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bsrcl   4m           62Mi            \naccount-5f5768bbb9-gksl4   4m           56Mi            \n",
+    "hpa_status": [
+      {
+        "name": "account",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "order",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      }
+    ]
+  },
+  {
+    "utc": "UTC 2026-11-13 16:36:53",
+    "load_status": "FINISHED (exit 0)",
+    "load_users": 4,
+    "context": "store-eks",
+    "HPA": "NAME       REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount    Deployment/account    cpu: 4%/60%    2         5         2          53m\nauth       Deployment/auth       cpu: 1%/60%    2         5         2          53m\nexchange   Deployment/exchange   cpu: 4%/60%    2         5         2          53m\ngateway    Deployment/gateway    cpu: 1%/60%    2         5         2          53m\norder      Deployment/order      cpu: 27%/60%   2         5         2          53m\nproduct    Deployment/product    cpu: 4%/60%    2         5         2          53m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      2/2     2            2           53m\nauth         2/2     2            2           53m\nexchange     2/2     2            2           53m\ngateway      2/2     2            2           53m\ngrafana      1/1     1            1           3h1m\norder        2/2     2            2           53m\nproduct      2/2     2            2           53m\nprometheus   1/1     1            1           3h1m\nredis        1/1     1            1           3h2m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bsrcl   4m           62Mi            \naccount-5f5768bbb9-gksl4   4m           56Mi            \n",
+    "hpa_status": [
+      {
+        "name": "account",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "order",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      }
+    ]
+  },
+  {
+    "utc": "UTC 2026-11-13 16:37:10",
+    "load_status": "FINISHED (exit 0)",
+    "load_users": 4,
+    "context": "store-eks",
+    "HPA": "NAME       REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount    Deployment/account    cpu: 4%/60%    2         5         2          53m\nauth       Deployment/auth       cpu: 2%/60%    2         5         2          53m\nexchange   Deployment/exchange   cpu: 4%/60%    2         5         2          53m\ngateway    Deployment/gateway    cpu: 1%/60%    2         5         2          53m\norder      Deployment/order      cpu: 28%/60%   2         5         2          53m\nproduct    Deployment/product    cpu: 4%/60%    2         5         2          53m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      2/2     2            2           53m\nauth         2/2     2            2           53m\nexchange     2/2     2            2           53m\ngateway      2/2     2            2           53m\ngrafana      1/1     1            1           3h1m\norder        2/2     2            2           53m\nproduct      2/2     2            2           53m\nprometheus   1/1     1            1           3h1m\nredis        1/1     1            1           3h2m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bsrcl   4m           62Mi            \naccount-5f5768bbb9-gksl4   4m           56Mi            \n",
+    "hpa_status": [
+      {
+        "name": "account",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "order",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      }
+    ]
+  },
+  {
+    "utc": "UTC 2026-11-13 16:37:44",
+    "load_status": "FINISHED (exit 0)",
+    "load_users": 4,
+    "context": "store-eks",
+    "HPA": "NAME       REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount    Deployment/account    cpu: 4%/60%    2         5         2          53m\nauth       Deployment/auth       cpu: 1%/60%    2         5         2          53m\nexchange   Deployment/exchange   cpu: 4%/60%    2         5         2          53m\ngateway    Deployment/gateway    cpu: 1%/60%    2         5         2          53m\norder      Deployment/order      cpu: 27%/60%   2         5         2          53m\nproduct    Deployment/product    cpu: 4%/60%    2         5         2          53m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      2/2     2            2           53m\nauth         2/2     2            2           53m\nexchange     2/2     2            2           53m\ngateway      2/2     2            2           53m\ngrafana      1/1     1            1           3h2m\norder        2/2     2            2           53m\nproduct      2/2     2            2           53m\nprometheus   1/1     1            1           3h2m\nredis        1/1     1            1           3h3m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bsrcl   4m           62Mi            \naccount-5f5768bbb9-gksl4   4m           56Mi            \n",
+    "hpa_status": [
+      {
+        "name": "account",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "order",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      }
+    ]
+  },
+  {
+    "utc": "UTC 2026-11-13 16:37:58",
+    "load_status": "FINISHED (exit 0)",
+    "load_users": 4,
+    "context": "store-eks",
+    "HPA": "NAME       REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount    Deployment/account    cpu: 4%/60%    2         5         2          54m\nauth       Deployment/auth       cpu: 1%/60%    2         5         2          54m\nexchange   Deployment/exchange   cpu: 4%/60%    2         5         2          54m\ngateway    Deployment/gateway    cpu: 1%/60%    2         5         2          54m\norder      Deployment/order      cpu: 27%/60%   2         5         2          54m\nproduct    Deployment/product    cpu: 4%/60%    2         5         2          54m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      2/2     2            2           54m\nauth         2/2     2            2           54m\nexchange     2/2     2            2           54m\ngateway      2/2     2            2           54m\ngrafana      1/1     1            1           3h2m\norder        2/2     2            2           54m\nproduct      2/2     2            2           54m\nprometheus   1/1     1            1           3h2m\nredis        1/1     1            1           3h3m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bsrcl   4m           62Mi            \naccount-5f5768bbb9-gksl4   3m           56Mi            \n",
+    "hpa_status": [
+      {
+        "name": "account",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "order",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      }
+    ]
+  },
+  {
+    "utc": "UTC 2026-11-13 16:38:35",
+    "load_status": "FINISHED (exit 0)",
+    "load_users": 4,
+    "context": "store-eks",
+    "HPA": "NAME       REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE\naccount    Deployment/account    cpu: 3%/60%    2         5         2          54m\nauth       Deployment/auth       cpu: 1%/60%    2         5         2          54m\nexchange   Deployment/exchange   cpu: 4%/60%    2         5         2          54m\ngateway    Deployment/gateway    cpu: 1%/60%    2         5         2          54m\norder      Deployment/order      cpu: 27%/60%   2         5         2          54m\nproduct    Deployment/product    cpu: 4%/60%    2         5         2          54m\n",
+    "DEPLOYMENTS": "NAME         READY   UP-TO-DATE   AVAILABLE   AGE\naccount      2/2     2            2           54m\nauth         2/2     2            2           54m\nexchange     2/2     2            2           54m\ngateway      2/2     2            2           54m\ngrafana      1/1     1            1           3h3m\norder        2/2     2            2           54m\nproduct      2/2     2            2           54m\nprometheus   1/1     1            1           3h3m\nredis        1/1     1            1           3h3m\n",
+    "CPU AND MEMORY": "NAME                       CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bsrcl   4m           62Mi            \naccount-5f5768bbb9-gksl4   4m           56Mi            \n",
+    "hpa_status": [
+      {
+        "name": "account",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "order",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      }
+    ]
+  }
+]

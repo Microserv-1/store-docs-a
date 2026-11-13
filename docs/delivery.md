@@ -11,7 +11,7 @@
 | Aceite AWS | [40 verificações](evidence/2026-11-13-eks/business-integration.json) | Passou com serviços reais |
 | Pipeline AWS | [Registro de release](evidence/2026-11-13-eks/jenkins-release.json) | SUCCESS informado no console; anexar número/console final |
 | Apresentação | [Conteúdo dos slides e roteiro de 120s](presentation.md) | Texto pronto; material visual e gravação humana pendentes |
-| Vídeo técnico EKS/HPA | Ainda não produzido | Aguardando autorização da carga e execução |
+| Vídeo técnico EKS/HPA | [Vídeo e relatório](eks-load.md) | Ciclo 2 → 5 → 2 comprovado; replay técnico de 7min41s |
 | Custos | [Tarifas e estimativa](operations.md) | Estimativa rastreável pronta; exportação do Calculator pendente |
 
 Não entregar o vídeo antigo de Kind como comprovação do EKS, nem uma página

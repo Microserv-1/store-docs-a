@@ -1,0 +1,488 @@
+[
+  {
+    "reason": "FailedGetResourceMetric",
+    "message": "failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API",
+    "firstTimestamp": "2026-11-13T15:44:07Z",
+    "lastTimestamp": "2026-11-13T15:44:07Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "account",
+      "namespace": "store",
+      "resourceVersion": "38147",
+      "uid": "682a7b4b-32bf-464b-8aea-6a6e92c4c36b"
+    }
+  },
+  {
+    "reason": "FailedComputeMetricsReplicas",
+    "message": "invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API",
+    "firstTimestamp": "2026-11-13T15:44:07Z",
+    "lastTimestamp": "2026-11-13T15:44:07Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "account",
+      "namespace": "store",
+      "resourceVersion": "38147",
+      "uid": "682a7b4b-32bf-464b-8aea-6a6e92c4c36b"
+    }
+  },
+  {
+    "reason": "FailedGetResourceMetric",
+    "message": "failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)",
+    "firstTimestamp": "2026-11-13T15:44:22Z",
+    "lastTimestamp": "2026-11-13T15:44:22Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "account",
+      "namespace": "store",
+      "resourceVersion": "38527",
+      "uid": "682a7b4b-32bf-464b-8aea-6a6e92c4c36b"
+    }
+  },
+  {
+    "reason": "FailedComputeMetricsReplicas",
+    "message": "invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)",
+    "firstTimestamp": "2026-11-13T15:44:22Z",
+    "lastTimestamp": "2026-11-13T15:44:22Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "account",
+      "namespace": "store",
+      "resourceVersion": "38527",
+      "uid": "682a7b4b-32bf-464b-8aea-6a6e92c4c36b"
+    }
+  },
+  {
+    "reason": "SuccessfulRescale",
+    "message": "New size: 4; reason: cpu resource utilization (percentage of request) above target",
+    "firstTimestamp": "2026-11-13T16:31:41Z",
+    "lastTimestamp": "2026-11-13T16:31:41Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "account",
+      "namespace": "store",
+      "resourceVersion": "48619",
+      "uid": "682a7b4b-32bf-464b-8aea-6a6e92c4c36b"
+    }
+  },
+  {
+    "reason": "SuccessfulRescale",
+    "message": "New size: 5; reason: cpu resource utilization (percentage of request) above target",
+    "firstTimestamp": "2026-11-13T16:31:56Z",
+    "lastTimestamp": "2026-11-13T16:31:56Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "account",
+      "namespace": "store",
+      "resourceVersion": "49114",
+      "uid": "682a7b4b-32bf-464b-8aea-6a6e92c4c36b"
+    }
+  },
+  {
+    "reason": "SuccessfulRescale",
+    "message": "New size: 2; reason: All metrics below target",
+    "firstTimestamp": "2026-11-13T16:34:41Z",
+    "lastTimestamp": "2026-11-13T16:34:41Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "account",
+      "namespace": "store",
+      "resourceVersion": "49703",
+      "uid": "682a7b4b-32bf-464b-8aea-6a6e92c4c36b"
+    }
+  },
+  {
+    "reason": "FailedGetResourceMetric",
+    "message": "failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API",
+    "firstTimestamp": "2026-11-13T15:44:07Z",
+    "lastTimestamp": "2026-11-13T15:44:07Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "auth",
+      "namespace": "store",
+      "resourceVersion": "38159",
+      "uid": "36fd767f-c293-43b3-aaf1-71ba411096ab"
+    }
+  },
+  {
+    "reason": "FailedComputeMetricsReplicas",
+    "message": "invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API",
+    "firstTimestamp": "2026-11-13T15:44:07Z",
+    "lastTimestamp": "2026-11-13T15:44:07Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "auth",
+      "namespace": "store",
+      "resourceVersion": "38159",
+      "uid": "36fd767f-c293-43b3-aaf1-71ba411096ab"
+    }
+  },
+  {
+    "reason": "FailedGetResourceMetric",
+    "message": "failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)",
+    "firstTimestamp": "2026-11-13T15:44:22Z",
+    "lastTimestamp": "2026-11-13T15:44:37Z",
+    "count": 2,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "auth",
+      "namespace": "store",
+      "resourceVersion": "38530",
+      "uid": "36fd767f-c293-43b3-aaf1-71ba411096ab"
+    }
+  },
+  {
+    "reason": "FailedComputeMetricsReplicas",
+    "message": "invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)",
+    "firstTimestamp": "2026-11-13T15:44:22Z",
+    "lastTimestamp": "2026-11-13T15:44:37Z",
+    "count": 2,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "auth",
+      "namespace": "store",
+      "resourceVersion": "38530",
+      "uid": "36fd767f-c293-43b3-aaf1-71ba411096ab"
+    }
+  },
+  {
+    "reason": "FailedGetResourceMetric",
+    "message": "failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API",
+    "firstTimestamp": "2026-11-13T15:44:07Z",
+    "lastTimestamp": "2026-11-13T15:44:07Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "exchange",
+      "namespace": "store",
+      "resourceVersion": "38212",
+      "uid": "6403555f-3234-4bf1-b629-5e6e368430c5"
+    }
+  },
+  {
+    "reason": "FailedComputeMetricsReplicas",
+    "message": "invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API",
+    "firstTimestamp": "2026-11-13T15:44:07Z",
+    "lastTimestamp": "2026-11-13T15:44:07Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "exchange",
+      "namespace": "store",
+      "resourceVersion": "38212",
+      "uid": "6403555f-3234-4bf1-b629-5e6e368430c5"
+    }
+  },
+  {
+    "reason": "FailedGetResourceMetric",
+    "message": "failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)",
+    "firstTimestamp": "2026-11-13T15:44:22Z",
+    "lastTimestamp": "2026-11-13T15:44:22Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "exchange",
+      "namespace": "store",
+      "resourceVersion": "38538",
+      "uid": "6403555f-3234-4bf1-b629-5e6e368430c5"
+    }
+  },
+  {
+    "reason": "FailedComputeMetricsReplicas",
+    "message": "invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)",
+    "firstTimestamp": "2026-11-13T15:44:22Z",
+    "lastTimestamp": "2026-11-13T15:44:22Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "exchange",
+      "namespace": "store",
+      "resourceVersion": "38538",
+      "uid": "6403555f-3234-4bf1-b629-5e6e368430c5"
+    }
+  },
+  {
+    "reason": "FailedGetResourceMetric",
+    "message": "failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API",
+    "firstTimestamp": "2026-11-13T15:44:07Z",
+    "lastTimestamp": "2026-11-13T15:44:07Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "gateway",
+      "namespace": "store",
+      "resourceVersion": "38180",
+      "uid": "1c6b2760-572e-4ce1-9c2e-39050430c0f5"
+    }
+  },
+  {
+    "reason": "FailedComputeMetricsReplicas",
+    "message": "invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API",
+    "firstTimestamp": "2026-11-13T15:44:07Z",
+    "lastTimestamp": "2026-11-13T15:44:07Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "gateway",
+      "namespace": "store",
+      "resourceVersion": "38180",
+      "uid": "1c6b2760-572e-4ce1-9c2e-39050430c0f5"
+    }
+  },
+  {
+    "reason": "FailedGetResourceMetric",
+    "message": "failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)",
+    "firstTimestamp": "2026-11-13T15:44:22Z",
+    "lastTimestamp": "2026-11-13T15:44:22Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "gateway",
+      "namespace": "store",
+      "resourceVersion": "38532",
+      "uid": "1c6b2760-572e-4ce1-9c2e-39050430c0f5"
+    }
+  },
+  {
+    "reason": "FailedComputeMetricsReplicas",
+    "message": "invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)",
+    "firstTimestamp": "2026-11-13T15:44:22Z",
+    "lastTimestamp": "2026-11-13T15:44:22Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "gateway",
+      "namespace": "store",
+      "resourceVersion": "38532",
+      "uid": "1c6b2760-572e-4ce1-9c2e-39050430c0f5"
+    }
+  },
+  {
+    "reason": "FailedGetResourceMetric",
+    "message": "failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API",
+    "firstTimestamp": "2026-11-13T15:44:07Z",
+    "lastTimestamp": "2026-11-13T15:44:07Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "order",
+      "namespace": "store",
+      "resourceVersion": "38226",
+      "uid": "b18b3398-1d3f-4f30-863d-0a8404f4814b"
+    }
+  },
+  {
+    "reason": "FailedComputeMetricsReplicas",
+    "message": "invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API",
+    "firstTimestamp": "2026-11-13T15:44:07Z",
+    "lastTimestamp": "2026-11-13T15:44:07Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "order",
+      "namespace": "store",
+      "resourceVersion": "38226",
+      "uid": "b18b3398-1d3f-4f30-863d-0a8404f4814b"
+    }
+  },
+  {
+    "reason": "FailedGetResourceMetric",
+    "message": "failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)",
+    "firstTimestamp": "2026-11-13T15:44:22Z",
+    "lastTimestamp": "2026-11-13T15:44:22Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "order",
+      "namespace": "store",
+      "resourceVersion": "38543",
+      "uid": "b18b3398-1d3f-4f30-863d-0a8404f4814b"
+    }
+  },
+  {
+    "reason": "FailedComputeMetricsReplicas",
+    "message": "invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)",
+    "firstTimestamp": "2026-11-13T15:44:22Z",
+    "lastTimestamp": "2026-11-13T15:44:22Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "order",
+      "namespace": "store",
+      "resourceVersion": "38543",
+      "uid": "b18b3398-1d3f-4f30-863d-0a8404f4814b"
+    }
+  },
+  {
+    "reason": "FailedGetResourceMetric",
+    "message": "failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API",
+    "firstTimestamp": "2026-11-13T15:44:07Z",
+    "lastTimestamp": "2026-11-13T15:44:07Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "product",
+      "namespace": "store",
+      "resourceVersion": "38197",
+      "uid": "3709e2b0-5859-4bf9-8355-98d1722f492a"
+    }
+  },
+  {
+    "reason": "FailedComputeMetricsReplicas",
+    "message": "invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API",
+    "firstTimestamp": "2026-11-13T15:44:07Z",
+    "lastTimestamp": "2026-11-13T15:44:07Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "product",
+      "namespace": "store",
+      "resourceVersion": "38197",
+      "uid": "3709e2b0-5859-4bf9-8355-98d1722f492a"
+    }
+  },
+  {
+    "reason": "FailedGetResourceMetric",
+    "message": "failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)",
+    "firstTimestamp": "2026-11-13T15:44:22Z",
+    "lastTimestamp": "2026-11-13T15:44:22Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "product",
+      "namespace": "store",
+      "resourceVersion": "38535",
+      "uid": "3709e2b0-5859-4bf9-8355-98d1722f492a"
+    }
+  },
+  {
+    "reason": "FailedComputeMetricsReplicas",
+    "message": "invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)",
+    "firstTimestamp": "2026-11-13T15:44:22Z",
+    "lastTimestamp": "2026-11-13T15:44:22Z",
+    "count": 1,
+    "source": {
+      "component": "horizontal-pod-autoscaler"
+    },
+    "involvedObject": {
+      "apiVersion": "autoscaling/v2",
+      "kind": "HorizontalPodAutoscaler",
+      "name": "product",
+      "namespace": "store",
+      "resourceVersion": "38535",
+      "uid": "3709e2b0-5859-4bf9-8355-98d1722f492a"
+    }
+  }
+]

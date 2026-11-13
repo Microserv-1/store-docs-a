@@ -35,6 +35,15 @@ O túnel fixa uma réplica de Gateway; demonstrar o balanceamento desse serviço
 exige carga interna contra seu Service. Consultas internas do Gateway aos
 outros Services continuam sujeitas ao balanceamento Kubernetes.
 
+## HPA e observabilidade comprovados
+
+A rodada de login autorizada em 13/11 passou com 550 respostas HTTP 200,
+zero erros e p95 de 1.187 ms. O HPA do Account escalou 2 → 4 → 5 → 2, com cinco
+pods prontos no pico e três pods atendendo verificações de credenciais.
+O [relatório de carga EKS](eks-load.md) contém vídeo, gráfico, métricas, eventos,
+versões e limites. Não foram aumentados nós nem criados novos serviços AWS.
+Isso não substitui carga progressiva dos fluxos de negócio nem vídeo humano.
+
 ## Orçamento adicional de US$ 20
 
 O operador definiu em 13/11 um teto de planejamento de US$ 20 **adicionais**,
@@ -73,10 +82,14 @@ avaliação, a retenção dos dados e o procedimento de retomada.
 - [ ] Confirmar rubrica/pesos, contratos originais de Account/Auth/Gateway e
   aceitação de Kind se Minikube for obrigatório nominalmente.
 - [ ] Confirmar se o professor exige acesso independente à API por URL pública.
-- [ ] Autorizar e executar carga EKS com limite de usuários/duração, coleta de
-  latência/vazão/erros/CPU/memória e vídeo de escala real do HPA.
-- [ ] Comprovar balanceamento entre réplicas e recuperação; correlacionar um
-  comportamento sob carga com métricas/logs para os dois gargalos de A.
+- [x] Executar rodada autorizada HPA EKS com latência/vazão/erros/CPU/memória,
+  cinco réplicas prontas e vídeo do ciclo de escala.
+- [x] Correlacionar carga de login e CPU e comprovar distribuição Account em
+  três pods com métricas por instância, distinguindo os dois gargalos de A.
+- [ ] Consolidar a evidência de recuperação diante de perda de pod com versão
+  e ambiente; um novo teste AWS precisa de autorização específica.
+- [ ] Concluir baseline e carga progressiva de negócio no EKS conforme o
+  roadmap, com autorização própria; a rodada HPA executada foi de login.
 - [ ] Consolidar evidências dos dois gargalos de B nos commits finais.
 - [ ] Exportar estimativa do AWS Pricing Calculator para janela acadêmica e
   operação mensal; registrar link e hipóteses de consumo variável.
