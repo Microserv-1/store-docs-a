@@ -1,0 +1,49 @@
+{
+  "ec2_t3_large": {
+    "sku": "HBVJM3Q9S8K6MNPJ",
+    "description": "$0.0832 per On Demand Linux t3.large Instance Hour",
+    "unit": "Hrs",
+    "usd": 0.0832,
+    "effective_date_note": "Current public OnDemand offer retrieved 2026-11-13 via AWS Price List Query API."
+  },
+  "eks_standard": {
+    "sku": "ZYWMR684YSMFHWEU",
+    "description": "Amazon EKS cluster usage in US East (N. Virginia)",
+    "unit": "Hours",
+    "usd": 0.1,
+    "effective_date_note": "Current public OnDemand offer retrieved 2026-11-13 via AWS Price List Query API."
+  },
+  "nat_hour": {
+    "sku": "M2YSHUBETB3JX4M4",
+    "description": "$0.045 per NAT Gateway Hour",
+    "unit": "Hrs",
+    "usd": 0.045,
+    "effective_date_note": "Current public OnDemand offer retrieved 2026-11-13 via AWS Price List Query API."
+  },
+  "ebs_gp3": {
+    "sku": "JG3KUJMBRGHV3N8G",
+    "description": "$0.08 per GB-month of General Purpose (gp3) provisioned storage - US East (N. Virginia)",
+    "unit": "GB-Mo",
+    "usd": 0.08,
+    "effective_date_note": "Current public OnDemand offer retrieved 2026-11-13 via AWS Price List Query API."
+  },
+  "rds_instance": {
+    "sku": "S9H3AXMBHSKRFJTA",
+    "description": "$ 0.032 per RDS db.t4g.small Single-AZ instance hour (or partial hour) running PostgreSQL",
+    "unit": "Hrs",
+    "usd": 0.032,
+    "effective_date_note": "Current public OnDemand offer retrieved 2026-11-13 via AWS Price List Query API."
+  },
+  "rds_gp3": {
+    "sku": "KYVYY29G957PKY3B",
+    "description": "$0.115 per GB-month of provisioned GP3 storage running PostgreSQL",
+    "unit": "GB-Mo",
+    "usd": 0.115,
+    "effective_date_note": "Current public OnDemand offer retrieved 2026-11-13 via AWS Price List Query API."
+  },
+  "ipv4": {
+    "usd": 0.005,
+    "unit": "address-hour",
+    "source": "https://aws.amazon.com/vpc/pricing/"
+  }
+}

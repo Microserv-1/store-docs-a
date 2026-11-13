@@ -1,0 +1,21 @@
+{
+  "source": "Operator-supplied Jenkins console in this conversation, 2026-11-13; original log remains in Jenkins.",
+  "job": "store-eks-release",
+  "root_commit": "6617d8774baabe5943b9cbf4ec2e9a257edf3a97",
+  "result": "SUCCESS",
+  "deploy_eks": true,
+  "kube_context": "store-eks",
+  "guard_tests": 10,
+  "rollouts_passed": [
+    "account",
+    "auth",
+    "gateway",
+    "product",
+    "exchange",
+    "order"
+  ],
+  "account": "975049967635",
+  "agent_identity": "EC2 instance role JenkinsRole; no static AWS keys",
+  "access_mode": "port-forward",
+  "limits": "Build number and downloadable console URL were not supplied; link final build in the delivery."
+}

@@ -1,5 +1,19 @@
 # Estado e evidências
 
+## Deploy real e aceite EKS — 13/11/2026
+
+**Atualização mais recente:** deploy dos seis serviços pelo Jenkins EC2 passou,
+com duas réplicas disponíveis por serviço. Smoke e 40 verificações de negócio
+passaram no EKS, usando RDS, Redis, RabbitMQ e câmbio externo reais. Prometheus
+tem 12 targets saudáveis. Acesso por port-forward, sem ALB nem URL pública.
+
+O [fechamento](closure.md) reúne evidências sanitizadas, versões, pendências e
+o limite adicional de US$ 20. A comprovação de HPA sob carga no EKS ainda está
+pendente de autorização e execução; objetos HPA com métricas não bastam.
+
+Os registros de preparação abaixo são históricos. Menções a AWS/Jenkins
+remoto “não executados” descrevem o estado na data indicada, anterior ao deploy.
+
 ## Acesso sem domínio — 13/11/2026
 
 Por não haver domínio próprio, a configuração de exemplo passou a usar `access_mode=port-forward`. Nesse modo a aplicação roda no EKS com Services ClusterIP, sem Ingress, ALB ou certificado ACM. Domínio/certificado/sub-redes públicas deixam de ser obrigatórios; as verificações correspondentes e as permissões IAM de leitura ACM/ALB ficam opcionais. Conta, região, CIDR, RDS, Secrets e os demais requisitos do cluster continuam necessários.

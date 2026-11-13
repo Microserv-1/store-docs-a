@@ -1,0 +1,13 @@
+{
+  "source": "Operator-supplied Job output in this conversation, 2026-11-13",
+  "context": "store-eks",
+  "result": "PASS",
+  "roles": [
+    "account_app",
+    "product_app",
+    "order_app"
+  ],
+  "own_database_ddl_dml": true,
+  "cross_database_isolation": true,
+  "administrative_job_and_secret_removed": true
+}

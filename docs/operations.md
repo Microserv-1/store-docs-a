@@ -1,6 +1,49 @@
 # Custos, PaaS e SLA
 
+## Implantação efetiva e estimativa de 13/11/2026
+
+Topologia efetivamente consultada: EKS Standard em us-east-1; dois workers
+t3.large; agente Jenkins t3.large; RDS PostgreSQL 16.15 db.t4g.small Single-AZ;
+72 GiB EBS gp3 (40 workers + 30 Jenkins + 2 RabbitMQ), 20 GiB RDS gp3, NAT
+único e um IPv4 público associado ao NAT. Acesso privado por port-forward;
+nenhum ALB foi criado para a aplicação.
+
+Tarifas On-Demand obtidas pela AWS Price List Query API em 13/11; SKU,
+descrição e unidade disponíveis nas [tarifas arquivadas](evidence/2026-11-13-eks/public-price-rates.json).
+Essa API de preços é [gratuita](https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-price-list-gets-a-natural-language-upgrade-introducing-the-aws-pricing-mcp-server/).
+
+| Recurso | Quantidade | Tarifa USD | Subtotal aproximado USD/h |
+|---|---:|---:|---:|
+| EKS Standard | 1 | 0,10/h | 0,1000 |
+| EC2 t3.large Linux | 3 | 0,0832/h | 0,2496 |
+| RDS db.t4g.small | 1 | 0,032/h | 0,0320 |
+| NAT Gateway | 1 | 0,045/h | 0,0450 |
+| IPv4 público | 1 | 0,005/h | 0,0050 |
+| EBS gp3 | 72 GiB | 0,08/GB-mês | 0,0079 |
+| RDS gp3 | 20 GiB | 0,115/GB-mês | 0,0032 |
+| **Total fixo estimado** | | | **0,4426** |
+
+Com a convenção de 730 horas para ratear armazenamento, isso resulta em
+**US$ 10,62 por 24h, US$ 31,87 por 72h e US$ 323,13 por 730h**, sem variáveis.
+Não são valores faturados ou uma garantia de custo máximo. O [cálculo JSON](evidence/2026-11-13-eks/cost-estimate.json)
+declara exclusões e hipóteses. Acrescentar tráfego entre AZs/internet, NAT por
+GB, CloudWatch, créditos excedentes de CPU T3/T4g, backups excedentes,
+snapshots, impostos e câmbio. Não foram presumidos descontos ou créditos.
+
+O orçamento adicional acordado é US$ 20: aproximadamente 45 horas dos custos
+fixos, antes das variáveis. Portanto, manter tudo ligado por 72 horas excede
+o teto. Combinar antecipadamente a janela de teste/avaliação e eventual
+desligamento. Não há hard cap AWS nem monitoramento contínuo instalado.
+Ver [regras de operação e pendências](closure.md).
+
+Ainda falta gerar/exportar a estimativa no **AWS Pricing Calculator**, com
+hipóteses de tráfego/logs e link compartilhável. A tabela acima fornece uma
+estimativa rastreável de tarifas públicas, mas não substitui essa evidência.
+
 ## Estimativa de custos
+
+O planejamento histórico abaixo antecede o provisionamento e não deve ser
+interpretado como descrição mais atual que a seção anterior.
 
 Configuração revista em 12/11/2026: us-east-1; EKS 1.35; dois t3.large, discos de 20 GiB; PostgreSQL RDS 16 db.t4g.small single-AZ com 20 GiB gp3 e três bancos/usuários isolados; RabbitMQ com EBS gp3 de 2 GiB; Redis reconstruível; NAT único; ALB HTTPS; logs de controle. É uma hipótese de infraestrutura, ainda não uma cotação. Incluir o host Jenkins quando dedicado. A revisão substitui as classes menores inicialmente propostas em 09/11.
 

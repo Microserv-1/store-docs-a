@@ -7,11 +7,18 @@
 | Argon2id | Senhas com hash adaptativo | Custo CPU/memória deve ser medido em login |
 | JWT HS256 | Interoperabilidade e simplicidade inicial | Compartilhar chave amplia confiança entre serviços |
 | Gateway sem retries de escrita | Evita duplicar criação por repetição automática | Cliente precisa tratar indisponibilidade |
-| Jenkins por serviço | Requisito mais específico do roadmap | Agente/credenciais e execução remota pendentes |
+| Jenkins por serviço e release EKS na raiz | Requisito mais específico do roadmap; overlays de RDS preservados | Deploy remoto validado em 13/11; vincular evidências do build final |
 | Kind para QA local | Docker disponível; sem contexto Kubernetes inicial | Repetir em Minikube se exigido nominalmente |
 | Duas réplicas e HPA | Balanceamento e capacidade elástica | Métricas e capacidade de nós são pré-condições |
 
 ## Uso de IA
+
+Em 13/11, o operador executou a criação AWS, bootstrap e configuração do
+Jenkins com instruções assistidas. O agente validou inventário, smoke e aceite
+real de 40 verificações no EKS, preparou evidências e documentação. O operador
+fixou teto adicional de US$ 20; carga e mudanças com custo precisam ser
+apresentadas e autorizadas antes da execução. A consulta inicial tarifada ao
+Cost Explorer está declarada no fechamento, sem atribuir à IA revisão humana.
 
 Codex auxiliou na criação inicial de código, contratos provisórios, testes, Dockerfiles, manifests, pipelines e documentação. A ferramenta executou verificações locais e registrou resultados no estado do projeto. A implementação não deve ser atribuída ao colega nem apresentada como compreensão humana já validada.
 

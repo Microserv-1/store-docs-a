@@ -2,7 +2,14 @@
 
 Projeto em dupla, edição 2026, com prazo informado de 16/11/2026. Confirmar horário no Blackboard.
 
-Pessoa A: **Yuri Henrique** (identidade Git configurada; confirmar nome acadêmico completo). Pessoa B: **gustavolafz** (login GitHub; confirmar nome acadêmico completo). A revisão cruzada e a defesa individual continuam necessárias.
+Pessoa A: **Yuri Henrique** (confirmar nome acadêmico completo e grupo).
+Pessoa B: **Gustavo Lima Affonso Ferreira** (`gustavolafz`). A revisão cruzada
+da versão final e a defesa individual continuam necessárias.
+
+Em 13/11, os seis serviços foram implantados no **Amazon EKS**, por Jenkins
+na EC2, e passaram no smoke e em 40 verificações integradas. Confira o
+[fechamento e orçamento](closure.md). O acesso à API é por túnel autorizado;
+a documentação é independente desse acesso privado.
 
 ## Escopo e arquitetura
 
@@ -14,15 +21,23 @@ flowchart LR
     Gateway --> Account[Account FastAPI]
     Gateway --> Auth[Auth Spring Boot]
     Auth -->|verificação interna| Account
-    Account --> DB[(PostgreSQL / RDS)]
+    Account --> Accounts[(RDS: accounts)]
     Gateway --> Product[Product]
     Gateway --> Order[Order]
     Gateway --> Exchange[Exchange Python]
     Order --> Product
     Order --> Exchange
+    Product --> Products[(RDS: products)]
+    Order --> Orders[(RDS: orders)]
+    Product <--> Redis[(Redis)]
+    Order <--> RabbitMQ[(RabbitMQ + EBS)]
+    Exchange --> FX[Provedor externo de câmbio]
     Metrics[Prometheus] --> Account
     Metrics --> Auth
     Metrics --> Gateway
+    Metrics --> Product
+    Metrics --> Order
+    Metrics --> Exchange
     Grafana --> Metrics
 ```
 

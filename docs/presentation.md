@@ -1,6 +1,8 @@
 # Apresentação e defesa
 
-Roteiro proposto de 120 segundos, a gravar com os dois integrantes após integrar B e validar EKS. Não narrar resultados de nuvem antes de executá-los.
+Roteiro proposto de 120 segundos, a gravar com os dois integrantes. EKS e o
+aceite integrado foram validados em 13/11. A comprovação HPA na AWS ainda está
+pendente; inserir o resultado real somente depois da execução autorizada.
 
 | Tempo | Participação | Conteúdo |
 |---|---|---|
@@ -11,7 +13,58 @@ Roteiro proposto de 120 segundos, a gravar com os dois integrantes após integra
 | 90–105s | B | Cache e mensageria com evidências próprias |
 | 105–120s | Ambos | Resultados medidos, custos, limitações e links |
 
-Separar o vídeo técnico longo de carga/HPA da apresentação. `scripts/record-hpa.py` produz um vídeo de saída real de comandos e carga concorrente no cluster local, sem capturar o desktop. Isso não comprova execução EKS nem substitui a participação humana no vídeo final.
+Separar o vídeo técnico longo de carga/HPA da apresentação. O script de
+gravação produz um replay rotulado de comandos reais, sem capturar o desktop.
+O contexto e os timestamps aparecem no vídeo; gravação Kind antiga não
+comprova EKS nem substitui participação humana no vídeo final.
+
+## Conteúdo dos slides
+
+| Slide | Conteúdo e visual | Evidência |
+|---|---|---|
+| 1 — Objetivo e autoria | Backend de e-commerce; nomes; seis serviços; divisão A/B | Links dos repositórios e contribuições individuais |
+| 2 — Arquitetura implantada | Gateway Go; Auth Java; Account Python; Product/Order/Exchange; RDS, Redis, RabbitMQ; EKS e Jenkins EC2 | Diagrama da página inicial e snapshot de nuvem |
+| 3 — Fluxo e segurança | Login → produto → pedido USD → BRL; outra conta recebe 404 | 40 verificações reais no EKS; não mostrar JWT ou senhas |
+| 4 — Gargalos e carga | A: diagnóstico e balanceamento; B: cache e fila; inserir curva/escala após medição | Relatórios e vídeo técnico separados, ambiente e commits visíveis |
+| 5 — Resultado, custo e limites | Jenkins e seis rollouts; custo fixo estimado US$ 0,4426/h + variáveis; acesso privado, Single-AZ/NAT único | Site, estimativa, limites e procedimento de encerramento |
+
+## Texto para ensaio (aproximadamente 120 segundos)
+
+**A, 0–15s:** “Somos Yuri e Gustavo. Construímos um backend de e-commerce com
+seis microsserviços, integrados por um Gateway e implantados no Amazon EKS.”
+
+**A, 15–35s:** “O Gateway usa Go, a autenticação usa Java e o Account usa
+Python. Product e Order persistem com usuários separados no RDS, e Exchange
+consulta um provedor externo. Jenkins executa as validações e a release;
+Prometheus e Grafana acompanham a aplicação.”
+
+**B, 35–70s:** “Aqui cadastramos e autenticamos uma conta, criamos um produto
+e um pedido em USD. A consulta em BRL usa o câmbio externo sem alterar o valor
+original. Uma segunda conta não pode acessar o pedido. O teste integrado
+executou quarenta verificações reais na AWS.”
+
+**A, 70–90s:** Apresentar o diagnóstico de carga, distribuição entre réplicas
+e resultado HPA **somente após medi-los**: registrar valores e contexto exatos,
+sem preencher antecipadamente número de pods, p95 ou ganho de capacidade.
+
+**B, 90–105s:** “O cache Redis reduz consultas repetidas e invalida produtos
+removidos. A fila desacopla a notificação de pedidos; o consumidor trata
+reentregas sem duplicar a notificação.” Mostrar evidências e limites da versão.
+
+**Ambos, 105–120s:** “Os seis serviços passaram no deploy e na integração.
+Documentamos custos, responsabilidades e limites: acesso privado, banco
+Single-AZ e NAT único. Código, testes e evidências estão nos nossos sites.”
+
+## Revisão e entrega
+
+- Confirmar nomes completos, grupo e edição; cronometrar com as duas pessoas.
+- Gravar a voz/participação real de ambos; não apresentar narração automática
+  como defesa ou participação de um integrante.
+- Evitar telas com credenciais, Secrets, tokens ou dados pessoais.
+- Publicar links da apresentação, vídeo final e vídeo técnico; testar acesso
+  sem autenticação quando exigido. Inserir os links reais nos dois sites.
+- Registrar data, integrante, commit, cenário e resultado da revisão cruzada.
+- Cada integrante envia seu próprio site no Blackboard e guarda a confirmação.
 
 ## Ensaio individual
 

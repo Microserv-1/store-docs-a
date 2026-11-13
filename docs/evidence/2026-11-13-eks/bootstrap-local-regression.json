@@ -1,0 +1,14 @@
+{
+  "administrator_sql_superuser": false,
+  "administrator_permissions": [
+    "CREATEDB",
+    "CREATEROLE"
+  ],
+  "idempotent_runs": 2,
+  "own_database_ddl_dml": 3,
+  "cross_database_denials_per_run": 6,
+  "old_superuser_attribute_change": "rejected by fixture as expected",
+  "bootstrap_sha256": "b817369ecfb6aecfe73ea33a034e87b6ebda1b747abce537a45dc79dea4aae42",
+  "client_image": "uyris/store-account:7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad@sha256:1c37183eb58d92d8c055769e54081a9a87c6c1278d1479e003aaf6bea201b3ac",
+  "limits": "Local PostgreSQL 16 regression with minimum admin permissions; real RDS/TLS bootstrap still to execute."
+}

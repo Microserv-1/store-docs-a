@@ -1,0 +1,77 @@
+{
+  "utc": "2026-11-13T16:12:48.287550+00:00",
+  "targets": [
+    {
+      "job": "account",
+      "service": null,
+      "health": "up",
+      "last_error": ""
+    },
+    {
+      "job": "gateway",
+      "service": null,
+      "health": "up",
+      "last_error": ""
+    },
+    {
+      "job": "order",
+      "service": null,
+      "health": "up",
+      "last_error": ""
+    },
+    {
+      "job": "exchange",
+      "service": null,
+      "health": "up",
+      "last_error": ""
+    },
+    {
+      "job": "product",
+      "service": null,
+      "health": "up",
+      "last_error": ""
+    },
+    {
+      "job": "account",
+      "service": null,
+      "health": "up",
+      "last_error": ""
+    },
+    {
+      "job": "exchange",
+      "service": null,
+      "health": "up",
+      "last_error": ""
+    },
+    {
+      "job": "gateway",
+      "service": null,
+      "health": "up",
+      "last_error": ""
+    },
+    {
+      "job": "product",
+      "service": null,
+      "health": "up",
+      "last_error": ""
+    },
+    {
+      "job": "order",
+      "service": null,
+      "health": "up",
+      "last_error": ""
+    },
+    {
+      "job": "auth",
+      "service": null,
+      "health": "up",
+      "last_error": ""
+    },
+    {
+      "job": "auth",
+      "service": null,
+      "health": "up",
+      "last_error": ""
+    }
+  ]
+}

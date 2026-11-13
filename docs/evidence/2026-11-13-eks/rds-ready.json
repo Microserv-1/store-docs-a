@@ -1,0 +1,12 @@
+{
+  "status": "available",
+  "engine": "postgres",
+  "engine_version": "16.15",
+  "instance_class": "db.t4g.small",
+  "publicly_accessible": false,
+  "encrypted": true,
+  "port": 5432,
+  "host": "microserv-store-rds-database-xaw4nsp3iyky.cj4saao0ugzm.us-east-1.rds.amazonaws.com",
+  "bootstrap_executed": false,
+  "snapshot_phase": "Before bootstrap; subsequent bootstrap result is rds-bootstrap.json"
+}
