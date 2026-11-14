@@ -22,6 +22,7 @@ nav:
   - Carga e HPA no EKS: eks-load.md
   - Custos, PaaS e SLA: operations.md
   - Redução de máquinas: right-sizing.md
+  - Bateria final preparada: final-test-plan.md
   - Janela e orçamento AWS: budget-window.md
   - Parâmetros do Calculator: calculator-inputs.md
   - Decisões e uso de IA: decisions.md

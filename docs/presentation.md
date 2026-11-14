@@ -27,9 +27,14 @@ comprova EKS nem substitui participação humana no vídeo final.
 | 2 — Arquitetura implantada | Gateway Go; Auth Java; Account Python; Product/Order/Exchange; RDS, Redis, RabbitMQ; EKS e Jenkins EC2 | Diagrama da página inicial e snapshot de nuvem |
 | 3 — Fluxo e segurança | Login → produto → pedido USD → BRL; outra conta recebe 404 | 40 verificações reais no EKS; não mostrar JWT ou senhas |
 | 4 — Gargalos e carga | A: diagnóstico e balanceamento; B: cache e fila; inserir curva/escala após medição | Relatórios e vídeo técnico separados, ambiente e commits visíveis |
-| 5 — Resultado, custo e limites | Jenkins e seis rollouts; custo fixo estimado US$ 0,4426/h + variáveis; acesso privado, Single-AZ/NAT único | Site, estimativa, limites e procedimento de encerramento |
+| 5 — Resultado, custo e limites | Jenkins e seis rollouts; custo fixo estimado US$ 0,2870/h + variáveis; acesso privado, Single-AZ/NAT único | Site, estimativa, limites e procedimento de encerramento |
 
 ## Texto para ensaio (aproximadamente 120 segundos)
+
+Os números de carga abaixo pertencem à rodada de 13/11 nas máquinas grandes.
+Após a [redução de máquinas](right-sizing.md), o aceite funcional foi repetido,
+mas a nova carga ainda está pendente. Identificar o perfil no slide do gráfico;
+não apresentar esses números como desempenho medido nos workers menores.
 
 **A, 0–15s:** “Somos Yuri e Gustavo. Construímos um backend de e-commerce com
 seis microsserviços, integrados por um Gateway e implantados no Amazon EKS.”
