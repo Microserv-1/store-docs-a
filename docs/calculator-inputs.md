@@ -6,6 +6,51 @@ O controle do navegador estava indisponível nesta revisão; o link/exportação
 do Calculator permanece pendente, sem substituir a etapa por uma planilha
 apresentada como se fosse uma exportação oficial.
 
+## Passo a passo para preencher
+
+1. Abra [AWS Pricing Calculator](https://calculator.aws/#/) e clique em
+   **Create estimate / Criar estimativa**. Nomeie como `Microserv Store —
+   Yuri Henrique e Gustavo Lina — operação mensal`.
+2. Em **Add service / Adicionar serviço**, procure cada serviço da tabela
+   abaixo, clique em **Configure / Configurar**, preencha e use **Save and
+   add service / Salvar e adicionar serviço**. Selecione sempre **US East
+   (N. Virginia)**, `us-east-1`.
+3. Use **730 horas/mês**, Linux, tenancy compartilhada e pagamento
+   **On-Demand**. Não selecionar Savings Plans, Reserved Instances ou
+   descontos não contratados. Esta é a simulação da aplicação **em operação**:
+   a pausa atual não muda o projeto para zero workers nessa simulação.
+4. Cadastre dois itens **Amazon EC2**: `Workers EKS`, com **2 t3a.medium** e
+   gp3 de **20 GiB por instância**; `Jenkins`, com **1 t3a.small** e gp3 de
+   **30 GiB**. Confira se o formulário de disco é por instância: o total dos
+   workers é 40 GiB, não 80. Adicione **2 GiB gp3** para RabbitMQ como volume
+   adicional, sem adicionar outra EC2 para o broker.
+5. Adicione **Amazon EKS** (um cluster em suporte Standard), **Amazon RDS
+   for PostgreSQL** (uma db.t4g.small Single-AZ, 20 GiB gp3), **Amazon VPC**
+   (um NAT Gateway e um IPv4 público) e **Amazon CloudWatch** (logs). Os discos
+   EC2 + RabbitMQ somam 72 GiB; os 20 GiB RDS são separados. Não adicionar
+   Amazon MQ, ElastiCache, ALB, domínio ou outra EC2 para cada microsserviço.
+6. Para os campos variáveis, registre uma hipótese explícita, não um consumo
+   supostamente medido. Exemplo de simulação mensal acadêmica: **1 GB
+   processado pelo NAT, 1 GB de saída internet, 1 GB de logs ingeridos e 1 GB
+   médio de logs armazenados**. Declare tráfego entre AZs e créditos CPU como
+   componentes adicionais a avaliar. Se não os quantificar, identifique a
+   estimativa como parcial; não apresente custo zero como medição. Evite
+   duplicar a mesma transferência em mais de uma seção do Calculator.
+7. Em **My estimate / Minha estimativa**, confira o resumo. Os fixos da
+   topologia de referência somam cerca de **US$ 209,54/mês**; variáveis podem
+   elevar o total. Investigue diferenças, sem alterar tamanhos só para fazer
+   o total coincidir. Registre data, região e hipóteses.
+8. Em **Export / Exportar**, salve **PDF e CSV**. Guarde também o link
+   compartilhável: o PDF exportado contém um link para a estimativa. Envie o
+   link ou os arquivos para incorporarmos à documentação. A janela acadêmica
+   de 72h tem referência fixa de **US$ 20,67**; mantenha a memória de rateio
+   `72/730`, sem reduzir artificialmente o tamanho físico dos volumes.
+
+As opções exatas podem variar conforme o idioma da interface. A criação de
+estimativa não provisiona os serviços. Referências oficiais:
+[criar/configurar](https://docs.aws.amazon.com/pricing-calculator/latest/userguide/create-configure-estimate.html)
+e [exportar PDF/CSV](https://docs.aws.amazon.com/pricing-calculator/latest/userguide/export-estimate.html).
+
 ## Estimativa mensal de referência
 
 Criar uma estimativa em https://calculator.aws/ com região **US East

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "vol-0287491fbe9e135f4",
+    "size_gib": 30,
+    "state": "in-use",
+    "type": "gp3"
+  },
+  {
+    "id": "vol-0f7ae6d5ad56ef8c0",
+    "size_gib": 2,
+    "state": "available",
+    "type": "gp3"
+  }
+]

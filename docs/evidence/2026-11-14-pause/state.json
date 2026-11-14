@@ -1,0 +1,35 @@
+{
+  "utc": "2026-11-14T15:09:19.576542+00:00",
+  "cluster": "microserv-store",
+  "region": "us-east-1",
+  "nodegroup": "application-economy",
+  "worker_scaling": {
+    "minSize": 0,
+    "maxSize": 2,
+    "desiredSize": 0
+  },
+  "rds_status": "stopped",
+  "rds_automatic_restart": "2026-11-21T15:08:13.141000+00:00",
+  "instances": [
+    {
+      "id": "i-06f678f4347867250",
+      "type": "t3a.medium",
+      "state": "terminated"
+    },
+    {
+      "id": "i-03245ec6369003f79",
+      "type": "t3a.small",
+      "state": "stopped"
+    },
+    {
+      "id": "i-07d9797e7c7f8d5ea",
+      "type": "t3a.medium",
+      "state": "terminated"
+    }
+  ],
+  "rabbitmq_replicas": 0,
+  "rabbitmq_pvc_retained": "data-rabbitmq-0",
+  "jenkins_volume_retained": "vol-0287491fbe9e135f4",
+  "note": "Operator-authorized pause, not infrastructure deletion. EKS/NAT/storage and applicable logs/backups continue billing. No snapshot was requested.",
+  "status": "PAUSE_CONFIRMED"
+}

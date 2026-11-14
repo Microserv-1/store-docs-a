@@ -1,12 +1,18 @@
 # Janela de uso e orçamento adicional
 
+**Estado atual — 14/11:** Yuri autorizou a pausa, que foi confirmada: zero
+workers, RDS parado, Jenkins parado e volumes persistentes preservados.
+Consulte o [registro e a retomada](aws-pause.md). As projeções abaixo são
+referências; a aplicação em operação não é o estado atual.
+
 ## Decisão necessária antes de alterar a AWS
 
 O teto informado por Yuri em 13/11 é **US$ 20 adicionais**. Não há autorização
 para executar carga, criar recursos ou alterar a infraestrutura sem explicar
-o impacto antes. Nenhuma pausa descrita aqui foi executada.
+o impacto antes. A pausa atual foi explicitamente autorizada; novas mudanças
+ou retomadas dependem de autorização própria.
 
-Com a topologia atual, o custo fixo estimado é US$ 0,2870/h, mais variáveis.
+Com a topologia em operação, o custo fixo estimado é US$ 0,2870/h, mais variáveis.
 Manter todos os recursos ligados durante 72h custa cerca de US$ 20,67 antes
 de tráfego, logs e créditos de CPU; portanto, não cabe no teto de US$ 20.
 

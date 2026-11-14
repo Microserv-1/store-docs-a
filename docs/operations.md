@@ -1,5 +1,9 @@
 # Custos, PaaS e SLA
 
+**Atualização de 14/11:** a aplicação foi [pausada por autorização de Yuri](aws-pause.md),
+com zero workers, RDS e Jenkins parados. As tabelas de operação abaixo simulam
+o perfil ligado, não o estado pausado; EKS/NAT/armazenamento continuam cobrando.
+
 ## Implantação efetiva e estimativa de 13/11/2026
 
 Topologia efetivamente consultada: EKS Standard em us-east-1; dois workers

@@ -1,5 +1,10 @@
 # Fechamento da entrega
 
+**Estado operacional atual:** [AWS pausada em 14/11 por autorização de Yuri](aws-pause.md).
+RDS, volume RabbitMQ e disco Jenkins preservados; aplicação indisponível até
+retomada. Sites e evidências continuam públicos. Nomes informados: Yuri
+Henrique e Gustavo Lina; vídeo ajustado para [1min56s sem narração](project-video.md).
+
 **Atualização de 14/11:** a [bateria final nas máquinas menores](final-validation.md)
 passou: 40 verificações, carga de negócio com 1/4/8 usuários sem erros e
 540 logins HTTP 200. Account apresentou 2 → 5 → 2 réplicas prontas.
@@ -105,11 +110,12 @@ avaliação, a retenção dos dados e o procedimento de retomada.
   agregado não comprova a meta específica de leitura de identidade nem SLA mensal.
 - [x] Publicar e verificar o Pages de A: build e URLs públicas passaram em 13/11.
 - [ ] Atualizar o site de B por commits de B.
-- [ ] Preencher nome acadêmico completo de A e identificação/grupo exigidos.
-- [x] Produzir e publicar [vídeo curto de 1min57s](project-video.md), com
-  narração sintética identificada e evidências reais.
-- [ ] Confirmar a aceitação da narração sintética e a exigência de participação
-  dos integrantes; concluir slides editáveis e participação humana quando exigida.
+- [x] Atualizar os nomes informados: Yuri Henrique e Gustavo Lina.
+- [ ] Confirmar grupo/edição e identificação acadêmica adicional exigida.
+- [x] Produzir e publicar [vídeo curto de 1min56s sem narração](project-video.md),
+  conforme preferência de Yuri, com evidências reais.
+- [ ] Confirmar as exigências de apresentação/participação e se existe arquivo
+  de slides separado obrigatório; o material visual e o roteiro estão preparados.
 - [ ] Registrar revisão cruzada, ensaio individual e acesso aos repositórios.
 - [ ] Cada integrante enviar seu próprio site no Blackboard e guardar recibo;
   conferir horário de 16/11/2026 e janela de retenção AWS antes do encerramento.

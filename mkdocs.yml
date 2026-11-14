@@ -25,6 +25,7 @@ nav:
   - Bateria final preparada: final-test-plan.md
   - Validação final no EKS: final-validation.md
   - Encerramento da AWS: aws-shutdown.md
+  - Pausa e retomada AWS: aws-pause.md
   - Janela e orçamento AWS: budget-window.md
   - Parâmetros do Calculator: calculator-inputs.md
   - Decisões e uso de IA: decisions.md

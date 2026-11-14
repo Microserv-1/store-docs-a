@@ -10,8 +10,8 @@
 | Serviços individuais | Links na [página inicial](index.md) | Privados; verificar acesso do avaliador |
 | Aceite AWS | [Bateria de 14/11](final-validation.md) | 40 verificações, negócio 1/4/8 e login/HPA nas máquinas menores |
 | Pipeline AWS | [Registro de release](evidence/2026-11-13-eks/jenkins-release.json) | SUCCESS informado no console; anexar número/console final |
-| Vídeo curto | [MP4 de 1min57s e quadros](project-video.md) | Publicado com narração sintética identificada; confirmar aceitação e participação exigida |
-| Apresentação | [Conteúdo dos slides e roteiro de 120s](presentation.md) | Texto e quadros prontos; arquivo nativo/editável pendente |
+| Vídeo curto | [MP4 sem narração de 1min56s e quadros](project-video.md) | Formato escolhido por Yuri; não registra participação oral |
+| Apresentação | [Quadros e roteiro de 120s](presentation.md) | Material pronto; exigência de arquivo separado a confirmar |
 | Vídeo técnico EKS/HPA | [Rodada final](final-validation.md) e [histórico de 13/11](eks-load.md) | Ciclo 2 → 5 → 2; replays identificados, separados do vídeo humano |
 | Custos | [Tarifas e estimativa](operations.md) | Estimativa rastreável pronta; exportação do Calculator pendente |
 

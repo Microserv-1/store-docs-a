@@ -2,9 +2,13 @@
 
 Projeto em dupla, edição 2026, com prazo informado de 16/11/2026. Confirmar horário no Blackboard.
 
-Pessoa A: **Yuri Henrique** (confirmar nome acadêmico completo e grupo).
-Pessoa B: **Gustavo Lima Affonso Ferreira** (`gustavolafz`). A revisão cruzada
+Pessoa A: **Yuri Henrique**.
+Pessoa B: **Gustavo Lina** (`gustavolafz`). Nomes informados por Yuri em 14/11;
+grupo e edição acadêmica ainda precisam ser confirmados. A revisão cruzada
 da versão final e a defesa individual continuam necessárias.
+
+**Estado atual:** [AWS pausada em 14/11](aws-pause.md), após testes aprovados.
+Documentação e vídeos seguem públicos; a API fica indisponível até retomada.
 
 Em 13/11, os seis serviços foram implantados no **Amazon EKS**, por Jenkins
 na EC2, e passaram no smoke e em 40 verificações integradas. Confira o

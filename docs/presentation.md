@@ -1,10 +1,11 @@
 # Apresentação e defesa
 
-**Vídeo curto produzido pelo agente:** [MP4 de 1min57s, com narração
-sintética identificada](project-video.md). Usa evidências reais da rodada de
-14/11 e não registra participação oral dos integrantes. Confirmar a aceitação
-desse formato na rubrica; o roteiro abaixo também pode apoiar uma narração
-real ou defesa da dupla. Os vídeos técnicos de cluster/HPA ficam separados.
+**Vídeo curto produzido pelo agente:** [MP4 de 1min56s, sem narração](project-video.md),
+conforme preferência de Yuri. Usa evidências reais da rodada de 14/11 e não
+registra participação oral dos integrantes. Os quadros também podem apoiar a
+fala da dupla; a exigência de arquivo de slides separado não foi confirmada.
+O roteiro abaixo é apoio para apresentação oral. Os vídeos técnicos de
+cluster/HPA ficam separados.
 
 Roteiro proposto de 120 segundos, a gravar com os dois integrantes. EKS e o
 aceite integrado foram revalidados em 14/11 nas máquinas menores. O HPA também foi comprovado na AWS:

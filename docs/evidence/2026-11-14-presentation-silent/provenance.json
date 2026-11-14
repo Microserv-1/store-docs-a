@@ -1,0 +1,71 @@
+{
+  "title": "Microserv Store",
+  "authors": "Yuri Henrique e Gustavo Lina",
+  "voice": null,
+  "silent": true,
+  "evidence_date": "14/11/2026",
+  "duration_s": 116.0,
+  "bytes": 1086604,
+  "sha256": "302d4f4a6e5c37cd2b1b9cb242108582d0ae100f7a6941ad2fedec589e2e7a42",
+  "audio_tempo_multiplier": 1.0,
+  "scenes": [
+    {
+      "id": "intro",
+      "start_s": 0,
+      "duration_s": 12,
+      "description": "Microserv Store é o projeto de Yuri e Gustavo: um backend de comércio eletrônico com seis microsserviços integrados, implantados no Amazon EKS. Este vídeo apresenta evidências reais dos testes de quatorze de novembro.",
+      "narration": null
+    },
+    {
+      "id": "architecture",
+      "start_s": 12,
+      "duration_s": 20,
+      "description": "O Gateway usa Go, Auth usa Java com Spring Boot, e Account usa Python com FastAPI. Product, Order e Exchange completam o fluxo. Os dados ficam em bancos separados no RDS. Jenkins automatiza a release; Prometheus e Grafana acompanham a aplicação.",
+      "narration": null
+    },
+    {
+      "id": "flow",
+      "start_s": 32,
+      "duration_s": 18,
+      "description": "O aceite integrado passou em quarenta verificações: cadastro, login, produtos, pedidos e isolamento entre contas. Um pedido de vinte e seis dólares e quarenta e quatro centavos foi consultado em reais usando câmbio externo, sem alterar o valor original em dólares.",
+      "narration": null
+    },
+    {
+      "id": "bottlenecks",
+      "start_s": 50,
+      "duration_s": 18,
+      "description": "Yuri implementou observabilidade e balanceamento entre réplicas. Gustavo implementou cache Redis e mensageria de pedidos. Os testes verificaram acertos e invalidação do cache, conexão real com RabbitMQ e reentrega sem duplicar a notificação. Persistência não significa tolerância a qualquer falha.",
+      "narration": null
+    },
+    {
+      "id": "business",
+      "start_s": 68,
+      "duration_s": 14,
+      "description": "A carga de negócio usou um, quatro e oito usuários concorrentes. Foram mil seiscentas e onze requisições, sem erros de status ou conteúdo. Com oito usuários, o percentil noventa e cinco ficou em quatrocentos e trinta e quatro milissegundos.",
+      "narration": null
+    },
+    {
+      "id": "hpa",
+      "start_s": 82,
+      "duration_s": 20,
+      "description": "No login, foram quinhentas e quarenta respostas de sucesso. Account passou de duas para cinco réplicas prontas e voltou a duas. Três pods atenderam verificações de credenciais. A distribuição foi desigual; mais réplicas não garantem tráfego uniforme.",
+      "narration": null
+    },
+    {
+      "id": "conclusion",
+      "start_s": 102,
+      "duration_s": 14,
+      "description": "A configuração usa dois workers tê três a médium e um Jenkins tê três a small. O custo fixo estimado é seis dólares e oitenta e nove por dia, mais variáveis. Código, documentação e vídeos estão publicados. O acesso é privado, com banco em uma zona e NAT único.",
+      "narration": null
+    }
+  ],
+  "limitations": "Edited presentation of recorded real evidence; no new live demo or AWS workload. Does not claim human participation or oral validation. Captions have approximate sentence timing and describe the scenes; they do not imply speech in silent mode.",
+  "source_sha256": {
+    "presentation\\project-video.json": "42b38eb28a38863fe1330a596e43c50fd9a558f84597d0c45945025ae662b18f",
+    "scripts\\build-project-video.py": "87c939b4f01e0c90e23eebbec2198b933fed8eb12b98afbdaaa712040768ce34",
+    "scripts\\narrate-project-video.ps1": "adcac1d76750e5a9dde4f33d81faea77211ff1452354bafc3ea8dd872647cd90",
+    "docs\\site\\docs\\evidence\\2026-11-14-eks\\hpa\\summary.json": "d8a296cb92f5a6b45a2c032cb45a19d0bcf947f74a39b49e48fcaa78d6c0aabe",
+    "docs\\site\\docs\\evidence\\2026-11-14-eks\\business-summary.json": "c6b39ddb7139a5fa4c734182a615676d148eb39f42e4716552bbbb0ffbbac652",
+    "docs\\site\\docs\\evidence\\2026-11-14-eks\\business-integration.json": "50cd049894d599337a0bf342d49f62660d568902b5094c3989ffd2a6d2a5eb28"
+  }
+}

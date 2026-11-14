@@ -1,9 +1,13 @@
 # Estado e evidências
 
-O [vídeo curto de apresentação](project-video.md) foi produzido pelo agente:
-1min57s, Full HD e narração sintética identificada. O conteúdo usa a rodada
-real de 14/11. A aceitação dessa narração e a participação oral exigida precisam
-ser conferidas na rubrica; não são registradas como participação humana.
+**AWS pausada em 14/11:** workers zerados e terminados, RDS e Jenkins parados.
+Dados persistentes preservados. [Registro, custos residuais e retomada](aws-pause.md).
+Os resultados abaixo foram obtidos antes da pausa; os sites seguem públicos.
+
+O [vídeo curto de apresentação](project-video.md) foi ajustado pelo agente à
+preferência de Yuri: 1min56s, Full HD e sem narração/faixa de áudio. Integrantes:
+Yuri Henrique e Gustavo Lina. O conteúdo usa a rodada real de 14/11, antes da
+pausa autorizada; não representa participação oral dos alunos.
 
 ## Bateria final nas máquinas menores — 14/11/2026
 
