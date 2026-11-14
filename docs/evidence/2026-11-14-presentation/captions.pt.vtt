@@ -1,0 +1,70 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:08.703
+Microserv Store é o projeto de Yuri e Gustavo: um backend de comércio eletrônico com seis microsserviços integrados, implantados no Amazon EKS.
+
+00:00:08.703 --> 00:00:13.055
+Este vídeo apresenta evidências reais dos testes de quatorze de novembro.
+
+00:00:13.705 --> 00:00:20.297
+O Gateway usa Go, Auth usa Java com Spring Boot, e Account usa Python com FastAPI.
+
+00:00:20.297 --> 00:00:23.182
+Product, Order e Exchange completam o fluxo.
+
+00:00:23.182 --> 00:00:26.478
+Os dados ficam em bancos separados no RDS.
+
+00:00:26.478 --> 00:00:30.598
+Jenkins automatiza a release; Prometheus e Grafana acompanham a aplicação.
+
+00:00:31.248 --> 00:00:37.091
+O aceite integrado passou em quarenta verificações: cadastro, login, produtos, pedidos e isolamento entre contas.
+
+00:00:37.091 --> 00:00:47.219
+Um pedido de vinte e seis dólares e quarenta e quatro centavos foi consultado em reais usando câmbio externo, sem alterar o valor original em dólares.
+
+00:00:47.869 --> 00:00:51.074
+Yuri implementou observabilidade e balanceamento entre réplicas.
+
+00:00:51.074 --> 00:00:54.738
+Gustavo implementou cache Redis e mensageria de pedidos.
+
+00:00:54.738 --> 00:01:02.982
+Os testes verificaram acertos e invalidação do cache, conexão real com RabbitMQ e reentrega sem duplicar a notificação.
+
+00:01:02.982 --> 00:01:06.188
+Persistência não significa tolerância a qualquer falha.
+
+00:01:06.838 --> 00:01:10.987
+A carga de negócio usou um, quatro e oito usuários concorrentes.
+
+00:01:10.987 --> 00:01:15.513
+Foram mil seiscentas e onze requisições, sem erros de status ou conteúdo.
+
+00:01:15.513 --> 00:01:21.547
+Com oito usuários, o percentil noventa e cinco ficou em quatrocentos e trinta e quatro milissegundos.
+
+00:01:22.197 --> 00:01:26.067
+No login, foram quinhentas e quarenta respostas de sucesso.
+
+00:01:26.067 --> 00:01:31.227
+Account passou de duas para cinco réplicas prontas e voltou a duas.
+
+00:01:31.227 --> 00:01:33.807
+Três pods atenderam verificações de credenciais.
+
+00:01:33.807 --> 00:01:38.107
+A distribuição foi desigual; mais réplicas não garantem tráfego uniforme.
+
+00:01:38.757 --> 00:01:44.355
+A configuração usa dois workers tê três a médium e um Jenkins tê três a small.
+
+00:01:44.355 --> 00:01:49.602
+O custo fixo estimado é seis dólares e oitenta e nove por dia, mais variáveis.
+
+00:01:49.602 --> 00:01:51.702
+Código, documentação e vídeos estão publicados.
+
+00:01:51.702 --> 00:01:55.900
+O acesso é privado, com banco em uma zona e NAT único.

@@ -1,5 +1,10 @@
 # Estado e evidências
 
+O [vídeo curto de apresentação](project-video.md) foi produzido pelo agente:
+1min57s, Full HD e narração sintética identificada. O conteúdo usa a rodada
+real de 14/11. A aceitação dessa narração e a participação oral exigida precisam
+ser conferidas na rubrica; não são registradas como participação humana.
+
 ## Bateria final nas máquinas menores — 14/11/2026
 
 [Relatório e evidências](final-validation.md): smoke e 40 verificações aprovados;

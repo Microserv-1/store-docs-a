@@ -106,7 +106,10 @@ avaliação, a retenção dos dados e o procedimento de retomada.
 - [x] Publicar e verificar o Pages de A: build e URLs públicas passaram em 13/11.
 - [ ] Atualizar o site de B por commits de B.
 - [ ] Preencher nome acadêmico completo de A e identificação/grupo exigidos.
-- [ ] Finalizar apresentação e vídeo humano de 1–2 minutos; ambos participam.
+- [x] Produzir e publicar [vídeo curto de 1min57s](project-video.md), com
+  narração sintética identificada e evidências reais.
+- [ ] Confirmar a aceitação da narração sintética e a exigência de participação
+  dos integrantes; concluir slides editáveis e participação humana quando exigida.
 - [ ] Registrar revisão cruzada, ensaio individual e acesso aos repositórios.
 - [ ] Cada integrante enviar seu próprio site no Blackboard e guardar recibo;
   conferir horário de 16/11/2026 e janela de retenção AWS antes do encerramento.
