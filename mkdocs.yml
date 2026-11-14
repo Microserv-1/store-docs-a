@@ -23,6 +23,7 @@ nav:
   - Custos, PaaS e SLA: operations.md
   - Redução de máquinas: right-sizing.md
   - Bateria final preparada: final-test-plan.md
+  - Encerramento da AWS: aws-shutdown.md
   - Janela e orçamento AWS: budget-window.md
   - Parâmetros do Calculator: calculator-inputs.md
   - Decisões e uso de IA: decisions.md

@@ -241,7 +241,7 @@ Repetir níveis 1, 4 e 8 usuários com duração e ambiente registrados. O scrip
 
 Para comparar cache, executar `--scenario products --cache enabled` e `--cache bypass` sob condições equivalentes. Não concluir ganho com uma única rodada curta. O `--context` deve corresponder ao cluster da URL testada; não misturar tráfego Compose com snapshots Kind.
 
-Os dois nós são a capacidade inicial. HPA não adiciona nós: antes de testar todos os serviços simultaneamente no máximo, conferir requests alocados, pods Pending e limites de conexões do RDS. Cada pod de banco pode abrir até dez conexões com os pools atuais; 2 réplicas × 3 serviços permitem até 60, enquanto 5 × 3 permitem até 150. Medir `max_connections`, manter margem e aumentar a classe do RDS ou ajustar os pools com os autores antes de saturar. `eksctl scale nodegroup` permite aumentar explicitamente os workers até quatro; o maxSize não ativa autoscaling de nós sozinho.
+Os dois nós são a capacidade atual e o teto configurado. HPA não adiciona nós: antes de testar todos os serviços simultaneamente no máximo, conferir requests alocados, pods Pending e limites de conexões do RDS. Cada pod de banco pode abrir até dez conexões com os pools atuais; 2 réplicas × 3 serviços permitem até 60, enquanto 5 × 3 permitem até 150. Medir `max_connections` e manter margem. Ajustar pools com os autores ou aumentar recursos exige revisão e autorização de custo; o nodegroup application-economy está limitado a dois nós.
 
 `artifacts/eks/cost-inputs.json` lista as quantidades da região e as janelas de 72/730 horas. Preencher no [AWS Pricing Calculator](https://calculator.aws/) EKS, EC2/créditos CPU, EBS, RDS, NAT/processamento, ALB/LCUs, IPv4 público, tráfego, logs, backups/snapshots e o agente Jenkins, quando usado. Guardar link/exportação, data, horas e hipóteses antes de provisionar. Nenhum total ou cotação foi inventado na preparação.
 
@@ -257,7 +257,7 @@ O rollback confirma conta/endpoint, mas não depende de Metrics Server ou certif
 
 RabbitMQ é uma réplica: persistência não é HA. EBS é zonal; um pod pode esperar capacidade na zona do volume após falha. Validar recriação na AWS e definir snapshot/backup se precisar recuperar perda do volume. Redis reinicia vazio e reconstrói o cache; não é fonte de verdade. RDS Single-AZ e NAT único também limitam disponibilidade.
 
-Depois da janela de avaliação, preservar as evidências e a decisão de retenção dos dados. Remover o Ingress e aguardar exclusão do ALB **antes** de remover o controller/cluster. Excluir a stack RDS conforme a política de snapshot; executar `eksctl delete cluster` com o arquivo do cluster. Revisar e encerrar também agente Jenkins, políticas/roles criadas para o projeto, NAT, volumes/PVs retidos, snapshots, endereços públicos e logs remanescentes. A retenção de PVC/PV gp3 é intencional: excluir o namespace ou cluster não comprova que esses custos terminaram.
+Depois da janela de avaliação e da autorização, seguir o [procedimento de encerramento](aws-shutdown.md): resolver dependências externas da VPC, decidir retenção de RDS/EBS/Jenkins, excluir o cluster com espera e auditar NAT, IPs, volumes, snapshots e logs retidos. Excluir namespace ou cluster não comprova encerramento de todos os custos.
 
 ## Limites da conclusão local
 

@@ -18,6 +18,12 @@ Não entregar o vídeo antigo de Kind como comprovação do EKS, nem uma página
 de slides vazia como apresentação. A tentativa de edição da apresentação
 visual em 13/11 foi rejeitada pelo serviço antes de salvar qualquer conteúdo.
 
+Nova conferência em 14/11: o serviço de apresentações voltou a rejeitar a
+inspeção (`artifact_preparation_failed`, sem possibilidade de repetição
+indicada), sem retornar o documento. Os slides visuais seguem pendentes.
+Após combinar a retenção para avaliação, usar o [roteiro de encerramento
+AWS](aws-shutdown.md). Sua preparação não autoriza nem comprova exclusões.
+
 ## Conferência independente por cada integrante
 
 1. Abrir os dois sites e materiais exigidos em uma janela sem autenticação.
