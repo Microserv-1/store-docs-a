@@ -1,0 +1,54 @@
+{
+  "context": "store-eks",
+  "baseline_replicas": 5,
+  "baseline_ready": 2,
+  "initial_hpa_status_matches_deployment": false,
+  "peak_replicas": 5,
+  "peak_ready": 5,
+  "final_replicas": 2,
+  "final_ready": 2,
+  "first_additional_ready_utc": "UTC 2026-11-14 14:13:45",
+  "first_return_to_baseline_utc": "UTC 2026-11-14 14:16:09",
+  "requests": 540,
+  "error_ratio": 0.0,
+  "requests_per_second": 4.481,
+  "latency_ms": {
+    "p50": 875.0,
+    "p95": 1155.999999999949,
+    "p99": 1515.0000000001
+  },
+  "credential_verification_pods": {
+    "account-5f5768bbb9-962hf": 2.24,
+    "account-5f5768bbb9-ftz8v": 2.32,
+    "account-5f5768bbb9-whpcc": 2.0
+  },
+  "peak_cpu_cores_by_pod": {
+    "account-5f5768bbb9-962hf": 0.6988,
+    "account-5f5768bbb9-bdzd6": 0.004000000000000022,
+    "account-5f5768bbb9-bs6mv": 0.00400000000000091,
+    "account-5f5768bbb9-ddvf7": 0.003600000000000012,
+    "account-5f5768bbb9-ftz8v": 0.7172,
+    "account-5f5768bbb9-n9sm7": 0.0040000000000000036,
+    "account-5f5768bbb9-sfhbq": 0.0032000000000000028,
+    "account-5f5768bbb9-whpcc": 0.6192000000000001
+  },
+  "commits": {
+    "account": "7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad",
+    "auth": "d803717bcf09943028f2727cfa97a9515eb17e8d",
+    "gateway": "a3944171d6d008cd0c88027ab2a963558ee7d1da"
+  },
+  "source_sha256": {
+    "recorded-hpa.json": "0d6270602b01bb7cec6647eb3fbc684509dc246c5ac5e866c37f673698fdbb99",
+    "login-load.json": "8877b638817076544aff598db046153a48e27add2e2a5fe53b20843629af7191",
+    "prometheus-during.json": "157e31fd2f1cb3a8031080357e549bdce29a54112fdb634edffec5af1f3207c9"
+  },
+  "limits": [
+    "One 4-user login run, not a controlled comparison or a business-load benchmark.",
+    "Client latency includes the authenticated port-forward/network path.",
+    "Gateway tunnel pins one Gateway pod; Account distribution is proved by per-pod metrics.",
+    "HPA CPU percentage is relative to requests, not machine-wide CPU percentage.",
+    "No monthly availability, uniform distribution or unlimited capacity is established.",
+    "HPA status and Deployment are sampled sequentially and can disagree during reconciliation; the ready-cycle uses Deployment readiness and requires the final HPA count to agree."
+  ],
+  "scale_cycle_observed": true
+}

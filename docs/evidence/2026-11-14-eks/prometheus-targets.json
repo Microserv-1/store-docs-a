@@ -1,0 +1,77 @@
+{
+  "utc": "2026-11-14T14:20:46.167542+00:00",
+  "targets": [
+    {
+      "job": "exchange",
+      "instance": "192.168.121.187:8000",
+      "health": "up",
+      "lastError": ""
+    },
+    {
+      "job": "gateway",
+      "instance": "192.168.100.212:8000",
+      "health": "up",
+      "lastError": ""
+    },
+    {
+      "job": "auth",
+      "instance": "192.168.116.114:8000",
+      "health": "up",
+      "lastError": ""
+    },
+    {
+      "job": "exchange",
+      "instance": "192.168.79.163:8000",
+      "health": "up",
+      "lastError": ""
+    },
+    {
+      "job": "gateway",
+      "instance": "192.168.92.222:8000",
+      "health": "up",
+      "lastError": ""
+    },
+    {
+      "job": "product",
+      "instance": "192.168.126.130:8000",
+      "health": "up",
+      "lastError": ""
+    },
+    {
+      "job": "auth",
+      "instance": "192.168.88.125:8000",
+      "health": "up",
+      "lastError": ""
+    },
+    {
+      "job": "account",
+      "instance": "192.168.103.61:8000",
+      "health": "up",
+      "lastError": ""
+    },
+    {
+      "job": "account",
+      "instance": "192.168.120.70:8000",
+      "health": "up",
+      "lastError": ""
+    },
+    {
+      "job": "order",
+      "instance": "192.168.118.208:8000",
+      "health": "up",
+      "lastError": ""
+    },
+    {
+      "job": "order",
+      "instance": "192.168.80.125:8000",
+      "health": "up",
+      "lastError": ""
+    },
+    {
+      "job": "product",
+      "instance": "192.168.66.23:8000",
+      "health": "up",
+      "lastError": ""
+    }
+  ]
+}

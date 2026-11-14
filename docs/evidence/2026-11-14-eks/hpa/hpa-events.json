@@ -1,0 +1,66 @@
+[
+  {
+    "resource": "account",
+    "reason": "SuccessfulRescale",
+    "message": "New size: 5; reason: cpu resource utilization (percentage of request) above target",
+    "first_timestamp": "2026-11-13T16:31:56Z",
+    "last_timestamp": "2026-11-14T14:13:32Z",
+    "count": 4
+  },
+  {
+    "resource": "account",
+    "reason": "SuccessfulRescale",
+    "message": "New size: 2; reason: All metrics below target",
+    "first_timestamp": "2026-11-13T16:34:41Z",
+    "last_timestamp": "2026-11-14T14:16:17Z",
+    "count": 5
+  },
+  {
+    "resource": "account",
+    "reason": "SuccessfulRescale",
+    "message": "New size: 3; reason: cpu resource utilization (percentage of request) above target",
+    "first_timestamp": "2026-11-14T14:07:46Z",
+    "last_timestamp": "2026-11-14T14:07:46Z",
+    "count": 1
+  },
+  {
+    "resource": "order",
+    "reason": "SuccessfulRescale",
+    "message": "New size: 3; reason: cpu resource utilization (percentage of request) above target",
+    "first_timestamp": "2026-11-14T14:10:01Z",
+    "last_timestamp": "2026-11-14T14:10:01Z",
+    "count": 1
+  },
+  {
+    "resource": "order",
+    "reason": "SuccessfulRescale",
+    "message": "New size: 5; reason: cpu resource utilization (percentage of request) above target",
+    "first_timestamp": "2026-11-14T14:11:46Z",
+    "last_timestamp": "2026-11-14T14:11:46Z",
+    "count": 1
+  },
+  {
+    "resource": "order",
+    "reason": "SuccessfulRescale",
+    "message": "New size: 4; reason: All metrics below target",
+    "first_timestamp": "2026-11-14T14:13:17Z",
+    "last_timestamp": "2026-11-14T14:13:17Z",
+    "count": 1
+  },
+  {
+    "resource": "order",
+    "reason": "SuccessfulRescale",
+    "message": "New size: 3; reason: All metrics below target",
+    "first_timestamp": "2026-11-14T14:13:32Z",
+    "last_timestamp": "2026-11-14T14:13:32Z",
+    "count": 1
+  },
+  {
+    "resource": "order",
+    "reason": "SuccessfulRescale",
+    "message": "New size: 2; reason: All metrics below target",
+    "first_timestamp": "2026-11-14T14:14:17Z",
+    "last_timestamp": "2026-11-14T14:14:17Z",
+    "count": 1
+  }
+]

@@ -1,4 +1,9 @@
-# Fechamento da entrega — 13/11/2026
+# Fechamento da entrega
+
+**Atualização de 14/11:** a [bateria final nas máquinas menores](final-validation.md)
+passou: 40 verificações, carga de negócio com 1/4/8 usuários sem erros e
+540 logins HTTP 200. Account apresentou 2 → 5 → 2 réplicas prontas.
+Os registros de implantação de 13/11 abaixo continuam sendo históricos.
 
 ## Estado comprovado na AWS
 
@@ -90,13 +95,14 @@ avaliação, a retenção dos dados e o procedimento de retomada.
   três pods com métricas por instância, distinguindo os dois gargalos de A.
 - [x] Consolidar recuperação local de um pod Account, com o mesmo digest EKS:
   30/30 respostas HTTP 200 e identidade preservada. Isso não é recuperação AWS.
-- [ ] Concluir baseline e carga progressiva de negócio no EKS conforme o
-  roadmap, com autorização própria; a rodada HPA executada foi de login.
+- [x] Executar carga progressiva de negócio no EKS, autorizada em 14/11: estágios
+  de 1/4/8 usuários, 1.611 requisições e zero erros. Revalidar login/HPA nas menores.
 - [x] Consolidar os links de evidências dos dois gargalos de B, incluindo
   medições de cache com commits finais; explicação e publicação individual são de B.
 - [ ] Exportar estimativa do AWS Pricing Calculator para janela acadêmica e
   operação mensal; registrar link e hipóteses de consumo variável.
-- [ ] Rever SLOs com medições da carga, mantendo SLA do fornecedor separado.
+- [x] Rever SLOs com a carga de 14/11: erro observado zero na amostra; p95
+  agregado não comprova a meta específica de leitura de identidade nem SLA mensal.
 - [x] Publicar e verificar o Pages de A: build e URLs públicas passaram em 13/11.
 - [ ] Atualizar o site de B por commits de B.
 - [ ] Preencher nome acadêmico completo de A e identificação/grupo exigidos.

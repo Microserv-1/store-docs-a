@@ -1,0 +1,116 @@
+{
+  "utc": "2026-11-14T14:08:20.654909+00:00",
+  "context": "store-eks",
+  "root_commit": "df15765fc2b1e7e4eba53dc32613f38f755b96e9",
+  "commits": {
+    "account": "7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad",
+    "auth": "d803717bcf09943028f2727cfa97a9515eb17e8d",
+    "gateway": "a3944171d6d008cd0c88027ab2a963558ee7d1da",
+    "product": "c40bec1c96f786d11c89c021f7fb891af2bd048c",
+    "order": "a97fe5583e8e0e3615aab062a570bd2263b57089",
+    "exchange": "ea580c5b6e8c6eb6f552ac56390764a2f215c76f"
+  },
+  "nodes": [
+    {
+      "name": "ip-192-168-102-101.ec2.internal",
+      "type": "t3a.medium",
+      "allocatable": {
+        "cpu": "1930m",
+        "ephemeral-storage": "18181869946",
+        "hugepages-1Gi": "0",
+        "hugepages-2Mi": "0",
+        "memory": "3383820Ki",
+        "pods": "17"
+      },
+      "ready": true
+    },
+    {
+      "name": "ip-192-168-85-198.ec2.internal",
+      "type": "t3a.medium",
+      "allocatable": {
+        "cpu": "1930m",
+        "ephemeral-storage": "18181869946",
+        "hugepages-1Gi": "0",
+        "hugepages-2Mi": "0",
+        "memory": "3383820Ki",
+        "pods": "17"
+      },
+      "ready": true
+    }
+  ],
+  "deployments": [
+    {
+      "name": "account",
+      "ready": 3,
+      "desired": 3,
+      "images": [
+        "uyris/store-account:7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad@sha256:1c37183eb58d92d8c055769e54081a9a87c6c1278d1479e003aaf6bea201b3ac"
+      ]
+    },
+    {
+      "name": "auth",
+      "ready": 2,
+      "desired": 2,
+      "images": [
+        "uyris/store-auth:d803717bcf09943028f2727cfa97a9515eb17e8d@sha256:33baabf8067ad04eb0a929a901f563b887f4ec5ed03f994054f9c628555a4845"
+      ]
+    },
+    {
+      "name": "exchange",
+      "ready": 2,
+      "desired": 2,
+      "images": [
+        "uyris/store-exchange:ea580c5b6e8c6eb6f552ac56390764a2f215c76f@sha256:3234706c2a9a58f5169d54b6e4a18e58fc1a9d22c401b470df62ce68fa3fb1af"
+      ]
+    },
+    {
+      "name": "gateway",
+      "ready": 2,
+      "desired": 2,
+      "images": [
+        "uyris/store-gateway:a3944171d6d008cd0c88027ab2a963558ee7d1da@sha256:4103fffbfcb05ea7d3a79134e16ae525f504aa5b0c3e8a7931e4ce72f9f41895"
+      ]
+    },
+    {
+      "name": "grafana",
+      "ready": 1,
+      "desired": 1,
+      "images": [
+        "grafana/grafana:12.0.0"
+      ]
+    },
+    {
+      "name": "order",
+      "ready": 2,
+      "desired": 2,
+      "images": [
+        "uyris/store-order:a97fe5583e8e0e3615aab062a570bd2263b57089@sha256:6052e6677075acf367b464213ccec491b119c740c536ecd2c6304a59f2b7e788"
+      ]
+    },
+    {
+      "name": "product",
+      "ready": 2,
+      "desired": 2,
+      "images": [
+        "uyris/store-product:c40bec1c96f786d11c89c021f7fb891af2bd048c@sha256:d2d2b48ff847808aced829d39ebf860053a1a7e67e594b2887798dafa9afc204"
+      ]
+    },
+    {
+      "name": "prometheus",
+      "ready": 1,
+      "desired": 1,
+      "images": [
+        "prom/prometheus:v3.4.0"
+      ]
+    },
+    {
+      "name": "redis",
+      "ready": 1,
+      "desired": 1,
+      "images": [
+        "redis@sha256:6ab0b6e7381779332f97b8ca76193e45b0756f38d4c0dcda72dbb3c32061ab99"
+      ]
+    }
+  ],
+  "top_nodes": "NAME                              CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)   \nip-192-168-102-101.ec2.internal   215m         11%      1373Mi          41%         \nip-192-168-85-198.ec2.internal    261m         13%      1563Mi          47%         \n"
+}

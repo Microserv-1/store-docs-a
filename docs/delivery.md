@@ -8,10 +8,10 @@
 | Site individual de B | https://microserv-1.github.io/store-docs-b/ | Público, HTTP 200 em 13/11; atualização final é de B |
 | Repositório integrador | https://github.com/Microserv-1/store-root | Público, com ponteiros dos submódulos publicados |
 | Serviços individuais | Links na [página inicial](index.md) | Privados; verificar acesso do avaliador |
-| Aceite AWS | [40 verificações](evidence/2026-11-13-eks/business-integration.json) | Passou com serviços reais |
+| Aceite AWS | [Bateria de 14/11](final-validation.md) | 40 verificações, negócio 1/4/8 e login/HPA nas máquinas menores |
 | Pipeline AWS | [Registro de release](evidence/2026-11-13-eks/jenkins-release.json) | SUCCESS informado no console; anexar número/console final |
 | Apresentação | [Conteúdo dos slides e roteiro de 120s](presentation.md) | Texto pronto; material visual e gravação humana pendentes |
-| Vídeo técnico EKS/HPA | [Vídeo e relatório](eks-load.md) | Ciclo 2 → 5 → 2 comprovado; replay técnico de 7min41s |
+| Vídeo técnico EKS/HPA | [Rodada final](final-validation.md) e [histórico de 13/11](eks-load.md) | Ciclo 2 → 5 → 2; replays identificados, separados do vídeo humano |
 | Custos | [Tarifas e estimativa](operations.md) | Estimativa rastreável pronta; exportação do Calculator pendente |
 
 Não entregar o vídeo antigo de Kind como comprovação do EKS, nem uma página

@@ -1,0 +1,38 @@
+{
+  "model": "closed-loop",
+  "pause_ms": 500,
+  "stages": [
+    {
+      "users": 1,
+      "duration_s": 61.832,
+      "requests": 127,
+      "rps": 2.054,
+      "p95_ms": 415.69030000005114,
+      "p99_ms": 449.9503999999206,
+      "errors": 0.0,
+      "max_order_post_attempts": 2
+    },
+    {
+      "users": 4,
+      "duration_s": 62.12,
+      "requests": 508,
+      "rps": 8.178,
+      "p95_ms": 414.02979999998024,
+      "p99_ms": 491.8473999998696,
+      "errors": 0.0,
+      "max_order_post_attempts": 8
+    },
+    {
+      "users": 8,
+      "duration_s": 60.841,
+      "requests": 976,
+      "rps": 16.042,
+      "p95_ms": 434.2631000001802,
+      "p99_ms": 612.5313999998525,
+      "errors": 0.0,
+      "max_order_post_attempts": 16
+    }
+  ],
+  "total_requests": 1611,
+  "total_order_post_attempt_cap": 26
+}

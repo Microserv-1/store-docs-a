@@ -78,10 +78,13 @@ EKS gerencia o plano de controle Kubernetes; a equipe permanece responsável por
 
 ## Metas e medições
 
-Em 13/11, a carga de login no EKS mediu p95 de **1.187 ms**, p99 de 1.281 ms e
-zero erros em 550 requisições, com quatro usuários/120s. Esse valor inclui a
+Em 14/11, a carga de login no EKS nas máquinas menores mediu p95 de
+**1.156 ms**, p99 de 1.515 ms e zero erros em 540 requisições, com quatro
+usuários/120s. Esse valor inclui a
 rede e o port-forward do cliente e não mede a leitura de identidade nem a
-criação de pedidos. [Relatório](eks-load.md). A meta de leitura abaixo ainda
+criação de pedidos. A carga de negócio com 1/4/8 usuários também passou sem
+erros, com p95 agregado de 416/414/434 ms. [Relatório](final-validation.md).
+A meta de leitura abaixo ainda
 precisa de seu cenário próprio no EKS. Não definir retroativamente um alvo
 de login apenas para declarar aprovação da medição já executada.
 

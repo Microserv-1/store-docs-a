@@ -1,8 +1,8 @@
 # Apresentação e defesa
 
 Roteiro proposto de 120 segundos, a gravar com os dois integrantes. EKS e o
-aceite integrado foram validados em 13/11. O HPA também foi comprovado na AWS:
-Account escalou de 2 para 5 pods prontos e retornou a 2, com 550 logins sem
+aceite integrado foram revalidados em 14/11 nas máquinas menores. O HPA também foi comprovado na AWS:
+Account escalou de 2 para 5 pods prontos e retornou a 2, com 540 logins sem
 erros. [Vídeo técnico, gráfico e resultados](eks-load.md).
 
 | Tempo | Participação | Conteúdo |
@@ -31,10 +31,9 @@ comprova EKS nem substitui participação humana no vídeo final.
 
 ## Texto para ensaio (aproximadamente 120 segundos)
 
-Os números de carga abaixo pertencem à rodada de 13/11 nas máquinas grandes.
-Após a [redução de máquinas](right-sizing.md), o aceite funcional foi repetido,
-mas a nova carga ainda está pendente. Identificar o perfil no slide do gráfico;
-não apresentar esses números como desempenho medido nos workers menores.
+Os números abaixo pertencem à [rodada de 14/11 nas máquinas menores](final-validation.md).
+Identificar o perfil no gráfico: dois workers t3a.medium, quatro usuários e
+120s no login. Não misturar com a rodada histórica de 13/11 nas máquinas grandes.
 
 **A, 0–15s:** “Somos Yuri e Gustavo. Construímos um backend de e-commerce com
 seis microsserviços, integrados por um Gateway e implantados no Amazon EKS.”
@@ -51,7 +50,7 @@ executou quarenta verificações reais na AWS.”
 
 **A, 70–90s:** “No login, as métricas mostraram aumento de CPU em Account.
 O HPA escalou de duas para cinco réplicas prontas e voltou a duas depois da
-carga. Três pods atenderam verificações de credenciais. Foram 550 logins sem
+carga. Três pods atenderam verificações de credenciais. Foram 540 logins sem
 erros; não medimos um ganho controlado antes e depois.” Mostrar o gráfico EKS.
 
 **B, 90–105s:** “O cache Redis reduz consultas repetidas e invalida produtos

@@ -1,5 +1,13 @@
 # Estado e evidências
 
+## Bateria final nas máquinas menores — 14/11/2026
+
+[Relatório e evidências](final-validation.md): smoke e 40 verificações aprovados;
+carga de negócio 1/4/8 usuários com 127/508/976 requisições, zero erros e
+p95 de 416/414/434 ms. Login: 540 respostas 200, zero erros, p95 de 1.156 ms
+e ciclo Account 2 → 5 → 2 réplicas prontas. Estes são resultados dos workers
+t3a.medium; os registros de 13/11 abaixo descrevem a configuração anterior.
+
 ## Redução de custos — 13/11/2026
 
 Workers migrados para 2 × t3a.medium; Jenkins reduzido para t3a.small.

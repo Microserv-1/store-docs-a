@@ -1,0 +1,21 @@
+{
+  "created_utc": "2026-11-14T14:21:58.296173+00:00",
+  "context": "store-eks",
+  "kind": "labelled replay of real command output; not desktop capture",
+  "duration_seconds": 408.0,
+  "bytes": 3639229,
+  "video_sha256": "2f82de421244d05a3ee19ed82d071bd7494698d0fc2c77c3defc8688bc652539",
+  "samples": 12,
+  "first_sample": "UTC 2026-11-14 14:12:42",
+  "last_sample": "UTC 2026-11-14 14:19:27",
+  "source_sha256": {
+    "recorded-hpa.json": "0d6270602b01bb7cec6647eb3fbc684509dc246c5ac5e866c37f673698fdbb99",
+    "login-load.json": "8877b638817076544aff598db046153a48e27add2e2a5fe53b20843629af7191"
+  },
+  "script_sha256": {
+    "scripts\\record-hpa.py": "f4a2e1f83762f6f2e7b2e307e184216c235348f8e1aabff779981e981d70f996",
+    "scripts\\render-evidence.py": "a0f6fab3e9ee8ce69e0842d294e3b34ffba7f340a68993813992f6745f6206d1",
+    "scripts\\summarize-hpa.py": "9965127a3ada1fd15b57023fa602fa7826dc86557316da94716b383c4cdb57e2"
+  },
+  "limits": "Sequential command snapshots; sparse video frames repeat until the next captured timestamp. Prometheus graph uses separate 5-second query-range samples. No narration or human participation is claimed."
+}

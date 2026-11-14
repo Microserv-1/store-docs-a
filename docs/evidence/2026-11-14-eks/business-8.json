@@ -1,0 +1,569 @@
+{
+  "utc": "2026-11-14T14:12:03Z",
+  "base_url": "http://127.0.0.1:18080",
+  "scenario": "business",
+  "users": 8,
+  "requested_duration_s": 60,
+  "actual_duration_s": 60.841,
+  "model": "closed-loop; pause after each business iteration",
+  "pause_ms": 500,
+  "cache": "enabled",
+  "max_order_post_attempts": 16,
+  "max_orders_created": 16,
+  "commits": {
+    "account": "7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad",
+    "auth": "d803717bcf09943028f2727cfa97a9515eb17e8d",
+    "gateway": "a3944171d6d008cd0c88027ab2a963558ee7d1da",
+    "product": "c40bec1c96f786d11c89c021f7fb891af2bd048c",
+    "order": "a97fe5583e8e0e3615aab062a570bd2263b57089",
+    "exchange": "ea580c5b6e8c6eb6f552ac56390764a2f215c76f"
+  },
+  "script_sha256": "966dd3ee78c55b86b91ac76fce38c85b8b7b2e6a5613f3ca81126e285c3e943a",
+  "overall": {
+    "requests": 976,
+    "requests_per_second": 16.042,
+    "latency_ms": {
+      "p50": 384.63789999991604,
+      "p95": 434.2631000001802,
+      "p99": 612.5313999998525
+    },
+    "error_ratio": 0.0,
+    "status_counts": {
+      "200": 960,
+      "201": 16
+    },
+    "problems": {},
+    "cache_headers": {
+      "HIT": 384
+    }
+  },
+  "operations": {
+    "GET exchange": {
+      "requests": 192,
+      "requests_per_second": 3.156,
+      "latency_ms": {
+        "p50": 377.45859999995446,
+        "p95": 391.79710000007617,
+        "p99": 447.65150000012
+      },
+      "error_ratio": 0.0,
+      "status_counts": {
+        "200": 192
+      },
+      "problems": {},
+      "cache_headers": {}
+    },
+    "GET order BRL": {
+      "requests": 192,
+      "requests_per_second": 3.156,
+      "latency_ms": {
+        "p50": 411.138899999969,
+        "p95": 467.8974000000835,
+        "p99": 589.7065000001476
+      },
+      "error_ratio": 0.0,
+      "status_counts": {
+        "200": 192
+      },
+      "problems": {},
+      "cache_headers": {}
+    },
+    "GET order USD": {
+      "requests": 192,
+      "requests_per_second": 3.156,
+      "latency_ms": {
+        "p50": 387.13080000002265,
+        "p95": 414.04899999997724,
+        "p99": 423.4998000001724
+      },
+      "error_ratio": 0.0,
+      "status_counts": {
+        "200": 192
+      },
+      "problems": {},
+      "cache_headers": {}
+    },
+    "GET product": {
+      "requests": 192,
+      "requests_per_second": 3.156,
+      "latency_ms": {
+        "p50": 380.5061000000478,
+        "p95": 400.4800999998679,
+        "p99": 416.7677000000367
+      },
+      "error_ratio": 0.0,
+      "status_counts": {
+        "200": 192
+      },
+      "problems": {},
+      "cache_headers": {
+        "HIT": 192
+      }
+    },
+    "GET products": {
+      "requests": 192,
+      "requests_per_second": 3.156,
+      "latency_ms": {
+        "p50": 381.1276999999791,
+        "p95": 405.55300000005445,
+        "p99": 415.4747000000043
+      },
+      "error_ratio": 0.0,
+      "status_counts": {
+        "200": 192
+      },
+      "problems": {},
+      "cache_headers": {
+        "HIT": 192
+      }
+    },
+    "POST order": {
+      "requests": 16,
+      "requests_per_second": 0.263,
+      "latency_ms": {
+        "p50": 613.5148000000754,
+        "p95": 1115.1698999999553,
+        "p99": 1115.1698999999553
+      },
+      "error_ratio": 0.0,
+      "status_counts": {
+        "201": 16
+      },
+      "problems": {},
+      "cache_headers": {}
+    }
+  },
+  "cluster_before": {
+    "utilization": {
+      "exit_code": 0,
+      "output": "NAME                         CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-bs6mv     25m          71Mi            \naccount-5f5768bbb9-ftz8v     4m           57Mi            \nauth-79b9ddc7b4-q5hkb        3m           195Mi           \nauth-79b9ddc7b4-qtrxx        4m           194Mi           \nexchange-5fdcc6d49f-g77tp    4m           40Mi            \nexchange-5fdcc6d49f-kmrwr    4m           40Mi            \ngateway-584d97b66d-ns8s7     2m           8Mi             \ngateway-584d97b66d-xpv24     1m           7Mi             \ngrafana-cbcc4566b-5n7d7      5m           79Mi            \norder-64f54b8d84-624rc       28m          61Mi            \norder-64f54b8d84-mbsjc       28m          65Mi            \norder-64f54b8d84-xwgcd       27m          69Mi            \nproduct-6676b77d44-7rcp5     4m           60Mi            \nproduct-6676b77d44-z9wsw     5m           61Mi            \nprometheus-d5d4f875b-qsn4j   4m           37Mi            \nrabbitmq-0                   45m          88Mi            \nredis-794588cb99-9n7q9       10m          3Mi             \n"
+    },
+    "resources": [
+      {
+        "kind": "Deployment",
+        "name": "account",
+        "desired": 2,
+        "ready": 2
+      },
+      {
+        "kind": "Deployment",
+        "name": "auth",
+        "desired": 2,
+        "ready": 2
+      },
+      {
+        "kind": "Deployment",
+        "name": "exchange",
+        "desired": 2,
+        "ready": 2
+      },
+      {
+        "kind": "Deployment",
+        "name": "gateway",
+        "desired": 2,
+        "ready": 2
+      },
+      {
+        "kind": "Deployment",
+        "name": "grafana",
+        "desired": 1,
+        "ready": 1
+      },
+      {
+        "kind": "Deployment",
+        "name": "order",
+        "desired": 3,
+        "ready": 3
+      },
+      {
+        "kind": "Deployment",
+        "name": "product",
+        "desired": 2,
+        "ready": 2
+      },
+      {
+        "kind": "Deployment",
+        "name": "prometheus",
+        "desired": 1,
+        "ready": 1
+      },
+      {
+        "kind": "Deployment",
+        "name": "redis",
+        "desired": 1,
+        "ready": 1
+      },
+      {
+        "kind": "HorizontalPodAutoscaler",
+        "name": "account",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "kind": "HorizontalPodAutoscaler",
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "kind": "HorizontalPodAutoscaler",
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "kind": "HorizontalPodAutoscaler",
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "kind": "HorizontalPodAutoscaler",
+        "name": "order",
+        "current": 3,
+        "desired": 3
+      },
+      {
+        "kind": "HorizontalPodAutoscaler",
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "kind": "Pod",
+        "name": "account-5f5768bbb9-bs6mv",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "account-5f5768bbb9-ftz8v",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "auth-79b9ddc7b4-q5hkb",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "auth-79b9ddc7b4-qtrxx",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "exchange-5fdcc6d49f-g77tp",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "exchange-5fdcc6d49f-kmrwr",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "gateway-584d97b66d-ns8s7",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "gateway-584d97b66d-xpv24",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "grafana-cbcc4566b-5n7d7",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "order-64f54b8d84-624rc",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "order-64f54b8d84-mbsjc",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "order-64f54b8d84-xwgcd",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "product-6676b77d44-7rcp5",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "product-6676b77d44-z9wsw",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "prometheus-d5d4f875b-qsn4j",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "rabbitmq-0",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "redis-794588cb99-9n7q9",
+        "phase": "Running",
+        "ready": true
+      }
+    ]
+  },
+  "cluster_after": {
+    "utilization": {
+      "exit_code": 0,
+      "output": "NAME                         CPU(cores)   MEMORY(bytes)   \naccount-5f5768bbb9-962hf     2m           56Mi            \naccount-5f5768bbb9-bs6mv     4m           70Mi            \naccount-5f5768bbb9-ddvf7     4m           56Mi            \naccount-5f5768bbb9-ftz8v     5m           57Mi            \naccount-5f5768bbb9-sfhbq     2m           56Mi            \nauth-79b9ddc7b4-q5hkb        3m           196Mi           \nauth-79b9ddc7b4-qtrxx        4m           194Mi           \nexchange-5fdcc6d49f-g77tp    18m          41Mi            \nexchange-5fdcc6d49f-kmrwr    14m          40Mi            \ngateway-584d97b66d-ns8s7     24m          7Mi             \ngateway-584d97b66d-xpv24     1m           7Mi             \ngrafana-cbcc4566b-5n7d7      4m           79Mi            \norder-64f54b8d84-624rc       80m          69Mi            \norder-64f54b8d84-drj2b       233m         60Mi            \norder-64f54b8d84-mbsjc       51m          67Mi            \norder-64f54b8d84-xwgcd       62m          74Mi            \norder-64f54b8d84-zg8fz       241m         60Mi            \nproduct-6676b77d44-7rcp5     26m          60Mi            \nproduct-6676b77d44-z9wsw     5m           61Mi            \nprometheus-d5d4f875b-qsn4j   6m           38Mi            \nrabbitmq-0                   47m          89Mi            \nredis-794588cb99-9n7q9       11m          3Mi             \n"
+    },
+    "resources": [
+      {
+        "kind": "Deployment",
+        "name": "account",
+        "desired": 5,
+        "ready": 5
+      },
+      {
+        "kind": "Deployment",
+        "name": "auth",
+        "desired": 2,
+        "ready": 2
+      },
+      {
+        "kind": "Deployment",
+        "name": "exchange",
+        "desired": 2,
+        "ready": 2
+      },
+      {
+        "kind": "Deployment",
+        "name": "gateway",
+        "desired": 2,
+        "ready": 2
+      },
+      {
+        "kind": "Deployment",
+        "name": "grafana",
+        "desired": 1,
+        "ready": 1
+      },
+      {
+        "kind": "Deployment",
+        "name": "order",
+        "desired": 5,
+        "ready": 5
+      },
+      {
+        "kind": "Deployment",
+        "name": "product",
+        "desired": 2,
+        "ready": 2
+      },
+      {
+        "kind": "Deployment",
+        "name": "prometheus",
+        "desired": 1,
+        "ready": 1
+      },
+      {
+        "kind": "Deployment",
+        "name": "redis",
+        "desired": 1,
+        "ready": 1
+      },
+      {
+        "kind": "HorizontalPodAutoscaler",
+        "name": "account",
+        "current": 5,
+        "desired": 5
+      },
+      {
+        "kind": "HorizontalPodAutoscaler",
+        "name": "auth",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "kind": "HorizontalPodAutoscaler",
+        "name": "exchange",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "kind": "HorizontalPodAutoscaler",
+        "name": "gateway",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "kind": "HorizontalPodAutoscaler",
+        "name": "order",
+        "current": 5,
+        "desired": 5
+      },
+      {
+        "kind": "HorizontalPodAutoscaler",
+        "name": "product",
+        "current": 2,
+        "desired": 2
+      },
+      {
+        "kind": "Pod",
+        "name": "account-5f5768bbb9-962hf",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "account-5f5768bbb9-bs6mv",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "account-5f5768bbb9-ddvf7",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "account-5f5768bbb9-ftz8v",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "account-5f5768bbb9-sfhbq",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "auth-79b9ddc7b4-q5hkb",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "auth-79b9ddc7b4-qtrxx",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "exchange-5fdcc6d49f-g77tp",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "exchange-5fdcc6d49f-kmrwr",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "gateway-584d97b66d-ns8s7",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "gateway-584d97b66d-xpv24",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "grafana-cbcc4566b-5n7d7",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "order-64f54b8d84-624rc",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "order-64f54b8d84-drj2b",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "order-64f54b8d84-mbsjc",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "order-64f54b8d84-xwgcd",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "order-64f54b8d84-zg8fz",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "product-6676b77d44-7rcp5",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "product-6676b77d44-z9wsw",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "prometheus-d5d4f875b-qsn4j",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "rabbitmq-0",
+        "phase": "Running",
+        "ready": true
+      },
+      {
+        "kind": "Pod",
+        "name": "redis-794588cb99-9n7q9",
+        "phase": "Running",
+        "ready": true
+      }
+    ]
+  },
+  "limits": "Only the recorded environment and versions were exercised; a short run does not prove an SLA. Accounts/orders remain as test data; only the product fixture is removed. Order POST attempts are capped, including failed responses; a timed-out write may have committed.",
+  "raw_report_sha256": "1c35b7a82d952decc907cba848c4ed2ae947e5ab8d09b326a3c76779b721a0c4",
+  "publication_note": "Kubernetes snapshots reduced to status and utilization; no Pod/Deployment specifications published."
+}

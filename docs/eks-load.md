@@ -1,5 +1,9 @@
 # Carga e HPA reais no EKS — 13/11/2026
 
+A rodada desta página é histórica, executada nas máquinas grandes.
+Para os workers menores e a carga de negócio progressiva, consultar a
+[validação de 14/11](final-validation.md).
+
 ## Resultado da rodada autorizada
 
 O operador autorizou uma rodada de **quatro usuários por 120 segundos**, com
