@@ -43,12 +43,14 @@ horário informado pela API no registro e decidir o encerramento após a avalia�
 A retomada volta a cobrar a capacidade em operação, estimada em US$ 0,287/h
 mais variáveis. Confirmar autorização e margem para inicialização antes de
 executar. Não prometer retomada instantânea nem iniciar carga automaticamente.
+Para [testar apenas as APIs](teacher-evaluation.md), Jenkins pode permanecer
+parado: a referência fixa fica em cerca de US$ 0,268/h, mais variáveis.
 
 1. Renovar o login `store-login` e validar a identidade `store-admin` na conta
    correta. Atualizar o IP `/32` do endpoint EKS se o IP do operador mudar.
 2. Iniciar o RDS e aguardar `available`.
-3. Iniciar a EC2 Jenkins e aguardar o serviço ficar saudável; conferir se saiu
-   do modo quieto antes de solicitar um pipeline.
+3. Somente se for demonstrar CI/CD, iniciar a EC2 Jenkins e aguardar o serviço
+   saudável; conferir se saiu do modo quieto antes de solicitar um pipeline.
 4. Restaurar `application-economy` para min=2, desired=2, max=2 e aguardar
    **dois nós Ready**, do tipo t3a.medium.
 5. Restaurar RabbitMQ para uma réplica, usando o mesmo PVC. Aguardar o broker
@@ -61,7 +63,6 @@ Comandos para os passos de retomada, **somente quando autorizados**:
 ```powershell
 aws rds start-db-instance --profile store-admin --region us-east-1 --db-instance-identifier microserv-store-rds-database-xaw4nsp3iyky
 aws rds wait db-instance-available --profile store-admin --region us-east-1 --db-instance-identifier microserv-store-rds-database-xaw4nsp3iyky
-aws ec2 start-instances --profile store-admin --region us-east-1 --instance-ids i-03245ec6369003f79
 aws eks update-nodegroup-config --profile store-admin --region us-east-1 --cluster-name microserv-store --nodegroup-name application-economy --scaling-config minSize=2,maxSize=2,desiredSize=2
 kubectl --context store-eks get nodes
 ```
@@ -78,6 +79,11 @@ O guard normal espera três EC2 ligadas e dois workers; não deve ser
 interpretado como falha inesperada enquanto o ambiente está pausado. A
 configuração versionada continua descrevendo a capacidade normal de dois
 workers; a pausa é um estado operacional temporário, não uma nova topologia.
+Para o perfil completo, iniciar Jenkins separadamente, quando autorizado:
+
+```powershell
+aws ec2 start-instances --profile store-admin --region us-east-1 --instance-ids i-03245ec6369003f79
+```
 
 Para encerrar definitivamente, usar o [procedimento separado](aws-shutdown.md)
 após autorizar a retenção/descarte de dados. Pausa não significa exclusão dos

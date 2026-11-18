@@ -1,5 +1,9 @@
 # Estado e evidências
 
+**Decisão atual:** manter os recursos preservados e pausados até combinar o
+[teste do professor](teacher-evaluation.md). Não há retomada, URL pública ou
+exclusão agendada. Jenkins só precisa voltar se for demonstrado o CI/CD.
+
 **Conferência de 18/11:** EKS e NAT ativos, zero workers, Jenkins e RDS
 parados. RDS pode reiniciar em 21/11 às 12h08 BRT. A [revisão de encerramento](aws-final-review.md)
 identifica os recursos e opções de retenção, sem novas exclusões ou snapshots.

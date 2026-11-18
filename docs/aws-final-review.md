@@ -4,6 +4,11 @@ Consulta somente de leitura, na conta 975049967635, us-east-1. **Nenhuma
 exclusão ou novo snapshot foi executado.** O ambiente continua pausado;
 o encerramento depende da liberação da avaliação e da decisão de retenção.
 
+**Decisão posterior de Yuri:** manter os recursos preservados e pausados
+para o teste do professor. Não executar este plano por conta própria. A
+[preparação da avaliação](teacher-evaluation.md) separa retomada das APIs,
+Jenkins e acesso do avaliador. As opções de encerramento ficam como referência.
+
 ## Inventário conferido
 
 | Recurso | Estado / identificador |
