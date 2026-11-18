@@ -1,0 +1,23 @@
+{
+  "utc": "2026-11-18T15:47:40.543620+00:00",
+  "region": "us-east-1",
+  "ebs_gp3": {
+    "sku": "JG3KUJMBRGHV3N8G",
+    "description": "$0.08 per GB-month of General Purpose (gp3) provisioned storage - US East (N. Virginia)",
+    "unit": "GB-Mo",
+    "usd": 0.08
+  },
+  "rds_postgresql_backup": [
+    {
+      "sku": "6W8ECRFVDATCER7J",
+      "engine": "PostgreSQL",
+      "description": "$0.095 per additional GB-month of backup storage exceeding free allocation running PostgreSQL",
+      "unit": "GB-Mo",
+      "usd": "0.0950000000"
+    }
+  ],
+  "example_ebs_32_gib_month_usd": 2.56,
+  "example_rds_backup_20_gb_month_usd": 1.9,
+  "example_combined_month_usd": 4.46,
+  "limits": "Illustrative retained storage only, not a hard cap. RDS backup bills measured backup GB; 20 GB is a planning input. Logs, taxes, transfers, extra snapshots and future restoration are excluded."
+}

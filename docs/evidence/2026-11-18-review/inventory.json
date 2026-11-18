@@ -1,0 +1,381 @@
+{
+  "utc": "2026-11-18T15:45:21.887925+00:00",
+  "account": "975049967635",
+  "region": "us-east-1",
+  "read_only": true,
+  "no_cost_explorer_calls": true,
+  "resources": {
+    "rds": {
+      "id": "microserv-store-rds-database-xaw4nsp3iyky",
+      "status": "stopped",
+      "class": "db.t4g.small",
+      "storage_gib": 20,
+      "storage_type": "gp3",
+      "encrypted": true,
+      "multi_az": false,
+      "backup_retention_days": 1,
+      "restart": "2026-11-21T15:08:13.141000+00:00",
+      "subnet_group": "microserv-store-rds-databasesubnetgroup-tutzgfkciwxt",
+      "vpc": "vpc-0fed1ba2f11b008ac",
+      "security_groups": [
+        "sg-0c1bde40b05358c72"
+      ]
+    },
+    "instances": [
+      {
+        "id": "i-03245ec6369003f79",
+        "type": "t3a.small",
+        "state": "stopped",
+        "disks": [
+          {
+            "DeviceName": "/dev/xvda",
+            "Ebs": {
+              "AttachTime": "2026-11-13T14:17:00+00:00",
+              "DeleteOnTermination": true,
+              "Status": "attached",
+              "VolumeId": "vol-0287491fbe9e135f4",
+              "EbsCardIndex": 0
+            }
+          }
+        ],
+        "profile": "arn:aws:iam::975049967635:instance-profile/microserv-store-jenkins-iam-JenkinsInstanceProfile-9VkcArgS3uXE"
+      }
+    ],
+    "nodegroup": {
+      "name": "application-economy",
+      "status": "ACTIVE",
+      "scaling": {
+        "minSize": 0,
+        "maxSize": 2,
+        "desiredSize": 0
+      },
+      "auto_scaling_groups": [
+        {
+          "name": "eks-application-economy-14d0eb10-4559-bdc5-da52-6582086cd925"
+        }
+      ]
+    },
+    "cluster": {
+      "name": "microserv-store",
+      "status": "ACTIVE",
+      "version": "1.35",
+      "vpc": "vpc-0fed1ba2f11b008ac",
+      "cluster_sg": "sg-0dd3db7be55369ddd",
+      "logging": {
+        "clusterLogging": [
+          {
+            "types": [
+              "api",
+              "audit",
+              "authenticator"
+            ],
+            "enabled": true
+          },
+          {
+            "types": [
+              "controllerManager",
+              "scheduler"
+            ],
+            "enabled": false
+          }
+        ]
+      }
+    },
+    "nat_gateways": [
+      {
+        "id": "nat-02ddeffa30ddf5be8",
+        "state": "available",
+        "vpc": "vpc-0fed1ba2f11b008ac",
+        "subnet": "subnet-0ec003ef932219ef1",
+        "allocation_ids": [
+          "eipalloc-0b9462a8849430f2f"
+        ]
+      }
+    ],
+    "volumes": [
+      {
+        "id": "vol-0287491fbe9e135f4",
+        "size_gib": 30,
+        "type": "gp3",
+        "state": "in-use",
+        "encrypted": false,
+        "attachments": [
+          {
+            "instance": "i-03245ec6369003f79",
+            "device": "/dev/xvda",
+            "delete_on_termination": true
+          }
+        ]
+      },
+      {
+        "id": "vol-0f7ae6d5ad56ef8c0",
+        "size_gib": 2,
+        "type": "gp3",
+        "state": "available",
+        "encrypted": true,
+        "attachments": []
+      }
+    ],
+    "rds_snapshots": [
+      {
+        "id": "rds:microserv-store-rds-database-xaw4nsp3iyky-2026-11-13-13-12",
+        "type": "automated",
+        "status": "available",
+        "size_gib": 20,
+        "created": "2026-11-13T13:16:00.950000+00:00"
+      },
+      {
+        "id": "rds:microserv-store-rds-database-xaw4nsp3iyky-2026-11-14-04-01",
+        "type": "automated",
+        "status": "available",
+        "size_gib": 20,
+        "created": "2026-11-14T04:01:22.896000+00:00"
+      }
+    ],
+    "ebs_snapshots": [],
+    "log_groups": [
+      {
+        "name": "/aws/eks/microserv-store/cluster",
+        "stored_bytes": 718332248,
+        "retention_days": null
+      }
+    ],
+    "security_groups": [
+      {
+        "id": "sg-0131b171b13c02060",
+        "name": "launch-wizard-1",
+        "description": "launch-wizard-1 created 2026-11-13T14:04:40.666Z",
+        "ingress": [
+          {
+            "protocol": "tcp",
+            "from_port": 22,
+            "to_port": 22,
+            "referenced_groups": [],
+            "ipv4_range_count": 1,
+            "ipv6_range_count": 0
+          }
+        ],
+        "egress": [
+          {
+            "protocol": "-1",
+            "from_port": null,
+            "to_port": null,
+            "referenced_groups": [],
+            "ipv4_range_count": 1,
+            "ipv6_range_count": 0
+          }
+        ]
+      },
+      {
+        "id": "sg-0340deacc4214a642",
+        "name": "eksctl-microserv-store-cluster-ControlPlaneSecurityGroup-wTkpHFMxbMMq",
+        "description": "Communication between the control plane and worker nodegroups",
+        "ingress": [],
+        "egress": [
+          {
+            "protocol": "-1",
+            "from_port": null,
+            "to_port": null,
+            "referenced_groups": [],
+            "ipv4_range_count": 1,
+            "ipv6_range_count": 0
+          }
+        ]
+      },
+      {
+        "id": "sg-0c518a73e1f2af619",
+        "name": "default",
+        "description": "default VPC security group",
+        "ingress": [
+          {
+            "protocol": "-1",
+            "from_port": null,
+            "to_port": null,
+            "referenced_groups": [
+              "sg-0c518a73e1f2af619"
+            ],
+            "ipv4_range_count": 0,
+            "ipv6_range_count": 0
+          }
+        ],
+        "egress": [
+          {
+            "protocol": "-1",
+            "from_port": null,
+            "to_port": null,
+            "referenced_groups": [],
+            "ipv4_range_count": 1,
+            "ipv6_range_count": 0
+          }
+        ]
+      },
+      {
+        "id": "sg-0c1bde40b05358c72",
+        "name": "microserv-store-rds-DatabaseSecurityGroup-50eA6NjEUkIl",
+        "description": "PostgreSQL access from EKS workers only",
+        "ingress": [
+          {
+            "protocol": "tcp",
+            "from_port": 5432,
+            "to_port": 5432,
+            "referenced_groups": [
+              "sg-0dd3db7be55369ddd"
+            ],
+            "ipv4_range_count": 0,
+            "ipv6_range_count": 0
+          }
+        ],
+        "egress": [
+          {
+            "protocol": "-1",
+            "from_port": null,
+            "to_port": null,
+            "referenced_groups": [],
+            "ipv4_range_count": 1,
+            "ipv6_range_count": 0
+          }
+        ]
+      },
+      {
+        "id": "sg-0dd3db7be55369ddd",
+        "name": "eks-cluster-sg-microserv-store-1393331758",
+        "description": "EKS created security group applied to ENI that is attached to EKS Control Plane master nodes, as well as any managed workloads.",
+        "ingress": [
+          {
+            "protocol": "-1",
+            "from_port": null,
+            "to_port": null,
+            "referenced_groups": [
+              "sg-0dd3db7be55369ddd",
+              "sg-0f9882015a2c027d6"
+            ],
+            "ipv4_range_count": 0,
+            "ipv6_range_count": 0
+          },
+          {
+            "protocol": "tcp",
+            "from_port": 443,
+            "to_port": 443,
+            "referenced_groups": [
+              "sg-0131b171b13c02060"
+            ],
+            "ipv4_range_count": 0,
+            "ipv6_range_count": 0
+          }
+        ],
+        "egress": [
+          {
+            "protocol": "-1",
+            "from_port": null,
+            "to_port": null,
+            "referenced_groups": [
+              "sg-0dd3db7be55369ddd"
+            ],
+            "ipv4_range_count": 1,
+            "ipv6_range_count": 0
+          }
+        ]
+      },
+      {
+        "id": "sg-0f9882015a2c027d6",
+        "name": "eksctl-microserv-store-cluster-ClusterSharedNodeSecurityGroup-5Ho6MMUuljxm",
+        "description": "Communication between all nodes in the cluster",
+        "ingress": [
+          {
+            "protocol": "-1",
+            "from_port": null,
+            "to_port": null,
+            "referenced_groups": [
+              "sg-0f9882015a2c027d6",
+              "sg-0dd3db7be55369ddd"
+            ],
+            "ipv4_range_count": 0,
+            "ipv6_range_count": 0
+          }
+        ],
+        "egress": [
+          {
+            "protocol": "-1",
+            "from_port": null,
+            "to_port": null,
+            "referenced_groups": [],
+            "ipv4_range_count": 1,
+            "ipv6_range_count": 0
+          }
+        ]
+      }
+    ],
+    "interfaces": [
+      {
+        "id": "eni-0316a3790c407ba53",
+        "type": "interface",
+        "description": "Amazon EKS microserv-store",
+        "status": "in-use",
+        "instance": null,
+        "requester_managed": true
+      },
+      {
+        "id": "eni-02562a296a0c243c8",
+        "type": "interface",
+        "description": "Amazon EKS microserv-store",
+        "status": "in-use",
+        "instance": null,
+        "requester_managed": true
+      },
+      {
+        "id": "eni-0fb7a0f40421d62e8",
+        "type": "nat_gateway",
+        "description": "Interface for NAT Gateway nat-02ddeffa30ddf5be8",
+        "status": "in-use",
+        "instance": null,
+        "requester_managed": true
+      },
+      {
+        "id": "eni-023b40717a01dced0",
+        "type": "interface",
+        "description": "RDSNetworkInterface",
+        "status": "available",
+        "instance": null,
+        "requester_managed": true
+      },
+      {
+        "id": "eni-0d1b99cba30a52f97",
+        "type": "interface",
+        "description": "",
+        "status": "in-use",
+        "instance": "i-03245ec6369003f79",
+        "requester_managed": false
+      }
+    ],
+    "stacks": [
+      {
+        "name": "eksctl-microserv-store-nodegroup-application-economy",
+        "status": "CREATE_COMPLETE"
+      },
+      {
+        "name": "microserv-store-jenkins-iam",
+        "status": "CREATE_COMPLETE"
+      },
+      {
+        "name": "microserv-store-rds",
+        "status": "CREATE_COMPLETE"
+      },
+      {
+        "name": "eksctl-microserv-store-addon-aws-ebs-csi-driver",
+        "status": "CREATE_COMPLETE"
+      },
+      {
+        "name": "eksctl-microserv-store-addon-vpc-cni",
+        "status": "CREATE_COMPLETE"
+      },
+      {
+        "name": "eksctl-microserv-store-cluster",
+        "status": "CREATE_COMPLETE"
+      }
+    ],
+    "load_balancers_v2": [],
+    "load_balancers_classic": []
+  },
+  "errors": {},
+  "publication_note": "Security group IP ranges omitted; no credentials or data contents collected."
+}

@@ -1,7 +1,9 @@
 # Encerramento da AWS após a avaliação
 
-Procedimento preparado em 14/11/2026. **Nenhuma exclusão foi executada.**
-Yuri decidiu manter as máquinas ligadas até a próxima bateria. Confirmar a
+Procedimento preparado em 14/11/2026. **Nenhuma exclusão definitiva foi executada.**
+Após a bateria, Yuri autorizou a pausa, confirmada em 14/11. A [revisão de
+18/11](aws-final-review.md) contém o inventário atualizado e as opções de retenção.
+Confirmar a
 janela exigida pelo professor e a autorização de encerramento antes de usar
 os comandos de exclusão abaixo. A aplicação ficará indisponível e a exclusão
 não é reversível como uma pausa.

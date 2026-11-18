@@ -1,5 +1,9 @@
 # Estado e evidências
 
+**Conferência de 18/11:** EKS e NAT ativos, zero workers, Jenkins e RDS
+parados. RDS pode reiniciar em 21/11 às 12h08 BRT. A [revisão de encerramento](aws-final-review.md)
+identifica os recursos e opções de retenção, sem novas exclusões ou snapshots.
+
 **AWS pausada em 14/11:** workers zerados e terminados, RDS e Jenkins parados.
 Dados persistentes preservados. [Registro, custos residuais e retomada](aws-pause.md).
 Os resultados abaixo foram obtidos antes da pausa; os sites seguem públicos.
