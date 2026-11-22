@@ -1,5 +1,9 @@
 # Pausa autorizada da AWS — 14/11/2026
 
+**Registro histórico:** a pausa abaixo terminou em 22/11, quando Yuri
+autorizou a [retomada completa e o novo aceite](aws-resume.md). Não usar a
+tabela histórica abaixo como inventário atual.
+
 Yuri autorizou a pausa temporária após a bateria de testes. A aplicação e o
 Jenkins ficam indisponíveis até retomada autorizada; os sites e vídeos no
 GitHub Pages continuam públicos. O [registro de estado](evidence/2026-11-14-pause/state.json)

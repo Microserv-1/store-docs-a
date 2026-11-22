@@ -1,10 +1,14 @@
 # Revisão de encerramento — 18/11/2026
 
+**Registro histórico de 18/11:** o ambiente foi depois [retomado em 22/11](aws-resume.md).
+Os estados abaixo se referem à consulta de 18/11. O plano de encerramento
+continua sem execução ou autorização de exclusão.
+
 Consulta somente de leitura, na conta 975049967635, us-east-1. **Nenhuma
 exclusão ou novo snapshot foi executado.** O ambiente continua pausado;
 o encerramento depende da liberação da avaliação e da decisão de retenção.
 
-**Decisão posterior de Yuri:** manter os recursos preservados e pausados
+**Decisão registrada em 18/11:** manter os recursos preservados e pausados
 para o teste do professor. Não executar este plano por conta própria. A
 [preparação da avaliação](teacher-evaluation.md) separa retomada das APIs,
 Jenkins e acesso do avaliador. As opções de encerramento ficam como referência.

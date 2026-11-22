@@ -1,9 +1,10 @@
 # Fechamento da entrega
 
-**Estado operacional atual:** [AWS pausada em 14/11 por autorização de Yuri](aws-pause.md).
-RDS, volume RabbitMQ e disco Jenkins preservados; aplicação indisponível até
-retomada. Sites e evidências continuam públicos. Nomes informados: Yuri
-Henrique e Gustavo Lina; vídeo ajustado para [1min56s sem narração](project-video.md).
+**Estado operacional verificado em 22/11:** [AWS retomada por autorização de Yuri](aws-resume.md).
+Dois workers t3a.medium, Jenkins t3a.small, RDS e dependências saudáveis; smoke
+e 40 verificações passaram. Gateway privado; acesso do professor pendente de
+definição. Sites e evidências públicos. Integrantes: Yuri Henrique e Gustavo
+Lina; [vídeo de 1min56s sem narração](project-video.md).
 
 **Atualização de 14/11:** a [bateria final nas máquinas menores](final-validation.md)
 passou: 40 verificações, carga de negócio com 1/4/8 usuários sem erros e

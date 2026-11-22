@@ -1,10 +1,11 @@
 # Preparação do teste do professor
 
-Yuri decidiu manter os recursos preservados e pausados enquanto aguarda a
-avaliação. **Nenhuma retomada ou publicação pública está agendada.** Os testes
-de integração, carga e HPA já registrados continuam disponíveis no site.
+**Atualização de 22/11:** Yuri autorizou a retomada completa e ela foi
+[executada e revalidada](aws-resume.md). As APIs e Jenkins estão em operação;
+nenhuma publicação pública foi criada. Falta definir horário e forma de
+acesso do professor. Os testes de carga e HPA de 14/11 permanecem históricos.
 
-## O que precisa voltar
+## Retomada executada e referência para futuras janelas
 
 Para testar as APIs, iniciar RDS, restaurar dois workers t3a.medium e
 RabbitMQ com uma réplica. Redis, Prometheus, Grafana e os seis serviços
@@ -19,7 +20,7 @@ caso seja necessário demonstrar o pipeline. Seu disco continua preservado.
 |---|---:|
 | APIs e observabilidade ligadas, Jenkins EC2 parado | US$ 0,268/h; cerca de US$ 6,44/dia |
 | APIs e Jenkins ligados | US$ 0,287/h; cerca de US$ 6,89/dia |
-| Pausa atual | Cerca de US$ 0,161/h; US$ 3,86/dia, referência conservadora |
+| Pausa histórica | Cerca de US$ 0,161/h; US$ 3,86/dia, referência conservadora |
 
 Valores derivados das [tarifas arquivadas](evidence/2026-11-13-eks/right-sizing/cost-estimate.json),
 antes de variáveis, sem medir a fatura ou descontar gastos anteriores.
@@ -68,9 +69,9 @@ com três EC2 ligadas. Se Jenkins permanecer parado, ele indicará diferença
 em relação a esse perfil: interpretar especificamente essa ausência esperada,
 sem ignorar outras divergências de máquinas, limites ou autoscalers.
 
-## Sem execução antecipada
+## Limites da verificação de 22/11
 
-Este roteiro não comprova uma retomada já realizada nem acesso remoto já
-concedido. O RDS pode iniciar automaticamente em 21/11 às 12h08 BRT, conforme
-o [estado consultado](aws-final-review.md); isso não inicia os workers nem
-torna a API disponível. Não usar esse reinício como agendamento da avaliação.
+A retomada e o aceite estão [registrados](aws-resume.md). Isso não comprova
+acesso remoto do professor: o Gateway continua ClusterIP e o túnel de teste
+foi encerrado após a validação. Nenhuma URL pública foi criada. O RDS já estava
+available antes da retomada dos workers; não atribuir isso a uma nova ação de start.

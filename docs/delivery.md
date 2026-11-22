@@ -12,23 +12,21 @@
 | Pipeline AWS | [Registro de release](evidence/2026-11-13-eks/jenkins-release.json) | SUCCESS informado no console; anexar número/console final |
 | Vídeo curto | [MP4 sem narração de 1min56s e quadros](project-video.md) | Formato escolhido por Yuri; não registra participação oral |
 | Apresentação | [Quadros e roteiro de 120s](presentation.md) | Material pronto; exigência de arquivo separado a confirmar |
-| Vídeo técnico EKS/HPA | [Rodada final](final-validation.md) e [histórico de 13/11](eks-load.md) | Ciclo 2 → 5 → 2; replays identificados, separados do vídeo humano |
+| Vídeo técnico EKS/HPA | [Rodada final](final-validation.md) e [histórico de 13/11](eks-load.md) | Ciclo 2 → 5 → 2; replays identificados, separados do vídeo curto |
 | Custos | [Tarifas e estimativa](operations.md) | Estimativa rastreável pronta; exportação do Calculator pendente |
 
-Não entregar o vídeo antigo de Kind como comprovação do EKS, nem uma página
-de slides vazia como apresentação. A tentativa de edição da apresentação
-visual em 13/11 foi rejeitada pelo serviço antes de salvar qualquer conteúdo.
+O [vídeo curto publicado](project-video.md) contém sete quadros visuais e tem
+1min56s sem narração, conforme escolha de Yuri. O [roteiro de apresentação](presentation.md)
+está preparado. Confirmar participação exigida e eventual arquivo de slides
+separado com o professor; não registrar defesa oral antes de acontecer.
 
-Nova conferência em 14/11: o serviço de apresentações voltou a rejeitar a
-inspeção (`artifact_preparation_failed`, sem possibilidade de repetição
-indicada), sem retornar o documento. Os slides visuais seguem pendentes.
-Após combinar a retenção para avaliação, usar o [roteiro de encerramento
-AWS](aws-shutdown.md). Sua preparação não autoriza nem comprova exclusões.
+O ambiente foi [retomado e revalidado em 22/11](aws-resume.md). Após a avaliação,
+combinar retenção e [encerramento AWS](aws-shutdown.md); nenhuma exclusão foi executada.
 
 ## Conferência independente por cada integrante
 
 1. Abrir os dois sites e materiais exigidos em uma janela sem autenticação.
-2. Conferir nomes acadêmicos completos, grupo, edição 2026.2 e data.
+2. Conferir nomes acadêmicos completos, grupo, edição acadêmica aplicável e data.
 3. Conferir que todos os repositórios listados existem e que o avaliador tem
    o acesso necessário aos privados, sem compartilhar tokens ou senhas.
 4. Reproduzir o clone com `git clone --recurse-submodules` usando uma identidade
@@ -36,7 +34,7 @@ AWS](aws-shutdown.md). Sua preparação não autoriza nem comprova exclusões.
    sucesso, mas não prova acesso para outra identidade.
 5. Conferir que os dois gargalos próprios têm problema, código, autoria,
    explicação, resultado e limite, ligados às versões efetivamente testadas.
-6. Conferir apresentação e vídeo humano de 1–2 minutos; ambos participam.
+6. Conferir apresentação e vídeo curto de 1–2 minutos; confirmar a participação exigida.
 7. Vincular os vídeos técnicos separados, mostrando cluster real e HPA.
 8. Conferir referências ao uso de IA e registrar revisão humana efetiva.
 9. Confirmar horário limite e rubrica aplicável no Blackboard.

@@ -18,7 +18,7 @@ apresentada como se fosse uma exportação oficial.
 3. Use **730 horas/mês**, Linux, tenancy compartilhada e pagamento
    **On-Demand**. Não selecionar Savings Plans, Reserved Instances ou
    descontos não contratados. Esta é a simulação da aplicação **em operação**:
-   a pausa atual não muda o projeto para zero workers nessa simulação.
+   a pausa histórica não muda o projeto para zero workers nessa simulação.
 4. Cadastre dois itens **Amazon EC2**: `Workers EKS`, com **2 t3a.medium** e
    gp3 de **20 GiB por instância**; `Jenkins`, com **1 t3a.small** e gp3 de
    **30 GiB**. Confira se o formulário de disco é por instância: o total dos

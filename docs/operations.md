@@ -1,8 +1,9 @@
 # Custos, PaaS e SLA
 
-**Atualização de 14/11:** a aplicação foi [pausada por autorização de Yuri](aws-pause.md),
-com zero workers, RDS e Jenkins parados. As tabelas de operação abaixo simulam
-o perfil ligado, não o estado pausado; EKS/NAT/armazenamento continuam cobrando.
+**Atualização de 22/11:** o ambiente foi [retomado e revalidado](aws-resume.md),
+com dois workers t3a.medium, Jenkins t3a.small e RDS disponíveis. As tabelas
+abaixo estimam esse perfil com tarifas arquivadas; não representam fatura
+atual nem saldo disponível. A [pausa de 14/11](aws-pause.md) é histórica.
 
 ## Implantação efetiva e estimativa de 13/11/2026
 

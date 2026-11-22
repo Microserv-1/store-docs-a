@@ -1,8 +1,12 @@
 # Estado e evidências
 
-**Decisão atual:** manter os recursos preservados e pausados até combinar o
-[teste do professor](teacher-evaluation.md). Não há retomada, URL pública ou
-exclusão agendada. Jenkins só precisa voltar se for demonstrado o CI/CD.
+**Estado verificado em 22/11:** Yuri autorizou a retomada completa. Dois workers
+t3a.medium, Jenkins t3a.small, RDS, RabbitMQ e seis APIs voltaram. Smoke e
+40 verificações passaram; Jenkins saudável, sem modo quieto ou fila.
+[Registro de retomada](aws-resume.md). Não existe URL pública ou encerramento
+agendado; combinar o [acesso do professor](teacher-evaluation.md).
+
+## Histórico da pausa — 14 a 18/11
 
 **Conferência de 18/11:** EKS e NAT ativos, zero workers, Jenkins e RDS
 parados. RDS pode reiniciar em 21/11 às 12h08 BRT. A [revisão de encerramento](aws-final-review.md)
@@ -35,7 +39,7 @@ não representa benchmark nas máquinas menores.
 
 ## Deploy real e aceite EKS — 13/11/2026
 
-**Atualização mais recente:** deploy dos seis serviços pelo Jenkins EC2 passou,
+**Registro de 13/11:** deploy dos seis serviços pelo Jenkins EC2 passou,
 com duas réplicas disponíveis por serviço. Smoke e 40 verificações de negócio
 passaram no EKS, usando RDS, Redis, RabbitMQ e câmbio externo reais. Prometheus
 tem 12 targets saudáveis. Acesso por port-forward, sem ALB nem URL pública.
@@ -180,7 +184,7 @@ O diagnóstico inicial encontrou demora de aproximadamente 2s no cliente Windows
 - [Vídeo técnico local](evidence/2026-11-09/hpa-local.mp4): replay identificado de saídas reais de comandos coletadas durante carga; não é captura de desktop nem evidência EKS.
 - [Estado do cluster](evidence/2026-11-09/cluster.txt), [recursos](evidence/2026-11-09/resources.txt), [eventos](evidence/2026-11-09/events.txt), [alvos Prometheus](evidence/2026-11-09/prometheus-targets.json) e [IDs das imagens](evidence/2026-11-09/images.json).
 
-Os commits dos três serviços estão nos relatórios, com working trees limpas. Os serviços, a documentação e os ponteiros dos submódulos foram publicados no GitHub após autorização do integrante. O clone recursivo direto do GitHub foi validado com acesso aos repositórios privados. O vídeo final com os dois integrantes e o aceite dos serviços de B permanecem pendentes.
+Os commits dos três serviços estão nos relatórios, com working trees limpas. Os serviços, a documentação e os ponteiros dos submódulos foram publicados no GitHub após autorização do integrante. O clone recursivo direto do GitHub foi validado com acesso aos repositórios privados. As pendências históricas foram resolvidas pelo aceite integrado posterior e pelo [vídeo curto sem narração](project-video.md). A defesa oral continua sendo responsabilidade individual dos alunos.
 
 Clone limpo local validado com `python scripts/verify-local-clone.py`: os quatro submódulos recuperaram exatamente os commits registrados, Compose validou com novos segredos locais e MkDocs compilou em modo estrito a partir desse clone. Para esse teste, as URLs dos submódulos foram sobrescritas apenas na configuração do clone de teste para apontar às cópias locais, pois os commits ainda não foram enviados ao GitHub. Isso não é uma validação de clone remoto público.
 

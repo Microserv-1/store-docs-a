@@ -7,8 +7,10 @@ Pessoa B: **Gustavo Lina** (`gustavolafz`). Nomes informados por Yuri em 14/11;
 grupo e edição acadêmica ainda precisam ser confirmados. A revisão cruzada
 da versão final e a defesa individual continuam necessárias.
 
-**Estado atual:** [AWS pausada em 14/11](aws-pause.md), após testes aprovados.
-Documentação e vídeos seguem públicos; a API fica indisponível até retomada.
+**Estado verificado em 22/11:** [AWS retomada e revalidada](aws-resume.md),
+com dois workers, Jenkins, RDS e as seis APIs saudáveis. Smoke e 40 verificações
+passaram. O Gateway continua privado; o acesso independente do professor
+ainda precisa ser definido. Documentação e vídeos seguem públicos.
 
 Em 13/11, os seis serviços foram implantados no **Amazon EKS**, por Jenkins
 na EC2, e passaram no smoke e em 40 verificações integradas. Confira o
