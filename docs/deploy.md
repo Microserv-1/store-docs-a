@@ -1,70 +1,64 @@
-# Execução e deploy
+# Execução
 
-## Destino AWS validado em 13/11
+## Ambiente local
 
-Os seis serviços foram implantados no EKS por `Jenkinsfile.eks` e passaram
-no aceite de integração. [Fechamento e evidências](closure.md).
-No EKS, utilizar a release da raiz, que preserva a montagem da CA RDS;
-não reaplicar os manifests brutos dos serviços sobre a configuração de nuvem.
-Os procedimentos locais e de preparação abaixo continuam disponíveis para
-reprodução. Novas execuções com custo exigem autorização do operador.
-
-## Docker Compose
-
-Na raiz, com Docker e Python 3.10+:
+Pré-requisitos: Git, Docker Compose e Python 3.10 ou superior. Execute na raiz do projeto:
 
 ```powershell
+git clone --recurse-submodules https://github.com/Microserv-1/store-root.git
+cd store-root
 python scripts/setup-local.py
-docker compose up --build -d
+docker compose -f compose.yaml -f compose.business.yaml up --build -d
 python tests/smoke.py
-docker compose --profile monitoring up -d
-python scripts/load.py --users 4 --duration 60 --scenario identity
+python tests/business_integration.py
 ```
 
-Gateway em `localhost:8080`, Prometheus em `localhost:9090` e Grafana em `localhost:3000`. Só Gateway publica API. Senha Grafana no `.env`, usuário `admin`. Parar com `docker compose --profile monitoring down`; o banco é preservado no volume. Não apagar volumes durante avaliação.
+O Gateway fica disponível em `http://localhost:8080`. Os segredos são gerados em `.env`, ignorado pelo Git. Os bancos utilizam volumes persistentes.
+
+Para habilitar a observabilidade local:
+
+```powershell
+docker compose -f compose.yaml -f compose.business.yaml --profile monitoring up -d
+```
+
+Prometheus: `http://localhost:9090`. Grafana: `http://localhost:3000`, usuário `admin` e senha definida em `.env`.
 
 ## Kubernetes local
 
-Para a aplicação completa com as entregas de B, usar `compose.business.yaml`, os três submódulos adicionais e `scripts/deploy-local.ps1 -Business`. Consulte a [integração dos seis serviços](integration.md) para comandos, credenciais por serviço e resultados. `scripts/render-deploy.py` também aceita `--product-image`, `--order-image` e `--exchange-image` juntos, com tags SHA completas.
-
-Construir as imagens com Compose. Pode usar Minikube ou Kind. Kind é uma alternativa local para validar os manifests; se a avaliação exigir Minikube nominalmente, repetir nesse ambiente.
+Os manifests foram validados em Kind. O procedimento completo está em [integração local](integration.md). Com as imagens carregadas no cluster:
 
 ```powershell
-kind create cluster --config infra/k8s/kind.yaml
-kind load docker-image microserv-store/account:local microserv-store/auth:local microserv-store/gateway:local --name microserv-store
-./scripts/deploy-local.ps1 -Context kind-microserv-store
+./scripts/deploy-local.ps1 -Context kind-microserv-store -Business
 kubectl --context kind-microserv-store -n store port-forward service/gateway 8081:8000
 ```
 
-Em outro terminal: `$env:BASE_URL='http://localhost:8081'; python tests/smoke.py`. Port-forward de um Service fixa um pod: para demonstrar balanceamento do Gateway, gerar carga **dentro do cluster** contra o Service, ou usar um LoadBalancer/Ingress. Chamadas do Gateway ao Service Account ainda podem alcançar várias réplicas.
+Em outro terminal, defina `BASE_URL` como `http://localhost:8081` e execute os testes. A equivalência de Kind para eventual exigência nominal de Minikube depende da avaliação acadêmica.
 
-HPA requer API de métricas (Metrics Server). Em Kind, o componente pode exigir `--kubelet-insecure-tls` apenas para o ambiente local. Não transportar essa exceção para EKS. Validar `kubectl top pods -n store` antes da carga. Requests de CPU: 100m; alvo: 60%; mínimo: 2, máximo: 5. Limites de memória Java são maiores que os de Go/Python.
+## Implantação AWS
 
-Após a validação local, Auth usa request de CPU de 250m para refletir o custo da JVM; Account e Gateway continuam em 100m. A exceção TLS local está em `infra/k8s/metrics-server-kind-patch.json`. O vídeo pode ser reproduzido com `python scripts/record-hpa.py`; requer ffmpeg instalado e port-forward em 8082. `scripts/render-evidence.py` gera um replay claramente identificado a partir dos snapshots coletados.
+| Componente | Configuração validada |
+|---|---|
+| Cluster | EKS `microserv-store`, Kubernetes 1.35, `us-east-1` |
+| Workers | 2 × `t3a.medium`; limite de dois nós |
+| CI/CD | Jenkins em EC2 `t3a.small` |
+| Banco | RDS PostgreSQL `db.t4g.small`, Single-AZ, 20 GiB |
+| Dependências | Redis e RabbitMQ no cluster; RabbitMQ com EBS persistente |
+| Acesso | Gateway ClusterIP; serviços internos sem exposição pública |
 
-A renderização também requer Pillow (`python -m pip install Pillow`) e fonte Consolas no Windows, ou DejaVu Sans Mono no Linux. Os scripts de operação não dependem dessas ferramentas de vídeo.
+Account, Product e Order utilizam bancos e usuários isolados no RDS. Credenciais ficam em Secrets, fora do controle de versão. Deployments usam recursos definidos, verificações de saúde e HPA.
 
-## Jenkins por serviço
+O deploy EKS é realizado pelo `Jenkinsfile.eks` da raiz, preservando certificados do RDS e configurações de nuvem. O [procedimento de infraestrutura](eks-preparation.md) contém provisionamento, configuração e recuperação.
 
-Agente Linux com label `docker-kubectl`, Docker CLI/daemon e kubectl. Credencial `dockerhub`: username/password ou token. Credencial `store-kubeconfig`: arquivo com acesso limitado ao namespace `store`; no EKS o agente também precisa AWS CLI e identidade IAM autorizada.
+## Acesso para avaliação
 
-O job de integração da raiz usa credencial `github-read` (username/token, somente leitura) para clonar submódulos privados pelo binding `gitUsernamePassword` do plugin Git. Configurar o Git tool `Default` no Jenkins. Os jobs dos serviços também precisam de credencial de checkout nos respectivos SCMs.
+Com identidade AWS autorizada e contexto Kubernetes configurado:
 
-Cada Jenkinsfile executa teste, build, publicação com tag igual ao SHA completo e, se `DEPLOY=true`, renderiza manifesto, valida no servidor, aplica e aguarda rollout. Falha de teste interrompe os estágios seguintes. Informar `DOCKERHUB_NAMESPACE`. Segredos e namespace devem existir antes do primeiro pipeline.
+```powershell
+kubectl --context store-eks -n store port-forward service/gateway 8080:8000
+```
 
-Recuperação: identificar tag SHA anterior e executar `kubectl -n store set image deployment/<serviço> <serviço>=<namespace>/store-<serviço>:<sha-anterior>` e `kubectl -n store rollout status deployment/<serviço>`. Registrar motivo, imagem atual/anterior e resultado do smoke test. `rollout undo` também pode ajudar, mas a imagem explícita facilita auditoria.
+A API pode ser testada em `http://localhost:8080` por Postman, curl ou pelos scripts do projeto. O túnel atende o computador que o abriu e deve permanecer em execução durante o teste. Ainda não existe URL pública para acesso independente do avaliador.
 
-## Preparação EKS
+## Operação
 
-O roteiro completo e atualizado está em [Preparação do deploy EKS](eks-preparation.md). Ele cobre os seis serviços, bancos isolados no RDS, dependências, HTTPS, IAM/RBAC, pipeline GitHub, preflight, rollback e encerramento.
-
-A preparação local antecedeu o provisionamento AWS, concluído em 13/11.
-O [procedimento EKS](eks-preparation.md) documenta as configurações necessárias;
-não recriar stacks já existentes. Confirmar conta, contexto, orçamento e
-autorização antes de executar mudanças na nuvem.
-
-## Encerramento
-
-Após a janela de avaliação, registrar evidências, remover Service LoadBalancer e recursos Kubernetes, excluir stack RDS conforme política de snapshot e excluir cluster com eksctl. Conferir EC2, NAT, EBS, balanceadores, snapshots, RDS e CloudWatch restantes. Snapshot de banco preservado também gera custo.
-
-Referências: [HPA Kubernetes](https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/), [Metrics Server](https://kubernetes-sigs.github.io/metrics-server/), [Jenkins Docker](https://www.jenkins.io/doc/book/pipeline/docker/).
+A [retomada de 22/11](aws-resume.md) foi validada com smoke e 40 verificações. A infraestrutura gera custos enquanto provisionada. Os procedimentos de [pausa](aws-pause.md), [encerramento](aws-shutdown.md) e [avaliação](teacher-evaluation.md) detalham a operação e a preservação dos dados.

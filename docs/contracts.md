@@ -1,52 +1,49 @@
-# Contratos e integração com a Pessoa B
+# APIs
 
-Contratos **provisórios**: as linguagens foram confirmadas; os enunciados detalhados de Account, Auth e Gateway ainda precisam ser conferidos. Não afirmar conformidade acadêmica completa antes dessa revisão.
+Todas as chamadas de negócio passam pelo Gateway. As rotas protegidas utilizam o cabeçalho `Authorization: Bearer <token>`.
 
-## APIs da Pessoa A
+## Contas e autenticação
 
-| Método e rota no Gateway | Acesso | Resposta |
+| Método e rota | Acesso | Resultado |
 |---|---|---|
-| `POST /accounts` | Público | 201: `id`, `name`, `email`; 409 para email duplicado |
-| `POST /auth/login` | Público | 200: `access_token`, `token_type=bearer`, `expires_in` |
-| `GET /accounts/me` | Bearer JWT | 200: conta do token; 401 para token inválido |
-| `GET /auth/me` | Bearer JWT | 200: `id-account` |
-| `GET /health-check` | Público | Vida do Gateway |
-| `GET /ready` | Público | Prontidão local do processo |
+| `POST /accounts` | Público | Conta criada: 201; e-mail duplicado: 409 |
+| `POST /auth/login` | Público | Token JWT: 200; credencial inválida: 401 |
+| `GET /accounts/me` | JWT | Dados da própria conta: 200 |
+| `GET /auth/me` | JWT | Identificador da conta: 200 |
+| `GET /health-check` | Público | Verificação do Gateway |
+| `GET /ready` | Público | Prontidão do processo |
 
-Cadastro recebe `{"name":"Yuri","email":"yuri@example.com","password":"senha-com-8-ou-mais"}`. Login recebe email e password. Email é normalizado para minúsculas. Password tem 8–128 caracteres; banco guarda somente hash Argon2id. Dados inválidos geram 422 em Account e 400 em Auth.
+Cadastro:
 
-`POST /internal/credentials/verify` existe apenas em Account, exige `X-Internal-Auth-Key` e não possui rota no Gateway. Nunca enviar essa chave ao cliente.
+```json
+{"name": "Usuário de teste", "email": "usuario@example.com", "password": "SenhaTeste123!"}
+```
 
-## Identidade
+O login recebe `email` e `password` e retorna `access_token`, `token_type` e `expires_in`. Account normaliza o e-mail e armazena apenas o hash Argon2id da senha. A senha aceita entre 8 e 128 caracteres.
 
-JWT HS256, emissor `store-auth`, audiência `store-api`, `sub` igual ao UUID da conta, `iat`, `exp` e `jti`. Validade padrão: 1800 segundos. Enviar `Authorization: Bearer <token>`.
+## Produtos, pedidos e câmbio
 
-Gateway valida assinatura, algoritmo, emissor, audiência e expiração, descarta headers arbitrários e encaminha `Authorization` e `X-Account-ID` calculado a partir do token. Serviços B devem **validar o JWT por conta própria**, especialmente dentro do cluster. Não confiar em header fornecido diretamente pelo cliente.
+| Método e rota | Resultado |
+|---|---|
+| `POST /products` | Produto criado: 201 |
+| `GET /products` e `GET /products/{id}` | Consulta: 200 |
+| `DELETE /products/{id}` | Exclusão: 204 |
+| `POST /orders` | Pedido criado: 201; produto inexistente: 400 |
+| `GET /orders` | Apenas os pedidos da conta autenticada |
+| `GET /orders/{id}` | Detalhe: 200; pedido de outra conta: 404 |
+| `GET /orders/{id}?currency=BRL` | Resposta convertida; moeda não suportada: 422 |
+| `GET /exchanges/{from}/{to}` | Cotação com `sell`, `buy`, `date` e `id-account` |
 
-HS256 simplifica a integração acadêmica, mas todo serviço com a chave consegue emitir tokens. Evolução: assinatura assimétrica com chave privada exclusiva de Auth. Ainda não há refresh token, revogação ou rate limiting.
+Os pedidos preservam os valores em USD. A conversão usa a taxa `sell`, arredonda os totais dos itens para duas casas decimais e soma os valores convertidos. Exchange é implementado em Python e utiliza um provedor externo.
 
-## Rotas para B
+## Segurança e comunicação
 
-| Prefixo canônico | Variável | Destino |
-|---|---|---|
-| `/products` | `PRODUCT_URL` | `http://product:8000` |
-| `/orders` | `ORDER_URL` | `http://order:8000` |
-| `/exchanges` | `EXCHANGE_URL` | `http://exchange:8000` |
+O JWT usa HS256, emissor `store-auth`, audiência `store-api` e validade padrão de 1.800 segundos. O campo `sub` identifica a conta. Gateway e serviços validam o token; um `X-Account-ID` enviado pelo cliente não altera a identidade autenticada.
 
-Método, caminho e query string são preservados. Todas essas rotas exigem token. Destino indisponível: 503; timeout: 504. Sem repetição automática de escritas. Corpo limitado a 1 MiB. Paths com escapes percentuais são rejeitados.
+A verificação de senha ocorre em `POST /internal/credentials/verify`, protegida por chave interna e sem rota pública no Gateway. Destinos indisponíveis geram 503; timeout gera 504. O Gateway não repete automaticamente operações de escrita.
 
-Para Compose, B fornece serviços `product`, `order`, `exchange` na rede `backend`, porta 8000, com suas dependências. Usar `docker compose -f compose.yaml -f compose.business.yaml up -d`. Para Kubernetes, namespace `store` e Services ClusterIP com esses nomes. Manter dados de cada serviço isolados.
+O uso de HS256 pressupõe confiança nos serviços que compartilham a chave. Revogação de tokens, refresh tokens e rate limiting não fazem parte desta versão.
 
-## Aceite integrado automatizado
+## Verificação
 
-Os cenários abaixo foram implementados em `tests/business_integration.py` e executados com serviços reais. O relatório de [integração](integration.md) distingue isso da revisão e defesa humanas, que continuam necessárias.
-
-1. Duas contas autenticadas pelo Gateway.
-2. Criar produto (201), ler (200), excluir (204).
-3. Criar pedido (201); produto inexistente (400).
-4. Listar só pedidos da conta; detalhe de outra conta (404).
-5. Persistir USD; converter resposta para BRL via Exchange Python real sem alterar armazenamento.
-6. Moeda não suportada (422); chamadas sem token rejeitadas.
-7. Documentar taxa sell/buy e arredondamento em Order.
-
-Na validação de integração, esses cenários usam os serviços reais de B; não são apenas testes de proxy.
+O [aceite integrado](evidence/2026-11-22-resume/business-integration.json) cobre autenticação, isolamento entre contas, produtos, pedidos, conversão, cache e fila. A conferência dos contratos de Account, Auth e Gateway com os enunciados acadêmicos originais permanece pendente.

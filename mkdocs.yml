@@ -1,10 +1,12 @@
-site_name: Microserv Store — Pessoa A
+site_name: Microserv Store
+site_description: Documentação técnica do projeto e contribuição de Yuri Henrique.
 site_url: https://microserv-1.github.io/store-docs-a/
 repo_url: https://github.com/Microserv-1/store-root
+
 theme:
   name: material
   language: pt-BR
-  features: [navigation.sections, content.code.copy]
+  features: [content.code.copy]
 markdown_extensions:
   - admonition
   - pymdownx.superfences:
@@ -13,28 +15,32 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 nav:
-  - Projeto e autoria: index.md
-  - Contratos e integração: contracts.md
-  - Execução e deploy: deploy.md
-  - Jenkins e registro: jenkins.md
-  - Preparação EKS completa: eks-preparation.md
+  - Visão geral: index.md
+  - APIs: contracts.md
+  - Execução: deploy.md
+  - CI/CD: jenkins.md
   - Gargalos e testes: bottlenecks.md
-  - Carga e HPA no EKS: eks-load.md
-  - Custos, PaaS e SLA: operations.md
-  - Redução de máquinas: right-sizing.md
-  - Bateria final preparada: final-test-plan.md
-  - Validação final no EKS: final-validation.md
-  - Encerramento da AWS: aws-shutdown.md
-  - Pausa e retomada AWS: aws-pause.md
-  - Revisão para encerrar AWS: aws-final-review.md
-  - Teste do professor: teacher-evaluation.md
-  - Retomada e aceite de 22/11: aws-resume.md
-  - Janela e orçamento AWS: budget-window.md
-  - Parâmetros do Calculator: calculator-inputs.md
-  - Decisões e uso de IA: decisions.md
-  - Estado e evidências: status.md
-  - Fechamento e orçamento: closure.md
-  - Integração dos seis serviços: integration.md
-  - Apresentação e defesa: presentation.md
-  - Vídeo curto do projeto: project-video.md
-  - Conferência da entrega: delivery.md
+  - Custos e SLA: operations.md
+  - Decisões e IA: decisions.md
+  - Apresentação: presentation.md
+  - Evidências: evidence-index.md
+
+# Anexos permanecem publicados e vinculados na página Evidências.
+not_in_nav: |
+  /aws-final-review.md
+  /aws-pause.md
+  /aws-resume.md
+  /aws-shutdown.md
+  /budget-window.md
+  /calculator-inputs.md
+  /closure.md
+  /delivery.md
+  /eks-load.md
+  /eks-preparation.md
+  /final-test-plan.md
+  /final-validation.md
+  /integration.md
+  /project-video.md
+  /right-sizing.md
+  /status.md
+  /teacher-evaluation.md

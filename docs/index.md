@@ -1,66 +1,56 @@
-# Microserv Store — Pessoa A
+# Microserv Store
 
-Projeto em dupla, edição 2026, com prazo informado de 16/11/2026. Confirmar horário no Blackboard.
+Backend de comércio eletrônico desenvolvido para a disciplina **Platforms, Microservices, DevOps and APIs**. O projeto reúne seis microsserviços, autenticação por JWT e implantação no Amazon EKS.
 
-Pessoa A: **Yuri Henrique**.
-Pessoa B: **Gustavo Lina** (`gustavolafz`). Nomes informados por Yuri em 14/11;
-grupo e edição acadêmica ainda precisam ser confirmados. A revisão cruzada
-da versão final e a defesa individual continuam necessárias.
+**Integrantes:** Yuri Henrique e Gustavo Lina.
 
-**Estado verificado em 22/11:** [AWS retomada e revalidada](aws-resume.md),
-com dois workers, Jenkins, RDS e as seis APIs saudáveis. Smoke e 40 verificações
-passaram. O Gateway continua privado; o acesso independente do professor
-ainda precisa ser definido. Documentação e vídeos seguem públicos.
+## Arquitetura
 
-Em 13/11, os seis serviços foram implantados no **Amazon EKS**, por Jenkins
-na EC2, e passaram no smoke e em 40 verificações integradas. Confira o
-[fechamento e orçamento](closure.md). O acesso à API é por túnel autorizado;
-a documentação é independente desse acesso privado.
-
-## Escopo e arquitetura
-
-Account em Python/FastAPI, Auth em Java/Spring Boot e Gateway em Go. Infraestrutura e dois tratamentos de gargalos: observabilidade e balanceamento. Product, Order e Exchange Python pertencem à Pessoa B.
+O Gateway é o ponto de entrada das APIs. Account gerencia contas, Auth emite tokens, Product mantém produtos, Order registra pedidos e Exchange consulta um provedor externo de câmbio. Os pedidos são armazenados em USD; a conversão é aplicada somente à resposta.
 
 ```mermaid
 flowchart LR
-    Client[Cliente] --> Gateway[Gateway Go]
-    Gateway --> Account[Account FastAPI]
-    Gateway --> Auth[Auth Spring Boot]
-    Auth -->|verificação interna| Account
-    Account --> Accounts[(RDS: accounts)]
-    Gateway --> Product[Product]
-    Gateway --> Order[Order]
-    Gateway --> Exchange[Exchange Python]
+    Cliente --> Gateway[Gateway · Go]
+    Gateway --> Account[Account · FastAPI]
+    Gateway --> Auth[Auth · Spring Boot]
+    Auth --> Account
+    Gateway --> Product
+    Gateway --> Order
+    Gateway --> Exchange[Exchange · Python]
     Order --> Product
     Order --> Exchange
-    Product --> Products[(RDS: products)]
-    Order --> Orders[(RDS: orders)]
-    Product <--> Redis[(Redis)]
-    Order <--> RabbitMQ[(RabbitMQ + EBS)]
-    Exchange --> FX[Provedor externo de câmbio]
-    Metrics[Prometheus] --> Account
-    Metrics --> Auth
-    Metrics --> Gateway
-    Metrics --> Product
-    Metrics --> Order
-    Metrics --> Exchange
-    Grafana --> Metrics
+    Exchange --> Provedor[Provedor de câmbio]
+    Account --> RDS[(RDS · bancos isolados)]
+    Product --> RDS
+    Order --> RDS
+    Product --> Redis[(Redis)]
+    Order --> RabbitMQ[(RabbitMQ)]
 ```
 
-As integrações de negócio foram testadas com os serviços reais de B, Redis, RabbitMQ e um provedor externo de câmbio. Consulte o [relatório de integração de 11/11](integration.md).
+Os serviços executam no mesmo cluster Kubernetes. Prometheus e Grafana fornecem métricas e painéis; Jenkins automatiza testes, publicação de imagens e deploy.
 
-## Repositórios e autoria
+## Responsabilidades e repositórios
 
-| Entrega | Repositório |
+| Responsável | Entrega |
 |---|---|
-| Integração e infraestrutura | [store-root](https://github.com/Microserv-1/store-root) |
+| Yuri Henrique | Account, Auth, Gateway, infraestrutura, observabilidade e balanceamento |
+| Gustavo Lina | Product, Order, Exchange, cache e mensageria |
+| Dupla | Integração, validação e apresentação |
+
+| Código | Repositório |
+|---|---|
+| Projeto principal | [store-root](https://github.com/Microserv-1/store-root) |
 | Account | [store-account](https://github.com/Microserv-1/store-account) |
 | Auth | [store-auth](https://github.com/Microserv-1/store-auth) |
 | Gateway | [store-gateway](https://github.com/Microserv-1/store-gateway) |
 | Product | [store-product](https://github.com/Microserv-1/store-product) |
 | Order | [store-order](https://github.com/Microserv-1/store-order) |
 | Exchange | [store-exchange](https://github.com/Microserv-1/store-exchange) |
-| Documentação de B | [store-docs-b](https://github.com/Microserv-1/store-docs-b) |
-| Documentação | [store-docs-a](https://github.com/Microserv-1/store-docs-a) |
 
-Os serviços são privados na preparação. Confirmar acesso do avaliador ou visibilidade exigida. O site precisa ser público; a existência do workflow Pages não comprova publicação. Código auxiliado por IA exige revisão do integrante e defesa individual.
+As implementações individuais são incorporadas como submódulos, com commits fixados no repositório principal. Esta documentação corresponde à Pessoa A; a documentação de Gustavo está em [store-docs-b](https://microserv-1.github.io/store-docs-b/).
+
+## Validação
+
+Na conferência de **22/11/2026**, as seis APIs estavam saudáveis no EKS e passaram em 40 verificações de integração. O Gateway permanece privado, acessível por túnel autorizado. Os resultados são registros pontuais de teste.
+
+Consulte [execução](deploy.md), [gargalos e testes](bottlenecks.md) e [evidências](evidence-index.md).

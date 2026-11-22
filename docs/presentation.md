@@ -1,86 +1,39 @@
-# Apresentação e defesa
+# Apresentação
 
-**Vídeo curto produzido pelo agente:** [MP4 de 1min56s, sem narração](project-video.md),
-conforme preferência de Yuri. Usa evidências reais da rodada de 14/11 e não
-registra participação oral dos integrantes. Os quadros também podem apoiar a
-fala da dupla; a exigência de arquivo de slides separado não foi confirmada.
-O roteiro abaixo é apoio para apresentação oral. Os vídeos técnicos de
-cluster/HPA ficam separados.
+## Vídeo do projeto
 
-Roteiro proposto de 120 segundos, a gravar com os dois integrantes. EKS e o
-aceite integrado foram revalidados em 14/11 nas máquinas menores. O HPA também foi comprovado na AWS:
-Account escalou de 2 para 5 pods prontos e retornou a 2, com 540 logins sem
-erros. [Vídeo técnico, gráfico e resultados](final-validation.md).
+[Assistir ou baixar o vídeo — 1 min 56 s](evidence/2026-11-14-presentation-silent/project-presentation.mp4).
 
-| Tempo | Participação | Conteúdo |
-|---|---|---|
-| 0–15s | Ambos | Nome, dupla, objetivo e escopo do e-commerce |
-| 15–35s | A | Arquitetura: Gateway Go, Auth Java, Account Python, APIs de negócio e persistência |
-| 35–70s | B, com A | Demonstração real: cadastro/login, produto, pedido, conversão e isolamento entre contas |
-| 70–90s | A | Métricas, diagnóstico de CPU em login, distribuição entre pods e HPA real |
-| 90–105s | B | Cache e mensageria com evidências próprias |
-| 105–120s | Ambos | Resultados medidos, custos, limitações e links |
+<video controls muted preload="metadata" style="width:100%;max-width:1100px" poster="../evidence/2026-11-14-presentation-silent/intro.png">
+  <source src="../evidence/2026-11-14-presentation-silent/project-presentation.mp4" type="video/mp4">
+  <track kind="captions" src="../evidence/2026-11-14-presentation-silent/captions.pt.vtt" srclang="pt-BR" label="Descrição dos quadros">
+  Seu navegador não suporta vídeo. Utilize o link de download.
+</video>
 
-Separar o vídeo técnico longo de carga/HPA da apresentação. O script de
-gravação produz um replay rotulado de comandos reais, sem capturar o desktop.
-O contexto e os timestamps aparecem no vídeo; gravação Kind antiga não
-comprova EKS nem substitui participação humana no vídeo final.
+Vídeo Full HD, sem narração ou faixa de áudio, com sete quadros sobre arquitetura, funcionamento, gargalos e resultados. O conteúdo utiliza evidências de 14/11/2026 e foi produzido com apoio de IA. Não constitui registro de defesa oral.
 
-## Conteúdo dos slides
+[Fontes e verificação do vídeo](evidence/2026-11-14-presentation-silent/provenance.json).
 
-| Slide | Conteúdo e visual | Evidência |
-|---|---|---|
-| 1 — Objetivo e autoria | Backend de e-commerce; nomes; seis serviços; divisão A/B | Links dos repositórios e contribuições individuais |
-| 2 — Arquitetura implantada | Gateway Go; Auth Java; Account Python; Product/Order/Exchange; RDS, Redis, RabbitMQ; EKS e Jenkins EC2 | Diagrama da página inicial e snapshot de nuvem |
-| 3 — Fluxo e segurança | Login → produto → pedido USD → BRL; outra conta recebe 404 | 40 verificações reais no EKS; não mostrar JWT ou senhas |
-| 4 — Gargalos e carga | A: diagnóstico e balanceamento; B: cache e fila; inserir curva/escala após medição | Relatórios e vídeo técnico separados, ambiente e commits visíveis |
-| 5 — Resultado, custo e limites | Jenkins e seis rollouts; custo fixo estimado US$ 0,2870/h + variáveis; acesso privado, Single-AZ/NAT único | Site, estimativa, limites e procedimento de encerramento |
+## Roteiro de apresentação oral
 
-## Texto para ensaio (aproximadamente 120 segundos)
+| Tempo | Conteúdo |
+|---|---|
+| 0–15 s | Integrantes, objetivo e escopo |
+| 15–35 s | Arquitetura e responsabilidades dos serviços |
+| 35–70 s | Cadastro, login, produto, pedido, conversão e isolamento entre contas |
+| 70–105 s | Quatro tratamentos de gargalos, carga e HPA |
+| 105–120 s | Resultados, custos e limitações |
 
-Os números abaixo pertencem à [rodada de 14/11 nas máquinas menores](final-validation.md).
-Identificar o perfil no gráfico: dois workers t3a.medium, quatro usuários e
-120s no login. Não misturar com a rodada histórica de 13/11 nas máquinas grandes.
+Os integrantes devem explicar o funcionamento completo do sistema. A revisão cruzada registra responsável, revisor, data, versões, cenário executado e resultado.
 
-**A, 0–15s:** “Somos Yuri e Gustavo. Construímos um backend de e-commerce com
-seis microsserviços, integrados por um Gateway e implantados no Amazon EKS.”
+## Vídeo técnico
 
-**A, 15–35s:** “O Gateway usa Go, a autenticação usa Java e o Account usa
-Python. Product e Order persistem com usuários separados no RDS, e Exchange
-consulta um provedor externo. Jenkins executa as validações e a release;
-Prometheus e Grafana acompanham a aplicação.”
+[Carga e HPA no EKS — 6 min 48 s](evidence/2026-11-14-eks/hpa/hpa-evidence.mp4).
 
-**B, 35–70s:** “Aqui cadastramos e autenticamos uma conta, criamos um produto
-e um pedido em USD. A consulta em BRL usa o câmbio externo sem alterar o valor
-original. Uma segunda conta não pode acessar o pedido. O teste integrado
-executou quarenta verificações reais na AWS.”
+Replay identificado de saídas reais, com contexto e horários. O vídeo técnico é separado da apresentação curta. O [relatório de testes](final-validation.md) apresenta métricas, escalonamento e limites.
 
-**A, 70–90s:** “No login, as métricas mostraram aumento de CPU em Account.
-O HPA escalou de duas para cinco réplicas prontas e voltou a duas depois da
-carga. Três pods atenderam verificações de credenciais. Foram 540 logins sem
-erros; não medimos um ganho controlado antes e depois.” Mostrar o gráfico EKS.
+## Entrega individual
 
-**B, 90–105s:** “O cache Redis reduz consultas repetidas e invalida produtos
-removidos. A fila desacopla a notificação de pedidos; o consumidor trata
-reentregas sem duplicar a notificação.” Mostrar evidências e limites da versão.
+Cada integrante publica sua documentação, confere o acesso aos repositórios e materiais, registra a revisão e envia seu próprio link no Blackboard. Grupo, edição acadêmica, participação exigida e confirmação de envio permanecem sujeitos à conferência dos integrantes.
 
-**Ambos, 105–120s:** “Os seis serviços passaram no deploy e na integração.
-Documentamos custos, responsabilidades e limites: acesso privado, banco
-Single-AZ e NAT único. Código, testes e evidências estão nos nossos sites.”
-
-## Revisão e entrega
-
-- Confirmar nomes completos, grupo e edição; cronometrar com as duas pessoas.
-- Gravar a voz/participação real de ambos; não apresentar narração automática
-  como defesa ou participação de um integrante.
-- Evitar telas com credenciais, Secrets, tokens ou dados pessoais.
-- Publicar links da apresentação, vídeo final e vídeo técnico; testar acesso
-  sem autenticação quando exigido. Inserir os links reais nos dois sites.
-- Registrar data, integrante, commit, cenário e resultado da revisão cruzada.
-- Cada integrante envia seu próprio site no Blackboard e guarda a confirmação.
-
-## Ensaio individual
-
-Cada integrante deve explicar cadastro, hash de senha, assinatura/validação de JWT, headers de identidade, propriedade de pedidos, USD/câmbio, cache/invalidação, fila/idempotência, Jenkins, tag por commit, rollback, Services, probes, HPA/requests, capacidade dos nós, RDS, custos e diferença entre meta da aplicação e SLA de fornecedor.
-
-Revisão cruzada: a Pessoa B executa pelo menos um cenário de A e vice-versa. Registrar pessoa, commit, data, cenário e resultado quando acontecer; não antecipar essa evidência.
+[Checklist e perguntas para defesa](delivery.md).

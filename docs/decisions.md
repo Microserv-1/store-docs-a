@@ -1,27 +1,24 @@
 # Decisões e uso de IA
 
+## Decisões técnicas
+
 | Decisão | Justificativa | Limite |
 |---|---|---|
-| Account FastAPI; Auth Spring Boot; Gateway Go | Linguagens informadas pelo integrante | Enunciados de rotas ainda não disponíveis |
-| PostgreSQL | Persistência independente dos pods, evolução para RDS | Schema inicial automático; evolução requer migrações versionadas |
-| Argon2id | Senhas com hash adaptativo | Custo CPU/memória deve ser medido em login |
-| JWT HS256 | Interoperabilidade e simplicidade inicial | Compartilhar chave amplia confiança entre serviços |
-| Gateway sem retries de escrita | Evita duplicar criação por repetição automática | Cliente precisa tratar indisponibilidade |
-| Jenkins por serviço e release EKS na raiz | Requisito mais específico do roadmap; overlays de RDS preservados | Deploy remoto validado em 13/11; vincular evidências do build final |
-| Kind para QA local | Docker disponível; sem contexto Kubernetes inicial | Repetir em Minikube se exigido nominalmente |
-| Duas réplicas e HPA | Balanceamento e capacidade elástica | Métricas e capacidade de nós são pré-condições |
+| Account em FastAPI, Auth em Spring Boot e Gateway em Go | Integração entre linguagens e serviços independentes | Contratos acadêmicos originais ainda requerem conferência |
+| PostgreSQL com bancos e usuários isolados | Persistência e separação entre serviços | Evoluções de schema exigem migrações versionadas |
+| Argon2id | Hash adaptativo de senhas | Custo de CPU e memória no login |
+| JWT HS256 | Interoperabilidade entre serviços | Serviços com a chave podem emitir tokens |
+| Gateway sem repetição automática de escrita | Redução do risco de operações duplicadas | Cliente deve tratar indisponibilidade |
+| Jenkins por serviço e release EKS na raiz | Automação e preservação da configuração RDS | Credenciais e permissões precisam ser administradas |
+| Duas réplicas e HPA | Distribuição de tráfego e ajuste de capacidade | Dependência de métricas e recursos disponíveis |
+| Kind na validação local | Reprodução com Docker | Aceitação de eventual exigência nominal de Minikube a confirmar |
 
-## Uso de IA
+## Uso de inteligência artificial
 
-Em 13/11, o operador executou a criação AWS, bootstrap e configuração do
-Jenkins com instruções assistidas. O agente validou inventário, smoke e aceite
-real de 40 verificações no EKS, preparou evidências e documentação. O operador
-fixou teto adicional de US$ 20; carga e mudanças com custo precisam ser
-apresentadas e autorizadas antes da execução. A consulta inicial tarifada ao
-Cost Explorer está declarada no fechamento, sem atribuir à IA revisão humana.
+O Codex auxiliou na implementação de Account, Auth, Gateway, testes, Dockerfiles, manifests, pipelines, documentação e materiais de apresentação. Também executou verificações e organizou evidências de resultados locais e AWS.
 
-Codex auxiliou na criação inicial de código, contratos provisórios, testes, Dockerfiles, manifests, pipelines e documentação. A ferramenta executou verificações locais e registrou resultados no estado do projeto. A implementação não deve ser atribuída ao colega nem apresentada como compreensão humana já validada.
+As implementações de Product, Order e Exchange pertencem a Gustavo Lina. Os repositórios desses serviços foram analisados e testados durante a integração, preservando a autoria dos commits.
 
-O integrante deve revisar código e dependências, confrontar os enunciados, reproduzir os cenários, explicar JWT/Argon2id, autenticação interna, rede, HPA, limites e custos, e obter revisão cruzada. Não registrar revisão humana ou defesa como concluída sem ocorrência real.
+O vídeo curto foi produzido com apoio de IA a partir das evidências registradas e não contém narração. Os vídeos técnicos são replays identificados de comandos reais. Esses materiais não registram defesa oral ou revisão humana dos integrantes.
 
-Referências técnicas: [FastAPI JWT e hashes](https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/), [Go JWT](https://pkg.go.dev/github.com/golang-jwt/jwt/v5), [Spring Boot](https://docs.spring.io/spring-boot/), [credenciais Jenkins](https://www.jenkins.io/doc/book/using/using-credentials/).
+A revisão do código, a conferência com os enunciados e a explicação técnica permanecem sob responsabilidade dos autores. A revisão cruzada e a defesa devem ser registradas após sua realização.

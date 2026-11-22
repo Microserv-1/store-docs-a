@@ -1,78 +1,57 @@
-# Gargalos, observabilidade e balanceamento
+# Gargalos e testes
 
-## Evidências reais no EKS em 13/11
+Foram implementados quatro tratamentos: observabilidade e balanceamento por Yuri Henrique; cache e mensageria por Gustavo Lina.
 
-A rodada autorizada de quatro usuários/120s produziu 550 logins HTTP 200,
-p95 de 1.187 ms e escala HPA Account de 2 até 5 réplicas prontas, retornando a
-2 após cessar a carga. Métricas de CPU e de verificações de credenciais por
-pod correlacionam demanda e consumo e mostram três instâncias atendendo.
-Não foi provado ganho antes/depois nem distribuição uniforme entre cinco
-pods. [Relatório completo, gráfico e vídeo](eks-load.md).
+## Observabilidade — Yuri Henrique
 
-Observabilidade é o tratamento A1; balanceamento é A2. HPA complementa a
-evidência de capacidade, sem se tornar um terceiro gargalo individual.
+**Problema:** dificuldade para relacionar latência e erros ao consumo de recursos.
 
-## Tratamento A1: observabilidade
+**Implementação:** métricas de requisições e processos, Prometheus, painéis Grafana e logs estruturados. Os registros evitam senhas, tokens e dados pessoais.
 
-Problema: sem métricas e logs, aumento de latência pode ser confundido com falta de réplicas. Solução: métricas de requisições e processos em Python/Go; Actuator/Micrometer em Java; Prometheus e dashboard Grafana versionado. Account registra JSON sem payload, senha, token ou email. Gateway registra rota agregada e duração, evitando alta cardinalidade por ID.
+**Resultado:** durante a carga de login, as métricas permitiram correlacionar a verificação Argon2id em Account ao consumo de CPU e ao escalonamento. Após a retomada, os 12 alvos Prometheus foram encontrados saudáveis. A solução não inclui tracing distribuído ou agregador central de logs.
 
-Roteiro: executar cenário `identity`, observar p95, vazão, CPU e memória; executar cenário `login` sob condições equivalentes. Login inclui verificação Argon2id em Account, consumindo mais CPU/memória. Correlacionar comportamento observado com processos e pods; não interpretar a simples instalação de Grafana como resolução de gargalo. Limites: sem tracing distribuído e sem agregador de logs central; logs podem ser consultados com `kubectl logs`.
+## Balanceamento — Yuri Henrique
 
-## Tratamento A2: balanceamento
+**Problema:** concentração de tráfego e dependência de uma única réplica.
 
-Problema: uma réplica concentra carga e interrompe serviço ao cair. Solução: Deployment com duas réplicas, Service ClusterIP, probes, rolling update e PDB. HPA é mecanismo complementar de ajuste de capacidade e não uma segunda evidência independente para contar o mesmo gargalo duas vezes.
+**Implementação:** duas réplicas por serviço, Services ClusterIP, verificações de saúde, rolling updates e HPA. Account permite identificar o pod que respondeu.
 
-`X-Served-By` em Account identifica o pod que respondeu. Compare distribuição por instância durante carga, exclua **um pod local de teste**, observe recriação e repita chamadas. Não excluir banco nem múltiplos pods. PDB protege certas interrupções voluntárias, não garante disponibilidade em qualquer falha.
+**Resultado:** três pods Account atenderam verificações de credenciais na rodada EKS. O HPA apresentou o ciclo **2 → 5 → 2 réplicas prontas**. A distribuição foi desigual; não foi medido ganho controlado antes/depois. Em teste separado no Kind, a substituição de um pod preservou a identidade e as 30 consultas retornaram HTTP 200.
 
-O balanceamento ocorre por conexões. Keep-alive pode produzir distribuição desigual e não representa erro do Service. Port-forward de um Service fixa um pod; gerar carga interna para provar distribuição de Gateway.
+Um port-forward fixa uma réplica do serviço encaminhado. O teste de recuperação local não comprova tolerância a falha de máquina ou de zona na AWS.
 
-### Recuperação revalidada no Kind em 13/11
+## Cache e mensageria — Gustavo Lina
 
-Um único pod Account foi removido no **Kind local** e substituído pelo
-Deployment. As 30 consultas de acompanhamento retornaram HTTP 200 e
-preservaram a identidade; o acesso após a substituição também passou.
-O banco foi verificado como Service local, não RDS, e o Gateway foi acessado
-por um túnel exclusivo do Kind. Nenhum recurso AWS foi alterado.
-
-A imagem em execução usa o commit `7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad`
-e o digest `sha256:1c37183eb58d92d8c055769e54081a9a87c6c1278d1479e003aaf6bea201b3ac`,
-o mesmo registrado na release EKS. [Relatório com imagem e versões](evidence/2026-11-13-local/pod-recovery.json).
-
-Isso comprova o cenário observado de remoção de um pod com outra réplica
-disponível. Não é teste de falha de máquina, zona ou de disponibilidade mensal,
-nem uma execução de recuperação no EKS.
-
-## Evidências disponíveis dos gargalos de B
-
-As medições de cache/bypass de 12/11 registram diretamente os seis commits e
-usam Product `c40bec1c96f786d11c89c021f7fb891af2bd048c`, Order
-`a97fe5583e8e0e3615aab062a570bd2263b57089` e Exchange
-`ea580c5b6e8c6eb6f552ac56390764a2f215c76f`, iguais aos integrados no EKS.
-Não é necessário alterar código de B para aproveitar esses registros.
-
-| Tratamento de B | Evidência disponível | Limite |
+| Tratamento | Implementação | Evidência e limite |
 |---|---|---|
-| Cache Redis | [Cache aquecido](evidence/2026-11-12-preparation/load-cache.json), [bypass](evidence/2026-11-12-preparation/load-bypass.json); aceite EKS confirma HIT/BYPASS e invalidação | Benchmark de duas contas/15s em Compose, com pausa por iteração; não comprova capacidade EKS nem ganho geral |
-| Mensageria | [Indisponibilidade e retomada local](evidence/2026-11-12/resilience.json); [aceite EKS atual](evidence/2026-11-13-eks/business-integration.json) confirma processamento e replay idempotente | Teste funcional na AWS e teste de falha local têm escopos diferentes; não garantem exatamente uma vez em toda janela de falha |
+| Cache | Redis em consultas de Product, com expiração e invalidação | Aceite EKS comprova HIT, BYPASS e consistência após exclusão; comparação de latência foi feita separadamente em Compose |
+| Mensageria | Eventos de pedido e consumidor de notificações com idempotência | Aceite EKS comprova processamento e replay; teste de indisponibilidade/retomada foi local |
 
-B continua responsável por publicar sua documentação individual, explicar
-os dois tratamentos e registrar sua revisão humana. Não atribuir os testes
-executados pelo agente como revisão oral ou contribuição de implementação de B.
+A fila desloca um efeito secundário do pedido para processamento assíncrono. Os testes não garantem processamento exatamente uma vez em toda janela de falha. A documentação individual dos dois tratamentos é de Gustavo.
 
-## Carga reproduzível
+## Resultados no EKS
 
-Na raiz:
+Em 14/11/2026, a aplicação utilizou dois workers `t3a.medium`. A carga de negócio percorreu produtos, pedidos e câmbio, com pausa de 500 ms entre iterações e até duas tentativas de criação de pedido por usuário.
 
-```powershell
-python scripts/load.py --users 1 --duration 60 --scenario identity --output artifacts/baseline.json
-python scripts/load.py --users 8 --duration 120 --scenario identity --output artifacts/identity-8.json
-python scripts/load.py --users 4 --duration 120 --scenario login --output artifacts/login-4.json
-```
+| Cenário | Usuários | Duração nominal | Requisições | p95 | Erros |
+|---|---:|---:|---:|---:|---:|
+| Negócio | 1 | 60 s | 127 | 416 ms | 0% |
+| Negócio | 4 | 60 s | 508 | 414 ms | 0% |
+| Negócio | 8 | 60 s | 976 | 434 ms | 0% |
+| Login | 4 | 120 s | 540 | 1.156 ms | 0% |
 
-O modelo é fechado, sem think time. O script cria dados, autentica e registra duração real, p50/p95/p99, throughput, erros, respostas por instância e commits. Anotar mudanças locais não commitadas. Comparar com mesmo ambiente, duração e usuários. Não representa fluxo de pedidos; B fornece cenários de negócio completos.
+Foram 1.611 requisições de negócio. Os percentis incluem rede e port-forward; resultados agregados não comprovam latência de cada rota nem disponibilidade mensal.
 
-Para HPA, confirmar `kubectl top pods`, registrar `kubectl get hpa -w` e `kubectl get pods -w`, gerar carga sustentada e guardar métricas antes/durante/depois. Acompanhar requests, duração e capacidade de agendamento. A evidência precisa mostrar réplica adicional pronta; ter o objeto HPA não comprova escalonamento.
+![Réplicas, CPU e tráfego Account](evidence/2026-11-14-eks/hpa/hpa-analysis.png)
 
-## Evidências e vídeos
+## Reprodução e evidências
 
-Guardar relatório JSON, ambiente, commits, imagens, réplicas, CPU/memória, screenshots e interpretação no relatório de estado. Separar vídeo técnico de cluster/carga/HPA do vídeo de apresentação (1–2 minutos). A participação oral e os dois tratamentos por integrante precisam de validação humana e revisão cruzada.
+Os testes funcionais são executados por `tests/smoke.py` e `tests/business_integration.py`. A carga utiliza `scripts/load.py` e `scripts/load-business.py`. O HPA requer Metrics Server, requests de CPU e capacidade disponível nos nós. Novas rodadas AWS precisam de janela e orçamento definidos.
+
+- [Relatório completo de carga e HPA](final-validation.md).
+- [Resumo de escalonamento e tráfego por pod](evidence/2026-11-14-eks/hpa/summary.json).
+- [Vídeo técnico de carga e HPA](evidence/2026-11-14-eks/hpa/hpa-evidence.mp4): replay identificado de saídas reais, com contexto e horários.
+- [Recuperação de pod no Kind](evidence/2026-11-13-local/pod-recovery.json).
+- [Cache em Compose](evidence/2026-11-12-preparation/load-cache.json) e [bypass](evidence/2026-11-12-preparation/load-bypass.json).
+- [Retomada local da mensageria](evidence/2026-11-12/resilience.json).
+- [Aceite integrado EKS de 22/11](evidence/2026-11-22-resume/business-integration.json).
