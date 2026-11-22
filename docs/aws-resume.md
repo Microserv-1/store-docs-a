@@ -13,6 +13,15 @@ uma verificação pontual, não disponibilidade contínua ou nova rodada de carg
 | Gateway | ClusterIP, sem endpoint público |
 | Inventário de custo | BASELINE_MATCHES: três EC2 previstas e nenhum autoscaler de nós |
 
+Conferência adicional após a retomada: os seis Deployments correspondem
+exatamente às imagens fixadas por commit e digest em `infra/aws/images.lock.json`,
+com duas réplicas prontas por serviço no instante da consulta. Os imageIDs
+observados dos pods foram registrados; um digest de índice multiplataforma
+pode diferir do digest da imagem da plataforma. Prometheus retornou os
+**12 alvos ativos saudáveis**, sem erro de coleta.
+[Inventário vivo de imagens, réplicas e coleta](evidence/2026-11-22-resume/runtime-images.json).
+Essa conferência não executou chamadas de negócio nem alterou recursos.
+
 O IP do operador mudou e o endpoint administrativo do EKS foi restrito ao
 novo /32. A configuração local ignorada pelo Git foi alinhada; nenhum token,
 senha ou endereço administrativo do operador foi publicado nesta evidência.

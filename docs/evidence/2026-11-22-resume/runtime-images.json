@@ -1,0 +1,266 @@
+{
+  "utc": "2026-11-22T20:29:29.555385+00:00",
+  "source": "Read-only live Kubernetes Deployment and Pod inventory",
+  "services": {
+    "account": {
+      "commit": "7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad",
+      "pinned_image": "uyris/store-account:7b61a3d265e0f8beaf11f9b0770ca9a6edc27cad@sha256:1c37183eb58d92d8c055769e54081a9a87c6c1278d1479e003aaf6bea201b3ac",
+      "deployment_matches_lock": true,
+      "ready_replicas": 2,
+      "pods": [
+        {
+          "pod": "account-5f5768bbb9-pr49c",
+          "containers": [
+            {
+              "name": "account",
+              "ready": true,
+              "image": "sha256:eac1faf453f66e5971de49fe4943165a3ea7daf41138276eeff92b00f69f6327",
+              "imageID": "docker.io/uyris/store-account@sha256:1c37183eb58d92d8c055769e54081a9a87c6c1278d1479e003aaf6bea201b3ac"
+            }
+          ]
+        },
+        {
+          "pod": "account-5f5768bbb9-zj7gr",
+          "containers": [
+            {
+              "name": "account",
+              "ready": true,
+              "image": "sha256:eac1faf453f66e5971de49fe4943165a3ea7daf41138276eeff92b00f69f6327",
+              "imageID": "docker.io/uyris/store-account@sha256:1c37183eb58d92d8c055769e54081a9a87c6c1278d1479e003aaf6bea201b3ac"
+            }
+          ]
+        }
+      ]
+    },
+    "auth": {
+      "commit": "d803717bcf09943028f2727cfa97a9515eb17e8d",
+      "pinned_image": "uyris/store-auth:d803717bcf09943028f2727cfa97a9515eb17e8d@sha256:33baabf8067ad04eb0a929a901f563b887f4ec5ed03f994054f9c628555a4845",
+      "deployment_matches_lock": true,
+      "ready_replicas": 2,
+      "pods": [
+        {
+          "pod": "auth-79b9ddc7b4-k54ml",
+          "containers": [
+            {
+              "name": "auth",
+              "ready": true,
+              "image": "sha256:725e796f4b898a239d9501d903a1603f8ec6e96eec69cd4a8fb87a7232d681f8",
+              "imageID": "docker.io/uyris/store-auth@sha256:33baabf8067ad04eb0a929a901f563b887f4ec5ed03f994054f9c628555a4845"
+            }
+          ]
+        },
+        {
+          "pod": "auth-79b9ddc7b4-wpr25",
+          "containers": [
+            {
+              "name": "auth",
+              "ready": true,
+              "image": "sha256:725e796f4b898a239d9501d903a1603f8ec6e96eec69cd4a8fb87a7232d681f8",
+              "imageID": "docker.io/uyris/store-auth@sha256:33baabf8067ad04eb0a929a901f563b887f4ec5ed03f994054f9c628555a4845"
+            }
+          ]
+        }
+      ]
+    },
+    "gateway": {
+      "commit": "a3944171d6d008cd0c88027ab2a963558ee7d1da",
+      "pinned_image": "uyris/store-gateway:a3944171d6d008cd0c88027ab2a963558ee7d1da@sha256:4103fffbfcb05ea7d3a79134e16ae525f504aa5b0c3e8a7931e4ce72f9f41895",
+      "deployment_matches_lock": true,
+      "ready_replicas": 2,
+      "pods": [
+        {
+          "pod": "gateway-584d97b66d-9dzxq",
+          "containers": [
+            {
+              "name": "gateway",
+              "ready": true,
+              "image": "sha256:4010e3c599fc52e0482aca8ce0141555022eb66416949262f5db5282ce4d37e3",
+              "imageID": "docker.io/uyris/store-gateway@sha256:4103fffbfcb05ea7d3a79134e16ae525f504aa5b0c3e8a7931e4ce72f9f41895"
+            }
+          ]
+        },
+        {
+          "pod": "gateway-584d97b66d-wfznm",
+          "containers": [
+            {
+              "name": "gateway",
+              "ready": true,
+              "image": "sha256:4010e3c599fc52e0482aca8ce0141555022eb66416949262f5db5282ce4d37e3",
+              "imageID": "docker.io/uyris/store-gateway@sha256:4103fffbfcb05ea7d3a79134e16ae525f504aa5b0c3e8a7931e4ce72f9f41895"
+            }
+          ]
+        }
+      ]
+    },
+    "product": {
+      "commit": "c40bec1c96f786d11c89c021f7fb891af2bd048c",
+      "pinned_image": "uyris/store-product:c40bec1c96f786d11c89c021f7fb891af2bd048c@sha256:d2d2b48ff847808aced829d39ebf860053a1a7e67e594b2887798dafa9afc204",
+      "deployment_matches_lock": true,
+      "ready_replicas": 2,
+      "pods": [
+        {
+          "pod": "product-6676b77d44-7xv42",
+          "containers": [
+            {
+              "name": "product",
+              "ready": true,
+              "image": "sha256:49bd1a3723c5d502234cd675a629e415b4ad2efcc0e1435bbfd8308149fc1d07",
+              "imageID": "docker.io/uyris/store-product@sha256:d2d2b48ff847808aced829d39ebf860053a1a7e67e594b2887798dafa9afc204"
+            }
+          ]
+        },
+        {
+          "pod": "product-6676b77d44-xt79g",
+          "containers": [
+            {
+              "name": "product",
+              "ready": true,
+              "image": "sha256:49bd1a3723c5d502234cd675a629e415b4ad2efcc0e1435bbfd8308149fc1d07",
+              "imageID": "docker.io/uyris/store-product@sha256:d2d2b48ff847808aced829d39ebf860053a1a7e67e594b2887798dafa9afc204"
+            }
+          ]
+        }
+      ]
+    },
+    "order": {
+      "commit": "a97fe5583e8e0e3615aab062a570bd2263b57089",
+      "pinned_image": "uyris/store-order:a97fe5583e8e0e3615aab062a570bd2263b57089@sha256:6052e6677075acf367b464213ccec491b119c740c536ecd2c6304a59f2b7e788",
+      "deployment_matches_lock": true,
+      "ready_replicas": 2,
+      "pods": [
+        {
+          "pod": "order-64f54b8d84-d7htq",
+          "containers": [
+            {
+              "name": "order",
+              "ready": true,
+              "image": "sha256:2196875f7f4c5230c686608096637f81ecb5a02c40db278edc0a2f0053d2b7ee",
+              "imageID": "docker.io/uyris/store-order@sha256:6052e6677075acf367b464213ccec491b119c740c536ecd2c6304a59f2b7e788"
+            }
+          ]
+        },
+        {
+          "pod": "order-64f54b8d84-krg9d",
+          "containers": [
+            {
+              "name": "order",
+              "ready": true,
+              "image": "sha256:2196875f7f4c5230c686608096637f81ecb5a02c40db278edc0a2f0053d2b7ee",
+              "imageID": "docker.io/uyris/store-order@sha256:6052e6677075acf367b464213ccec491b119c740c536ecd2c6304a59f2b7e788"
+            }
+          ]
+        }
+      ]
+    },
+    "exchange": {
+      "commit": "ea580c5b6e8c6eb6f552ac56390764a2f215c76f",
+      "pinned_image": "uyris/store-exchange:ea580c5b6e8c6eb6f552ac56390764a2f215c76f@sha256:3234706c2a9a58f5169d54b6e4a18e58fc1a9d22c401b470df62ce68fa3fb1af",
+      "deployment_matches_lock": true,
+      "ready_replicas": 2,
+      "pods": [
+        {
+          "pod": "exchange-5fdcc6d49f-2hh5k",
+          "containers": [
+            {
+              "name": "exchange",
+              "ready": true,
+              "image": "sha256:c59bf8b6fa8f97ebde672d1fbb238b99376446a0add86a04f907e799d7c2b175",
+              "imageID": "docker.io/uyris/store-exchange@sha256:3234706c2a9a58f5169d54b6e4a18e58fc1a9d22c401b470df62ce68fa3fb1af"
+            }
+          ]
+        },
+        {
+          "pod": "exchange-5fdcc6d49f-tgxk4",
+          "containers": [
+            {
+              "name": "exchange",
+              "ready": true,
+              "image": "sha256:c59bf8b6fa8f97ebde672d1fbb238b99376446a0add86a04f907e799d7c2b175",
+              "imageID": "docker.io/uyris/store-exchange@sha256:3234706c2a9a58f5169d54b6e4a18e58fc1a9d22c401b470df62ce68fa3fb1af"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "prometheus": {
+    "status": "success",
+    "targets": [
+      {
+        "job": "exchange",
+        "instance": "192.168.76.2:8000",
+        "health": "up",
+        "lastError": ""
+      },
+      {
+        "job": "order",
+        "instance": "192.168.70.172:8000",
+        "health": "up",
+        "lastError": ""
+      },
+      {
+        "job": "exchange",
+        "instance": "192.168.82.200:8000",
+        "health": "up",
+        "lastError": ""
+      },
+      {
+        "job": "gateway",
+        "instance": "192.168.116.63:8000",
+        "health": "up",
+        "lastError": ""
+      },
+      {
+        "job": "gateway",
+        "instance": "192.168.69.3:8000",
+        "health": "up",
+        "lastError": ""
+      },
+      {
+        "job": "product",
+        "instance": "192.168.107.193:8000",
+        "health": "up",
+        "lastError": ""
+      },
+      {
+        "job": "order",
+        "instance": "192.168.107.29:8000",
+        "health": "up",
+        "lastError": ""
+      },
+      {
+        "job": "account",
+        "instance": "192.168.74.171:8000",
+        "health": "up",
+        "lastError": ""
+      },
+      {
+        "job": "account",
+        "instance": "192.168.87.156:8000",
+        "health": "up",
+        "lastError": ""
+      },
+      {
+        "job": "auth",
+        "instance": "192.168.78.113:8000",
+        "health": "up",
+        "lastError": ""
+      },
+      {
+        "job": "product",
+        "instance": "192.168.127.251:8000",
+        "health": "up",
+        "lastError": ""
+      },
+      {
+        "job": "auth",
+        "instance": "192.168.69.127:8000",
+        "health": "up",
+        "lastError": ""
+      }
+    ],
+    "healthy": 12,
+    "total": 12
+  },
+  "limits": "Pod imageID is recorded as observed; registry multi-platform index digests can differ from platform image digests. Pinned Deployment reference is compared exactly to images.lock.json. No requests to business APIs or resource mutations."
+}
