@@ -1,0 +1,87 @@
+{
+  "utc": "2026-11-22T20:20:47.209617+00:00",
+  "source": "Authenticated read-only Jenkins REST API on preserved EC2",
+  "job": "store-eks-release",
+  "builds": [
+    {
+      "number": 5,
+      "result": "SUCCESS",
+      "timestamp": 1794593929777,
+      "duration": 24246,
+      "building": false,
+      "parameters": {
+        "DEPLOY_EKS": false,
+        "KUBE_CONTEXT": "store-eks"
+      }
+    },
+    {
+      "number": 4,
+      "result": "SUCCESS",
+      "timestamp": 1794584570352,
+      "duration": 97205,
+      "building": false,
+      "parameters": {
+        "DEPLOY_EKS": true,
+        "KUBE_CONTEXT": "store-eks"
+      }
+    },
+    {
+      "number": 3,
+      "result": "SUCCESS",
+      "timestamp": 1794584514666,
+      "duration": 11741,
+      "building": false,
+      "parameters": {
+        "DEPLOY_EKS": false,
+        "KUBE_CONTEXT": ""
+      }
+    },
+    {
+      "number": 2,
+      "result": "FAILURE",
+      "timestamp": 1794584100582,
+      "duration": 4823,
+      "building": false,
+      "parameters": {
+        "DEPLOY_EKS": false,
+        "KUBE_CONTEXT": ""
+      }
+    },
+    {
+      "number": 1,
+      "result": "FAILURE",
+      "timestamp": 1794583912770,
+      "duration": 10988,
+      "building": false,
+      "parameters": {}
+    }
+  ],
+  "release": {
+    "number": 4,
+    "result": "SUCCESS",
+    "timestamp": 1794584570352,
+    "duration": 97205,
+    "building": false,
+    "parameters": {
+      "DEPLOY_EKS": true,
+      "KUBE_CONTEXT": "store-eks"
+    }
+  },
+  "no_build_triggered": true,
+  "release_proof": {
+    "root_commits": [
+      "6617d8774baabe5943b9cbf4ec2e9a257edf3a97"
+    ],
+    "rollouts_passed": [
+      "account",
+      "auth",
+      "gateway",
+      "product",
+      "exchange",
+      "order"
+    ],
+    "apply_completed": true,
+    "cloud_preflight_present": true,
+    "final_success": true
+  }
+}

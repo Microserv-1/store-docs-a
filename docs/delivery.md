@@ -9,7 +9,7 @@
 | Repositório integrador | https://github.com/Microserv-1/store-root | Público, com ponteiros dos submódulos publicados |
 | Serviços individuais | Links na [página inicial](index.md) | Privados; verificar acesso do avaliador |
 | Aceite AWS | [Bateria de 14/11](final-validation.md) | 40 verificações, negócio 1/4/8 e login/HPA nas máquinas menores |
-| Pipeline AWS | [Registro de release](evidence/2026-11-13-eks/jenkins-release.json) | SUCCESS informado no console; anexar número/console final |
+| Pipeline AWS | [Histórico e marcadores do console](evidence/2026-11-22-resume/jenkins-release-audit.json) | Build nº 4 SUCCESS com deploy; nº 5 SUCCESS somente validação; conferidos diretamente em 22/11 |
 | Vídeo curto | [MP4 sem narração de 1min56s e quadros](project-video.md) | Formato escolhido por Yuri; não registra participação oral |
 | Apresentação | [Quadros e roteiro de 120s](presentation.md) | Material pronto; exigência de arquivo separado a confirmar |
 | Vídeo técnico EKS/HPA | [Rodada final](final-validation.md) e [histórico de 13/11](eks-load.md) | Ciclo 2 → 5 → 2; replays identificados, separados do vídeo curto |

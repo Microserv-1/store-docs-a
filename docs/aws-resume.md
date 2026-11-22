@@ -28,6 +28,10 @@ USD 26,44 resultou em BRL 157,78 na cotação desta rodada, via open-er-api.
 - [Estado e commits de cada serviço](evidence/2026-11-22-resume/state.json).
 - [Aceite funcional](evidence/2026-11-22-resume/business-integration.json).
 - [Inventário de configuração e limites do guard](evidence/2026-11-22-resume/cost-guard.json).
+- [Auditoria do Jenkins preservado](evidence/2026-11-22-resume/jenkins-release-audit.json):
+  build nº 4 `SUCCESS`, com deploy habilitado, commit de release e seis rollouts
+  confirmados no console. O nº 5 foi validação sem deploy. Consulta somente
+  de leitura realizada após a retomada; não houve execução de build novo.
 
 O teste usou port-forward de loopback, encerrado ao final. Nenhum build,
 pipeline, teste de carga ou novo balanceador foi iniciado. O HPA permanece

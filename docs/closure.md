@@ -16,9 +16,17 @@ Os registros de implantação de 13/11 abaixo continuam sendo históricos.
 A release `6617d8774baabe5943b9cbf4ec2e9a257edf3a97` foi aplicada pelo
 `store-eks-release` do Jenkins na EC2, com credencial temporária da instance
 role. Os dez testes de preparação, preflight AWS, dry-run e seis rollouts
-passaram. O [registro de release](evidence/2026-11-13-eks/jenkins-release.json)
-foi transcrito do console fornecido pelo operador; vincular também o número e
-o console final do build na entrega.
+passaram. O [registro inicial de release](evidence/2026-11-13-eks/jenkins-release.json)
+foi transcrito do console fornecido pelo operador. Em 22/11, uma consulta
+autenticada ao Jenkins confirmou diretamente o **build nº 4**, `SUCCESS`,
+`DEPLOY_EKS=true`, contexto `store-eks`, o commit acima, preflight cloud,
+aplicação concluída e os seis rollouts. O build nº 5 foi somente validação,
+com `DEPLOY_EKS=false`; não apresentá-lo como novo deploy.
+[Auditoria do histórico e marcadores do console](evidence/2026-11-22-resume/jenkins-release-audit.json).
+Essa consulta não disparou nenhum build. Com o túnel Jenkins aberto,
+o console original autenticado fica em
+`http://127.0.0.1:8086/job/store-eks-release/4/console`;
+esse endereço local não é um link público para o professor.
 
 Cluster `microserv-store`, região us-east-1, Kubernetes 1.35: Account, Auth,
 Gateway, Product, Order e Exchange estão com duas réplicas disponíveis cada.
